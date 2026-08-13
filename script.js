@@ -1,5 +1,5 @@
 /* =====================================================
-   COUNTERS
+   RESUME BUILDER - FINAL JAVASCRIPT
 ===================================================== */
 
 let educationCount = 0;
@@ -14,489 +14,18 @@ let achievementCount = 0;
    HELPER
 ===================================================== */
 
-function escapeHTML(text) {
-    return String(text || "")
+function getValue(id, fallback = "") {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : fallback;
+}
+
+function escapeHTML(value) {
+    return String(value || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-}
-
-function getValue(id, fallback = "") {
-    const element = document.getElementById(id);
-
-    if (!element) {
-        return fallback;
-    }
-
-    return element.value.trim() || fallback;
-}
-
-
-/* =====================================================
-   ADD EDUCATION
-===================================================== */
-
-function addEducation() {
-
-    educationCount++;
-
-    const container = document.getElementById("educationContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `education-${educationCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Education ${educationCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('education-${educationCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Degree / Course</label>
-                <input
-                    class="edu-degree"
-                    placeholder="M.Sc Computer Science"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Institution</label>
-                <input
-                    class="edu-institution"
-                    placeholder="Government Arts College"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Start Year</label>
-                <input
-                    class="edu-start"
-                    placeholder="2024"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>End Year</label>
-                <input
-                    class="edu-end"
-                    placeholder="2026"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>CGPA / Percentage</label>
-                <input
-                    class="edu-score"
-                    placeholder="8.5 CGPA / 85%"
-                    oninput="updateResume()">
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   ADD EXPERIENCE
-===================================================== */
-
-function addExperience() {
-
-    experienceCount++;
-
-    const container = document.getElementById("experienceContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `experience-${experienceCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Experience ${experienceCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('experience-${experienceCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Job Title</label>
-                <input
-                    class="exp-role"
-                    placeholder="Software Developer"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Company</label>
-                <input
-                    class="exp-company"
-                    placeholder="Company Name"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Start Year</label>
-                <input
-                    class="exp-start"
-                    placeholder="2025"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>End Year</label>
-                <input
-                    class="exp-end"
-                    placeholder="Present"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>Description</label>
-                <textarea
-                    class="exp-description"
-                    placeholder="Describe your responsibilities..."
-                    oninput="updateResume()"></textarea>
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   ADD INTERNSHIP
-===================================================== */
-
-function addInternship() {
-
-    internshipCount++;
-
-    const container = document.getElementById("internshipContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `internship-${internshipCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Internship ${internshipCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('internship-${internshipCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Role</label>
-                <input
-                    class="intern-role"
-                    placeholder="Python Developer Intern"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Company</label>
-                <input
-                    class="intern-company"
-                    placeholder="Company Name"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Duration</label>
-                <input
-                    class="intern-duration"
-                    placeholder="3 Months"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Verify Link</label>
-                <input
-                    class="intern-link"
-                    type="url"
-                    placeholder="https://..."
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>Description</label>
-                <textarea
-                    class="intern-description"
-                    placeholder="Describe your internship..."
-                    oninput="updateResume()"></textarea>
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   ADD CERTIFICATE
-===================================================== */
-
-function addCertificate() {
-
-    certificateCount++;
-
-    const container = document.getElementById("certificateContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `certificate-${certificateCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Certificate ${certificateCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('certificate-${certificateCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Certificate Name</label>
-                <input
-                    class="cert-name"
-                    placeholder="Python Basics"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Issuing Organization</label>
-                <input
-                    class="cert-issuer"
-                    placeholder="IBM"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Date</label>
-                <input
-                    class="cert-date"
-                    placeholder="2026"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Verify Certificate Link</label>
-                <input
-                    class="cert-link"
-                    type="url"
-                    placeholder="https://verify..."
-                    oninput="updateResume()">
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   ADD PROJECT
-===================================================== */
-
-function addProject() {
-
-    projectCount++;
-
-    const container = document.getElementById("projectContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `project-${projectCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Project ${projectCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('project-${projectCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Project Name</label>
-                <input
-                    class="project-name"
-                    placeholder="Resume Builder"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Technologies</label>
-                <input
-                    class="project-tech"
-                    placeholder="HTML, CSS, JavaScript"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>Project / GitHub Link</label>
-                <input
-                    class="project-link"
-                    type="url"
-                    placeholder="https://github.com/..."
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>Description</label>
-                <textarea
-                    class="project-description"
-                    placeholder="Describe your project..."
-                    oninput="updateResume()"></textarea>
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   ADD ACHIEVEMENT
-===================================================== */
-
-function addAchievement() {
-
-    achievementCount++;
-
-    const container = document.getElementById("achievementContainer");
-
-    if (!container) return;
-
-    const item = document.createElement("div");
-
-    item.className = "dynamic-item";
-    item.id = `achievement-${achievementCount}`;
-
-    item.innerHTML = `
-        <div class="dynamic-header">
-            <strong>Achievement ${achievementCount}</strong>
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeItem('achievement-${achievementCount}')">
-                Remove
-            </button>
-        </div>
-
-        <div class="dynamic-grid">
-
-            <div class="form-group">
-                <label>Achievement Title</label>
-                <input
-                    class="achievement-title"
-                    placeholder="Hackathon Finalist"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group">
-                <label>Year</label>
-                <input
-                    class="achievement-year"
-                    placeholder="2026"
-                    oninput="updateResume()">
-            </div>
-
-            <div class="form-group full">
-                <label>Description</label>
-                <textarea
-                    class="achievement-description"
-                    placeholder="Describe your achievement..."
-                    oninput="updateResume()"></textarea>
-            </div>
-
-        </div>
-    `;
-
-    container.appendChild(item);
-
-    updateResume();
-}
-
-
-/* =====================================================
-   REMOVE ITEM
-===================================================== */
-
-function removeItem(id) {
-
-    const item = document.getElementById(id);
-
-    if (item) {
-        item.remove();
-        updateResume();
-    }
 }
 
 
@@ -506,86 +35,88 @@ function removeItem(id) {
 
 function updatePersonal() {
 
-    const nameElement = document.getElementById("previewName");
-    const jobElement = document.getElementById("previewJob");
-    const emailElement = document.getElementById("previewEmail");
-    const phoneElement = document.getElementById("previewPhone");
-    const locationElement = document.getElementById("previewLocation");
+    const name = getValue("name");
+    const job = getValue("job");
+    const email = getValue("email");
+    const phone = getValue("phone");
+    const location = getValue("location");
 
-    if (nameElement) {
-        nameElement.textContent =
-            getValue("name", "John Doe");
+    const previewName = document.getElementById("previewName");
+    const previewJob = document.getElementById("previewJob");
+    const previewEmail = document.getElementById("previewEmail");
+    const previewPhone = document.getElementById("previewPhone");
+    const previewLocation = document.getElementById("previewLocation");
+
+    if (previewName) {
+        previewName.textContent = name || "Your Name";
     }
 
-    if (jobElement) {
-        jobElement.textContent =
-            getValue("job", "Software Developer");
+    if (previewJob) {
+        previewJob.textContent = job || "Your Job Title";
     }
 
-    if (emailElement) {
-        emailElement.textContent =
-            getValue("email", "john@example.com");
+    if (previewEmail) {
+        previewEmail.textContent = email || "your@email.com";
     }
 
-    if (phoneElement) {
-        phoneElement.textContent =
-            getValue("phone", "+91 98765 43210");
+    if (previewPhone) {
+        previewPhone.textContent = phone || "+91 98765 43210";
     }
 
-    if (locationElement) {
-        locationElement.textContent =
-            getValue("location", "Coimbatore, India");
+    if (previewLocation) {
+        previewLocation.textContent = location || "Your Location";
     }
 
 
-    /* =========================
-       LINKEDIN
-    ========================= */
+    /* LinkedIn */
 
     const linkedin = getValue("linkedin");
-    const linkedinElement =
+    const previewLinkedin =
         document.getElementById("previewLinkedin");
 
-    if (linkedinElement) {
+    if (previewLinkedin) {
 
         if (linkedin) {
-            linkedinElement.href = linkedin;
-            linkedinElement.textContent =
+
+            previewLinkedin.href = linkedin;
+            previewLinkedin.textContent =
                 linkedin
                     .replace(/^https?:\/\//, "")
                     .replace(/^www\./, "");
+
         } else {
-            linkedinElement.href = "#";
-            linkedinElement.textContent =
+
+            previewLinkedin.href = "#";
+            previewLinkedin.textContent =
                 "linkedin.com/in/username";
         }
     }
 
 
-    /* =========================
-       GITHUB
-    ========================= */
+    /* GitHub */
 
     const github = getValue("github");
-    const githubElement =
+    const previewGithub =
         document.getElementById("previewGithub");
 
-    if (githubElement) {
+    if (previewGithub) {
 
         if (github) {
-            githubElement.href = github;
-            githubElement.textContent =
+
+            previewGithub.href = github;
+            previewGithub.textContent =
                 github
                     .replace(/^https?:\/\//, "")
                     .replace(/^www\./, "");
+
         } else {
-            githubElement.href = "#";
-            githubElement.textContent =
+
+            previewGithub.href = "#";
+            previewGithub.textContent =
                 "github.com/username";
         }
     }
-
-} // IMPORTANT: closes updatePersonal()
+}
 
 
 /* =====================================================
@@ -599,17 +130,120 @@ function updateSummary() {
 
     if (!preview) return;
 
-    preview.textContent =
-        getValue(
-            "summary",
-            "Motivated and detail-oriented software developer with a passion for building user-friendly applications and learning modern technologies."
-        );
+    const summary = getValue("summary");
+
+    if (summary) {
+        preview.textContent = summary;
+    } else {
+        preview.textContent =
+            "Your professional summary will appear here.";
+    }
 }
 
 
 /* =====================================================
    EDUCATION
 ===================================================== */
+
+function addEducation() {
+
+    educationCount++;
+
+    const container =
+        document.getElementById("educationContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `education-${educationCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Education ${educationCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('education-${educationCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Degree / Course</label>
+
+                <input
+                    class="edu-degree"
+                    placeholder="M.Sc Computer Science"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Institution</label>
+
+                <input
+                    class="edu-institution"
+                    placeholder="Government Arts College"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Start Year</label>
+
+                <input
+                    class="edu-start"
+                    placeholder="2024"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>End Year</label>
+
+                <input
+                    class="edu-end"
+                    placeholder="2026"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>CGPA / Percentage</label>
+
+                <input
+                    class="edu-score"
+                    placeholder="8.5 CGPA / 85%"
+                    oninput="updateResume()">
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
 
 function updateEducation() {
 
@@ -625,64 +259,24 @@ function updateEducation() {
 
     preview.innerHTML = "";
 
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <div class="resume-item">
-
-                <div class="resume-item-top">
-
-                    <div>
-
-                        <strong>
-                            M.Sc Computer Science
-                        </strong>
-
-                        <div class="resume-company">
-                            Government Arts College
-                        </div>
-
-                        <div class="resume-cgpa">
-                            CGPA: 8.5
-                        </div>
-
-                    </div>
-
-                    <span class="resume-date">
-                        2024 - 2026
-                    </span>
-
-                </div>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
     items.forEach(item => {
 
         const degree =
-            item.querySelector(".edu-degree")?.value.trim() || "";
+            item.querySelector(".edu-degree")?.value.trim();
 
         const institution =
-            item.querySelector(".edu-institution")?.value.trim() || "";
+            item.querySelector(".edu-institution")?.value.trim();
 
         const start =
-            item.querySelector(".edu-start")?.value.trim() || "";
+            item.querySelector(".edu-start")?.value.trim();
 
         const end =
-            item.querySelector(".edu-end")?.value.trim() || "";
+            item.querySelector(".edu-end")?.value.trim();
 
         const score =
-            item.querySelector(".edu-score")?.value.trim() || "";
+            item.querySelector(".edu-score")?.value.trim();
 
-
-        if (!degree && !institution && !score) {
-            return;
-        }
-
+        if (!degree && !institution) return;
 
         const div =
             document.createElement("div");
@@ -690,24 +284,21 @@ function updateEducation() {
         div.className = "resume-item";
 
         div.innerHTML = `
+
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(
-                            degree || "Degree / Course"
-                        )}
+                        ${escapeHTML(degree)}
                     </strong>
 
                     ${
                         institution
                         ?
-                        `
-                        <div class="resume-company">
+                        `<div class="resume-company">
                             ${escapeHTML(institution)}
-                        </div>
-                        `
+                        </div>`
                         :
                         ""
                     }
@@ -715,30 +306,26 @@ function updateEducation() {
                     ${
                         score
                         ?
-                        `
-                        <div class="resume-cgpa">
+                        `<div class="resume-cgpa">
                             ${escapeHTML(score)}
-                        </div>
-                        `
+                        </div>`
                         :
                         ""
                     }
 
                 </div>
 
-                <span class="resume-date">
-
-                    ${escapeHTML(start)}
-
-                    ${
-                        start || end
-                        ? " - "
-                        : ""
-                    }
-
-                    ${escapeHTML(end)}
-
-                </span>
+                ${
+                    start || end
+                    ?
+                    `<span class="resume-date">
+                        ${escapeHTML(start)}
+                        ${start || end ? " - " : ""}
+                        ${escapeHTML(end)}
+                    </span>`
+                    :
+                    ""
+                }
 
             </div>
         `;
@@ -751,6 +338,106 @@ function updateEducation() {
 /* =====================================================
    EXPERIENCE
 ===================================================== */
+
+function addExperience() {
+
+    experienceCount++;
+
+    const container =
+        document.getElementById("experienceContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `experience-${experienceCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Experience ${experienceCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('experience-${experienceCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Job Title</label>
+
+                <input
+                    class="exp-role"
+                    placeholder="Software Developer"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Company</label>
+
+                <input
+                    class="exp-company"
+                    placeholder="Company Name"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Start Year</label>
+
+                <input
+                    class="exp-start"
+                    placeholder="2025"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>End Year</label>
+
+                <input
+                    class="exp-end"
+                    placeholder="Present"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Description</label>
+
+                <textarea
+                    class="exp-description"
+                    placeholder="Describe your experience..."
+                    oninput="updateResume()"></textarea>
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
 
 function updateExperience() {
 
@@ -766,66 +453,24 @@ function updateExperience() {
 
     preview.innerHTML = "";
 
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <div class="resume-item">
-
-                <div class="resume-item-top">
-
-                    <div>
-
-                        <strong>
-                            Software Developer
-                        </strong>
-
-                        <div class="resume-company">
-                            Tech Solutions
-                        </div>
-
-                    </div>
-
-                    <span class="resume-date">
-                        2025 - Present
-                    </span>
-
-                </div>
-
-                <p>
-                    Worked on web applications,
-                    user interfaces and JavaScript
-                    based functionality.
-                </p>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
     items.forEach(item => {
 
         const role =
-            item.querySelector(".exp-role")?.value.trim() || "";
+            item.querySelector(".exp-role")?.value.trim();
 
         const company =
-            item.querySelector(".exp-company")?.value.trim() || "";
+            item.querySelector(".exp-company")?.value.trim();
 
         const start =
-            item.querySelector(".exp-start")?.value.trim() || "";
+            item.querySelector(".exp-start")?.value.trim();
 
         const end =
-            item.querySelector(".exp-end")?.value.trim() || "";
+            item.querySelector(".exp-end")?.value.trim();
 
         const description =
-            item.querySelector(".exp-description")?.value.trim() || "";
+            item.querySelector(".exp-description")?.value.trim();
 
-
-        if (!role && !company && !description) {
-            return;
-        }
-
+        if (!role && !company && !description) return;
 
         const div =
             document.createElement("div");
@@ -833,41 +478,38 @@ function updateExperience() {
         div.className = "resume-item";
 
         div.innerHTML = `
+
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(role || "Job Title")}
+                        ${escapeHTML(role)}
                     </strong>
 
                     ${
                         company
                         ?
-                        `
-                        <div class="resume-company">
+                        `<div class="resume-company">
                             ${escapeHTML(company)}
-                        </div>
-                        `
+                        </div>`
                         :
                         ""
                     }
 
                 </div>
 
-                <span class="resume-date">
-
-                    ${escapeHTML(start)}
-
-                    ${
-                        start || end
-                        ? " - "
-                        : ""
-                    }
-
-                    ${escapeHTML(end)}
-
-                </span>
+                ${
+                    start || end
+                    ?
+                    `<span class="resume-date">
+                        ${escapeHTML(start)}
+                        ${start || end ? " - " : ""}
+                        ${escapeHTML(end)}
+                    </span>`
+                    :
+                    ""
+                }
 
             </div>
 
@@ -886,8 +528,109 @@ function updateExperience() {
 
 
 /* =====================================================
-   INTERNSHIPS
+   INTERNSHIP
 ===================================================== */
+
+function addInternship() {
+
+    internshipCount++;
+
+    const container =
+        document.getElementById("internshipContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `internship-${internshipCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Internship ${internshipCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('internship-${internshipCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Role</label>
+
+                <input
+                    class="intern-role"
+                    placeholder="Python Developer Intern"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Company</label>
+
+                <input
+                    class="intern-company"
+                    placeholder="Company Name"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Duration</label>
+
+                <input
+                    class="intern-duration"
+                    placeholder="3 Months"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Verify Link</label>
+
+                <input
+                    type="url"
+                    class="intern-link"
+                    placeholder="https://..."
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Description</label>
+
+                <textarea
+                    class="intern-description"
+                    placeholder="Describe your internship..."
+                    oninput="updateResume()"></textarea>
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
 
 function updateInternships() {
 
@@ -896,80 +639,31 @@ function updateInternships() {
 
     if (!preview) return;
 
+    preview.innerHTML = "";
+
     const items =
         document.querySelectorAll(
             "#internshipContainer .dynamic-item"
         );
 
-    preview.innerHTML = "";
-
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <div class="resume-item">
-
-                <div class="resume-item-top">
-
-                    <div>
-
-                        <strong>
-                            Python Developer Intern
-                        </strong>
-
-                        <div class="resume-company">
-                            ABC Technologies
-                        </div>
-
-                    </div>
-
-                    <span class="resume-date">
-                        3 Months
-                    </span>
-
-                </div>
-
-                <p>
-                    Developed Python applications
-                    and worked with basic AI concepts.
-                </p>
-
-                <a
-                    class="resume-link"
-                    href="#">
-
-                    Verify Internship ↗
-
-                </a>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
     items.forEach(item => {
 
         const role =
-            item.querySelector(".intern-role")?.value.trim() || "";
+            item.querySelector(".intern-role")?.value.trim();
 
         const company =
-            item.querySelector(".intern-company")?.value.trim() || "";
+            item.querySelector(".intern-company")?.value.trim();
 
         const duration =
-            item.querySelector(".intern-duration")?.value.trim() || "";
+            item.querySelector(".intern-duration")?.value.trim();
 
         const description =
-            item.querySelector(".intern-description")?.value.trim() || "";
+            item.querySelector(".intern-description")?.value.trim();
 
         const link =
-            item.querySelector(".intern-link")?.value.trim() || "";
+            item.querySelector(".intern-link")?.value.trim();
 
-
-        if (!role && !company && !description) {
-            return;
-        }
-
+        if (!role && !company && !description) return;
 
         const div =
             document.createElement("div");
@@ -977,31 +671,36 @@ function updateInternships() {
         div.className = "resume-item";
 
         div.innerHTML = `
+
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(role || "Internship")}
+                        ${escapeHTML(role)}
                     </strong>
 
                     ${
                         company
                         ?
-                        `
-                        <div class="resume-company">
+                        `<div class="resume-company">
                             ${escapeHTML(company)}
-                        </div>
-                        `
+                        </div>`
                         :
                         ""
                     }
 
                 </div>
 
-                <span class="resume-date">
-                    ${escapeHTML(duration)}
-                </span>
+                ${
+                    duration
+                    ?
+                    `<span class="resume-date">
+                        ${escapeHTML(duration)}
+                    </span>`
+                    :
+                    ""
+                }
 
             </div>
 
@@ -1016,17 +715,13 @@ function updateInternships() {
             ${
                 link
                 ?
-                `
-                <a
+                `<a
                     class="resume-link"
                     href="${escapeHTML(link)}"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     Verify Internship ↗
-
-                </a>
-                `
+                </a>`
                 :
                 ""
             }
@@ -1041,6 +736,96 @@ function updateInternships() {
    CERTIFICATES
 ===================================================== */
 
+function addCertificate() {
+
+    certificateCount++;
+
+    const container =
+        document.getElementById("certificateContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `certificate-${certificateCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Certificate ${certificateCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('certificate-${certificateCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Certificate Name</label>
+
+                <input
+                    class="cert-name"
+                    placeholder="Python Basics"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Issuing Organization</label>
+
+                <input
+                    class="cert-issuer"
+                    placeholder="IBM"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Date</label>
+
+                <input
+                    class="cert-date"
+                    placeholder="2026"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Verify Link</label>
+
+                <input
+                    type="url"
+                    class="cert-link"
+                    placeholder="https://..."
+                    oninput="updateResume()">
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
+
 function updateCertificates() {
 
     const preview =
@@ -1048,72 +833,28 @@ function updateCertificates() {
 
     if (!preview) return;
 
+    preview.innerHTML = "";
+
     const items =
         document.querySelectorAll(
             "#certificateContainer .dynamic-item"
         );
 
-    preview.innerHTML = "";
-
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <div class="resume-item">
-
-                <div class="resume-item-top">
-
-                    <div>
-
-                        <strong>
-                            Python Basics
-                        </strong>
-
-                        <div class="resume-company">
-                            IBM
-                        </div>
-
-                    </div>
-
-                    <span class="resume-date">
-                        2026
-                    </span>
-
-                </div>
-
-                <a
-                    class="resume-link"
-                    href="#">
-
-                    Verify Certificate ↗
-
-                </a>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
     items.forEach(item => {
 
         const name =
-            item.querySelector(".cert-name")?.value.trim() || "";
+            item.querySelector(".cert-name")?.value.trim();
 
         const issuer =
-            item.querySelector(".cert-issuer")?.value.trim() || "";
+            item.querySelector(".cert-issuer")?.value.trim();
 
         const date =
-            item.querySelector(".cert-date")?.value.trim() || "";
+            item.querySelector(".cert-date")?.value.trim();
 
         const link =
-            item.querySelector(".cert-link")?.value.trim() || "";
+            item.querySelector(".cert-link")?.value.trim();
 
-
-        if (!name && !issuer) {
-            return;
-        }
-
+        if (!name && !issuer) return;
 
         const div =
             document.createElement("div");
@@ -1121,48 +862,49 @@ function updateCertificates() {
         div.className = "resume-item";
 
         div.innerHTML = `
+
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(name || "Certificate")}
+                        ${escapeHTML(name)}
                     </strong>
 
                     ${
                         issuer
                         ?
-                        `
-                        <div class="resume-company">
+                        `<div class="resume-company">
                             ${escapeHTML(issuer)}
-                        </div>
-                        `
+                        </div>`
                         :
                         ""
                     }
 
                 </div>
 
-                <span class="resume-date">
-                    ${escapeHTML(date)}
-                </span>
+                ${
+                    date
+                    ?
+                    `<span class="resume-date">
+                        ${escapeHTML(date)}
+                    </span>`
+                    :
+                    ""
+                }
 
             </div>
 
             ${
                 link
                 ?
-                `
-                <a
+                `<a
                     class="resume-link"
                     href="${escapeHTML(link)}"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     Verify Certificate ↗
-
-                </a>
-                `
+                </a>`
                 :
                 ""
             }
@@ -1177,6 +919,96 @@ function updateCertificates() {
    PROJECTS
 ===================================================== */
 
+function addProject() {
+
+    projectCount++;
+
+    const container =
+        document.getElementById("projectContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `project-${projectCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Project ${projectCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('project-${projectCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Project Name</label>
+
+                <input
+                    class="project-name"
+                    placeholder="Resume Builder"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Technologies</label>
+
+                <input
+                    class="project-tech"
+                    placeholder="HTML, CSS, JavaScript"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Project / GitHub Link</label>
+
+                <input
+                    type="url"
+                    class="project-link"
+                    placeholder="https://github.com/..."
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Description</label>
+
+                <textarea
+                    class="project-description"
+                    placeholder="Describe your project..."
+                    oninput="updateResume()"></textarea>
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
+
 function updateProjects() {
 
     const preview =
@@ -1184,71 +1016,28 @@ function updateProjects() {
 
     if (!preview) return;
 
+    preview.innerHTML = "";
+
     const items =
         document.querySelectorAll(
             "#projectContainer .dynamic-item"
         );
 
-    preview.innerHTML = "";
-
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <div class="resume-item">
-
-                <div class="resume-item-top">
-
-                    <strong>
-                        Resume Builder
-                    </strong>
-
-                </div>
-
-                <div class="resume-company">
-                    HTML • CSS • JavaScript
-                </div>
-
-                <p>
-                    A responsive resume builder
-                    that allows users to create
-                    professional resumes with
-                    live preview.
-                </p>
-
-                <a
-                    class="resume-link"
-                    href="#">
-
-                    View Project ↗
-
-                </a>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
     items.forEach(item => {
 
         const name =
-            item.querySelector(".project-name")?.value.trim() || "";
+            item.querySelector(".project-name")?.value.trim();
 
         const tech =
-            item.querySelector(".project-tech")?.value.trim() || "";
-
-        const description =
-            item.querySelector(".project-description")?.value.trim() || "";
+            item.querySelector(".project-tech")?.value.trim();
 
         const link =
-            item.querySelector(".project-link")?.value.trim() || "";
+            item.querySelector(".project-link")?.value.trim();
 
+        const description =
+            item.querySelector(".project-description")?.value.trim();
 
-        if (!name) {
-            return;
-        }
-
+        if (!name) return;
 
         const div =
             document.createElement("div");
@@ -1256,6 +1045,7 @@ function updateProjects() {
         div.className = "resume-item";
 
         div.innerHTML = `
+
             <div class="resume-item-top">
 
                 <strong>
@@ -1267,11 +1057,9 @@ function updateProjects() {
             ${
                 tech
                 ?
-                `
-                <div class="resume-company">
+                `<div class="resume-company">
                     ${escapeHTML(tech)}
-                </div>
-                `
+                </div>`
                 :
                 ""
             }
@@ -1287,17 +1075,13 @@ function updateProjects() {
             ${
                 link
                 ?
-                `
-                <a
+                `<a
                     class="resume-link"
                     href="${escapeHTML(link)}"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     View Project ↗
-
-                </a>
-                `
+                </a>`
                 :
                 ""
             }
@@ -1312,6 +1096,84 @@ function updateProjects() {
    ACHIEVEMENTS
 ===================================================== */
 
+function addAchievement() {
+
+    achievementCount++;
+
+    const container =
+        document.getElementById("achievementContainer");
+
+    if (!container) return;
+
+    const item =
+        document.createElement("div");
+
+    item.className = "dynamic-item";
+    item.id = `achievement-${achievementCount}`;
+
+    item.innerHTML = `
+
+        <div class="dynamic-header">
+
+            <strong>
+                Achievement ${achievementCount}
+            </strong>
+
+            <button
+                type="button"
+                class="remove-btn"
+                onclick="removeItem('achievement-${achievementCount}')">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        <div class="dynamic-grid">
+
+            <div class="form-group">
+
+                <label>Achievement</label>
+
+                <input
+                    class="achievement-title"
+                    placeholder="Hackathon Finalist"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Year</label>
+
+                <input
+                    class="achievement-year"
+                    placeholder="2026"
+                    oninput="updateResume()">
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Description</label>
+
+                <textarea
+                    class="achievement-description"
+                    placeholder="Describe your achievement..."
+                    oninput="updateResume()"></textarea>
+
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(item);
+
+    updateResume();
+}
+
+
 function updateAchievements() {
 
     const preview =
@@ -1319,94 +1181,63 @@ function updateAchievements() {
 
     if (!preview) return;
 
+    preview.innerHTML = "";
+
     const items =
         document.querySelectorAll(
             "#achievementContainer .dynamic-item"
         );
-
-    preview.innerHTML = "";
-
-    if (items.length === 0) {
-
-        preview.innerHTML = `
-            <ul class="achievement-list">
-
-                <li>
-                    Academic Excellence Award
-                </li>
-
-                <li>
-                    Hackathon Finalist
-                </li>
-
-            </ul>
-        `;
-
-        return;
-    }
-
 
     const list =
         document.createElement("ul");
 
     list.className = "achievement-list";
 
+    let hasAchievement = false;
 
     items.forEach(item => {
 
         const title =
-            item.querySelector(
-                ".achievement-title"
-            )?.value.trim() || "";
+            item.querySelector(".achievement-title")?.value.trim();
 
         const year =
-            item.querySelector(
-                ".achievement-year"
-            )?.value.trim() || "";
+            item.querySelector(".achievement-year")?.value.trim();
 
         const description =
-            item.querySelector(
-                ".achievement-description"
-            )?.value.trim() || "";
+            item.querySelector(".achievement-description")?.value.trim();
 
+        if (!title) return;
 
-        if (!title) {
-            return;
-        }
-
+        hasAchievement = true;
 
         const li =
             document.createElement("li");
 
-
         li.innerHTML = `
+
             <strong>
                 ${escapeHTML(title)}
             </strong>
 
             ${
                 year
-                ?
-                ` (${escapeHTML(year)})`
-                :
-                ""
+                ? ` (${escapeHTML(year)})`
+                : ""
             }
 
             ${
                 description
-                ?
-                ` — ${escapeHTML(description)}`
-                :
-                ""
+                ? ` — ${escapeHTML(description)}`
+                : ""
             }
         `;
-
 
         list.appendChild(li);
     });
 
-
-    preview.appendChild(list);
+    if (hasAchievement) {
+        preview.appendChild(list);
+    }
 }
 
 
@@ -1421,45 +1252,47 @@ function updateSkills() {
 
     if (!preview) return;
 
+    preview.innerHTML = "";
+
     const skills =
         getValue("skills");
 
-    preview.innerHTML = "";
-
-
-    if (!skills) {
-
-        preview.innerHTML = `
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Python</span>
-            <span>SQL</span>
-        `;
-
-        return;
-    }
-
+    if (!skills) return;
 
     skills
         .split(",")
         .map(skill => skill.trim())
-        .filter(skill => skill !== "")
+        .filter(skill => skill.length > 0)
         .forEach(skill => {
 
-            const span =
-                document.createElement("span");
+            const li =
+                document.createElement("li");
 
-            span.textContent = skill;
+            li.textContent = skill;
 
-            preview.appendChild(span);
-
+            preview.appendChild(li);
         });
 }
 
 
 /* =====================================================
-   UPDATE EVERYTHING
+   REMOVE
+===================================================== */
+
+function removeItem(id) {
+
+    const element =
+        document.getElementById(id);
+
+    if (element) {
+        element.remove();
+        updateResume();
+    }
+}
+
+
+/* =====================================================
+   MAIN UPDATE
 ===================================================== */
 
 function updateResume() {
@@ -1477,14 +1310,16 @@ function updateResume() {
 
 
 /* =====================================================
-   DOWNLOAD
+   DOWNLOAD / PRINT
 ===================================================== */
 
 function downloadResume() {
 
     updateResume();
 
-    window.print();
+    setTimeout(() => {
+        window.print();
+    }, 100);
 }
 
 
@@ -1494,34 +1329,30 @@ function downloadResume() {
 
 function clearResume() {
 
-    const confirmClear =
+    const answer =
         confirm(
-            "Clear all entered information?"
+            "Are you sure you want to clear all entered information?"
         );
 
-    if (!confirmClear) {
-        return;
-    }
-
+    if (!answer) return;
 
     document
-        .querySelectorAll("input, textarea")
+        .querySelectorAll(
+            "input, textarea"
+        )
         .forEach(element => {
             element.value = "";
         });
 
-
-    const containers = [
+    [
         "educationContainer",
         "experienceContainer",
         "internshipContainer",
         "certificateContainer",
         "projectContainer",
         "achievementContainer"
-    ];
-
-
-    containers.forEach(id => {
+    ]
+    .forEach(id => {
 
         const container =
             document.getElementById(id);
@@ -1529,9 +1360,7 @@ function clearResume() {
         if (container) {
             container.innerHTML = "";
         }
-
     });
-
 
     educationCount = 0;
     experienceCount = 0;
@@ -1540,15 +1369,19 @@ function clearResume() {
     projectCount = 0;
     achievementCount = 0;
 
-
     updateResume();
 }
 
 
 /* =====================================================
-   INITIAL LOAD
+   PAGE LOAD
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
-    updateResume();
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateResume();
+
+    }
+);
