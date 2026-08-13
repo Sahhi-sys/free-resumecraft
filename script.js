@@ -15,7 +15,6 @@ let achievementCount = 0;
 ===================================================== */
 
 function escapeHTML(text) {
-
     return String(text || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -24,9 +23,7 @@ function escapeHTML(text) {
         .replace(/'/g, "&#039;");
 }
 
-
 function getValue(id, fallback = "") {
-
     const element = document.getElementById(id);
 
     if (!element) {
@@ -45,105 +42,67 @@ function addEducation() {
 
     educationCount++;
 
-    const container =
-        document.getElementById("educationContainer");
+    const container = document.getElementById("educationContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `education-${educationCount}`;
+    item.id = `education-${educationCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Education ${educationCount}
-            </strong>
+            <strong>Education ${educationCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('education-${educationCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Degree / Course
-                </label>
-
+                <label>Degree / Course</label>
                 <input
                     class="edu-degree"
                     placeholder="M.Sc Computer Science"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Institution
-                </label>
-
+                <label>Institution</label>
                 <input
                     class="edu-institution"
                     placeholder="Government Arts College"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Start Year
-                </label>
-
+                <label>Start Year</label>
                 <input
                     class="edu-start"
                     placeholder="2024"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    End Year
-                </label>
-
+                <label>End Year</label>
                 <input
                     class="edu-end"
                     placeholder="2026"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    CGPA / Percentage
-                </label>
-
+                <label>CGPA / Percentage</label>
                 <input
                     class="edu-score"
                     placeholder="8.5 CGPA / 85%"
                     oninput="updateResume()">
-
             </div>
 
         </div>
@@ -163,105 +122,67 @@ function addExperience() {
 
     experienceCount++;
 
-    const container =
-        document.getElementById("experienceContainer");
+    const container = document.getElementById("experienceContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `experience-${experienceCount}`;
+    item.id = `experience-${experienceCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Experience ${experienceCount}
-            </strong>
+            <strong>Experience ${experienceCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('experience-${experienceCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Job Title
-                </label>
-
+                <label>Job Title</label>
                 <input
                     class="exp-role"
                     placeholder="Software Developer"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Company
-                </label>
-
+                <label>Company</label>
                 <input
                     class="exp-company"
                     placeholder="Company Name"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Start Year
-                </label>
-
+                <label>Start Year</label>
                 <input
                     class="exp-start"
                     placeholder="2025"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    End Year
-                </label>
-
+                <label>End Year</label>
                 <input
                     class="exp-end"
                     placeholder="Present"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    Description
-                </label>
-
+                <label>Description</label>
                 <textarea
                     class="exp-description"
                     placeholder="Describe your responsibilities..."
                     oninput="updateResume()"></textarea>
-
             </div>
 
         </div>
@@ -281,106 +202,68 @@ function addInternship() {
 
     internshipCount++;
 
-    const container =
-        document.getElementById("internshipContainer");
+    const container = document.getElementById("internshipContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `internship-${internshipCount}`;
+    item.id = `internship-${internshipCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Internship ${internshipCount}
-            </strong>
+            <strong>Internship ${internshipCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('internship-${internshipCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Role
-                </label>
-
+                <label>Role</label>
                 <input
                     class="intern-role"
                     placeholder="Python Developer Intern"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Company
-                </label>
-
+                <label>Company</label>
                 <input
                     class="intern-company"
                     placeholder="Company Name"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Duration
-                </label>
-
+                <label>Duration</label>
                 <input
                     class="intern-duration"
                     placeholder="3 Months"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Verify Link
-                </label>
-
+                <label>Verify Link</label>
                 <input
                     class="intern-link"
                     type="url"
                     placeholder="https://..."
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    Description
-                </label>
-
+                <label>Description</label>
                 <textarea
                     class="intern-description"
                     placeholder="Describe your internship..."
                     oninput="updateResume()"></textarea>
-
             </div>
 
         </div>
@@ -400,92 +283,60 @@ function addCertificate() {
 
     certificateCount++;
 
-    const container =
-        document.getElementById("certificateContainer");
+    const container = document.getElementById("certificateContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `certificate-${certificateCount}`;
+    item.id = `certificate-${certificateCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Certificate ${certificateCount}
-            </strong>
+            <strong>Certificate ${certificateCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('certificate-${certificateCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Certificate Name
-                </label>
-
+                <label>Certificate Name</label>
                 <input
                     class="cert-name"
                     placeholder="Python Basics"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Issuing Organization
-                </label>
-
+                <label>Issuing Organization</label>
                 <input
                     class="cert-issuer"
                     placeholder="IBM"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Date
-                </label>
-
+                <label>Date</label>
                 <input
                     class="cert-date"
                     placeholder="2026"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Verify Certificate Link
-                </label>
-
+                <label>Verify Certificate Link</label>
                 <input
                     class="cert-link"
                     type="url"
                     placeholder="https://verify..."
                     oninput="updateResume()">
-
             </div>
 
         </div>
@@ -505,92 +356,60 @@ function addProject() {
 
     projectCount++;
 
-    const container =
-        document.getElementById("projectContainer");
+    const container = document.getElementById("projectContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `project-${projectCount}`;
+    item.id = `project-${projectCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Project ${projectCount}
-            </strong>
+            <strong>Project ${projectCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('project-${projectCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Project Name
-                </label>
-
+                <label>Project Name</label>
                 <input
                     class="project-name"
                     placeholder="Resume Builder"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Technologies
-                </label>
-
+                <label>Technologies</label>
                 <input
                     class="project-tech"
                     placeholder="HTML, CSS, JavaScript"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    Project / GitHub Link
-                </label>
-
+                <label>Project / GitHub Link</label>
                 <input
                     class="project-link"
                     type="url"
                     placeholder="https://github.com/..."
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    Description
-                </label>
-
+                <label>Description</label>
                 <textarea
                     class="project-description"
                     placeholder="Describe your project..."
                     oninput="updateResume()"></textarea>
-
             </div>
 
         </div>
@@ -610,77 +429,51 @@ function addAchievement() {
 
     achievementCount++;
 
-    const container =
-        document.getElementById("achievementContainer");
+    const container = document.getElementById("achievementContainer");
 
-    const item =
-        document.createElement("div");
+    if (!container) return;
+
+    const item = document.createElement("div");
 
     item.className = "dynamic-item";
-
-    item.id =
-        `achievement-${achievementCount}`;
+    item.id = `achievement-${achievementCount}`;
 
     item.innerHTML = `
-
         <div class="dynamic-header">
-
-            <strong>
-                Achievement ${achievementCount}
-            </strong>
+            <strong>Achievement ${achievementCount}</strong>
 
             <button
+                type="button"
                 class="remove-btn"
                 onclick="removeItem('achievement-${achievementCount}')">
-
                 Remove
-
             </button>
-
         </div>
-
 
         <div class="dynamic-grid">
 
             <div class="form-group">
-
-                <label>
-                    Achievement Title
-                </label>
-
+                <label>Achievement Title</label>
                 <input
                     class="achievement-title"
                     placeholder="Hackathon Finalist"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Year
-                </label>
-
+                <label>Year</label>
                 <input
                     class="achievement-year"
                     placeholder="2026"
                     oninput="updateResume()">
-
             </div>
 
-
             <div class="form-group full">
-
-                <label>
-                    Description
-                </label>
-
+                <label>Description</label>
                 <textarea
                     class="achievement-description"
                     placeholder="Describe your achievement..."
                     oninput="updateResume()"></textarea>
-
             </div>
 
         </div>
@@ -698,13 +491,10 @@ function addAchievement() {
 
 function removeItem(id) {
 
-    const item =
-        document.getElementById(id);
+    const item = document.getElementById(id);
 
     if (item) {
-
         item.remove();
-
         updateResume();
     }
 }
@@ -716,77 +506,87 @@ function removeItem(id) {
 
 function updatePersonal() {
 
-    document.getElementById("previewName")
-        .textContent =
-        getValue("name", "John Doe");
+    const nameElement = document.getElementById("previewName");
+    const jobElement = document.getElementById("previewJob");
+    const emailElement = document.getElementById("previewEmail");
+    const phoneElement = document.getElementById("previewPhone");
+    const locationElement = document.getElementById("previewLocation");
 
-    document.getElementById("previewJob")
-        .textContent =
-        getValue(
-            "job",
-            "Software Developer"
-        );
+    if (nameElement) {
+        nameElement.textContent =
+            getValue("name", "John Doe");
+    }
 
-    document.getElementById("previewEmail")
-        .textContent =
-        getValue(
-            "email",
-            "john@example.com"
-        );
+    if (jobElement) {
+        jobElement.textContent =
+            getValue("job", "Software Developer");
+    }
 
-    document.getElementById("previewPhone")
-        .textContent =
-        getValue(
-            "phone",
-            "+91 98765 43210"
-        );
+    if (emailElement) {
+        emailElement.textContent =
+            getValue("email", "john@example.com");
+    }
 
-    document.getElementById("previewLocation")
-        .textContent =
-        getValue(
-            "location",
-            "Coimbatore, India"
-        );
+    if (phoneElement) {
+        phoneElement.textContent =
+            getValue("phone", "+91 98765 43210");
+    }
+
+    if (locationElement) {
+        locationElement.textContent =
+            getValue("location", "Coimbatore, India");
+    }
 
 
     /* =========================
        LINKEDIN
     ========================= */
 
-const linkedin = getValue("linkedin");
+    const linkedin = getValue("linkedin");
+    const linkedinElement =
+        document.getElementById("previewLinkedin");
 
-const linkedinElement =
-    document.getElementById("previewLinkedin");
+    if (linkedinElement) {
 
-if (linkedin) {
-    linkedinElement.href = linkedin;
-    linkedinElement.textContent =
-        linkedin.replace(/^https?:\/\//, "")
-                .replace(/^www\./, "");
-} else {
-    linkedinElement.href = "#";
-    linkedinElement.textContent =
-        "linkedin.com/in/username";
-}
+        if (linkedin) {
+            linkedinElement.href = linkedin;
+            linkedinElement.textContent =
+                linkedin
+                    .replace(/^https?:\/\//, "")
+                    .replace(/^www\./, "");
+        } else {
+            linkedinElement.href = "#";
+            linkedinElement.textContent =
+                "linkedin.com/in/username";
+        }
+    }
 
 
-const github = getValue("github");
+    /* =========================
+       GITHUB
+    ========================= */
 
-const githubElement =
-    document.getElementById("previewGithub");
+    const github = getValue("github");
+    const githubElement =
+        document.getElementById("previewGithub");
 
-if (github) {
-    githubElement.href = github;
-    githubElement.textContent =
-        github.replace(/^https?:\/\//, "")
-              .replace(/^www\./, "");
-} else {
-    githubElement.href = "#";
-    githubElement.textContent =
-        "github.com/username";
-}    
+    if (githubElement) {
 
-   
+        if (github) {
+            githubElement.href = github;
+            githubElement.textContent =
+                github
+                    .replace(/^https?:\/\//, "")
+                    .replace(/^www\./, "");
+        } else {
+            githubElement.href = "#";
+            githubElement.textContent =
+                "github.com/username";
+        }
+    }
+
+} // IMPORTANT: closes updatePersonal()
+
 
 /* =====================================================
    SUMMARY
@@ -794,9 +594,12 @@ if (github) {
 
 function updateSummary() {
 
-    document.getElementById(
-        "previewSummary"
-    ).textContent =
+    const preview =
+        document.getElementById("previewSummary");
+
+    if (!preview) return;
+
+    preview.textContent =
         getValue(
             "summary",
             "Motivated and detail-oriented software developer with a passion for building user-friendly applications and learning modern technologies."
@@ -811,9 +614,9 @@ function updateSummary() {
 function updateEducation() {
 
     const preview =
-        document.getElementById(
-            "previewEducation"
-        );
+        document.getElementById("previewEducation");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -822,11 +625,9 @@ function updateEducation() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <div class="resume-item">
 
                 <div class="resume-item-top">
@@ -863,59 +664,53 @@ function updateEducation() {
     items.forEach(item => {
 
         const degree =
-            item.querySelector(
-                ".edu-degree"
-            ).value.trim();
+            item.querySelector(".edu-degree")?.value.trim() || "";
 
         const institution =
-            item.querySelector(
-                ".edu-institution"
-            ).value.trim();
+            item.querySelector(".edu-institution")?.value.trim() || "";
 
         const start =
-            item.querySelector(
-                ".edu-start"
-            ).value.trim();
+            item.querySelector(".edu-start")?.value.trim() || "";
 
         const end =
-            item.querySelector(
-                ".edu-end"
-            ).value.trim();
+            item.querySelector(".edu-end")?.value.trim() || "";
 
         const score =
-            item.querySelector(
-                ".edu-score"
-            ).value.trim();
+            item.querySelector(".edu-score")?.value.trim() || "";
 
 
-        if (!degree && !institution) return;
+        if (!degree && !institution && !score) {
+            return;
+        }
 
 
         const div =
             document.createElement("div");
 
-        div.className =
-            "resume-item";
-
+        div.className = "resume-item";
 
         div.innerHTML = `
-
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
                         ${escapeHTML(
-                            degree ||
-                            "Degree / Course"
+                            degree || "Degree / Course"
                         )}
                     </strong>
 
-                    <div class="resume-company">
-                        ${escapeHTML(
-                            institution
-                        )}
-                    </div>
+                    ${
+                        institution
+                        ?
+                        `
+                        <div class="resume-company">
+                            ${escapeHTML(institution)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
 
                     ${
                         score
@@ -946,7 +741,6 @@ function updateEducation() {
                 </span>
 
             </div>
-
         `;
 
         preview.appendChild(div);
@@ -961,9 +755,9 @@ function updateEducation() {
 function updateExperience() {
 
     const preview =
-        document.getElementById(
-            "previewExperience"
-        );
+        document.getElementById("previewExperience");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -972,11 +766,9 @@ function updateExperience() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <div class="resume-item">
 
                 <div class="resume-item-top">
@@ -1015,54 +807,51 @@ function updateExperience() {
     items.forEach(item => {
 
         const role =
-            item.querySelector(
-                ".exp-role"
-            ).value.trim();
+            item.querySelector(".exp-role")?.value.trim() || "";
 
         const company =
-            item.querySelector(
-                ".exp-company"
-            ).value.trim();
+            item.querySelector(".exp-company")?.value.trim() || "";
 
         const start =
-            item.querySelector(
-                ".exp-start"
-            ).value.trim();
+            item.querySelector(".exp-start")?.value.trim() || "";
 
         const end =
-            item.querySelector(
-                ".exp-end"
-            ).value.trim();
+            item.querySelector(".exp-end")?.value.trim() || "";
 
         const description =
-            item.querySelector(
-                ".exp-description"
-            ).value.trim();
+            item.querySelector(".exp-description")?.value.trim() || "";
 
 
-        if (!role && !company) return;
+        if (!role && !company && !description) {
+            return;
+        }
 
 
         const div =
             document.createElement("div");
 
-        div.className =
-            "resume-item";
-
+        div.className = "resume-item";
 
         div.innerHTML = `
-
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(role)}
+                        ${escapeHTML(role || "Job Title")}
                     </strong>
 
-                    <div class="resume-company">
-                        ${escapeHTML(company)}
-                    </div>
+                    ${
+                        company
+                        ?
+                        `
+                        <div class="resume-company">
+                            ${escapeHTML(company)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
 
                 </div>
 
@@ -1089,7 +878,6 @@ function updateExperience() {
                 :
                 ""
             }
-
         `;
 
         preview.appendChild(div);
@@ -1104,9 +892,9 @@ function updateExperience() {
 function updateInternships() {
 
     const preview =
-        document.getElementById(
-            "previewInternships"
-        );
+        document.getElementById("previewInternships");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -1115,11 +903,9 @@ function updateInternships() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <div class="resume-item">
 
                 <div class="resume-item-top">
@@ -1147,8 +933,9 @@ function updateInternships() {
                     and worked with basic AI concepts.
                 </p>
 
-                <a class="resume-link"
-                   href="#">
+                <a
+                    class="resume-link"
+                    href="#">
 
                     Verify Internship ↗
 
@@ -1164,54 +951,51 @@ function updateInternships() {
     items.forEach(item => {
 
         const role =
-            item.querySelector(
-                ".intern-role"
-            ).value.trim();
+            item.querySelector(".intern-role")?.value.trim() || "";
 
         const company =
-            item.querySelector(
-                ".intern-company"
-            ).value.trim();
+            item.querySelector(".intern-company")?.value.trim() || "";
 
         const duration =
-            item.querySelector(
-                ".intern-duration"
-            ).value.trim();
+            item.querySelector(".intern-duration")?.value.trim() || "";
 
         const description =
-            item.querySelector(
-                ".intern-description"
-            ).value.trim();
+            item.querySelector(".intern-description")?.value.trim() || "";
 
         const link =
-            item.querySelector(
-                ".intern-link"
-            ).value.trim();
+            item.querySelector(".intern-link")?.value.trim() || "";
 
 
-        if (!role && !company) return;
+        if (!role && !company && !description) {
+            return;
+        }
 
 
         const div =
             document.createElement("div");
 
-        div.className =
-            "resume-item";
-
+        div.className = "resume-item";
 
         div.innerHTML = `
-
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(role)}
+                        ${escapeHTML(role || "Internship")}
                     </strong>
 
-                    <div class="resume-company">
-                        ${escapeHTML(company)}
-                    </div>
+                    ${
+                        company
+                        ?
+                        `
+                        <div class="resume-company">
+                            ${escapeHTML(company)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
 
                 </div>
 
@@ -1236,7 +1020,8 @@ function updateInternships() {
                 <a
                     class="resume-link"
                     href="${escapeHTML(link)}"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
 
                     Verify Internship ↗
 
@@ -1245,7 +1030,6 @@ function updateInternships() {
                 :
                 ""
             }
-
         `;
 
         preview.appendChild(div);
@@ -1260,9 +1044,9 @@ function updateInternships() {
 function updateCertificates() {
 
     const preview =
-        document.getElementById(
-            "previewCertificates"
-        );
+        document.getElementById("previewCertificates");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -1271,11 +1055,9 @@ function updateCertificates() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <div class="resume-item">
 
                 <div class="resume-item-top">
@@ -1298,8 +1080,9 @@ function updateCertificates() {
 
                 </div>
 
-                <a class="resume-link"
-                   href="#">
+                <a
+                    class="resume-link"
+                    href="#">
 
                     Verify Certificate ↗
 
@@ -1315,49 +1098,48 @@ function updateCertificates() {
     items.forEach(item => {
 
         const name =
-            item.querySelector(
-                ".cert-name"
-            ).value.trim();
+            item.querySelector(".cert-name")?.value.trim() || "";
 
         const issuer =
-            item.querySelector(
-                ".cert-issuer"
-            ).value.trim();
+            item.querySelector(".cert-issuer")?.value.trim() || "";
 
         const date =
-            item.querySelector(
-                ".cert-date"
-            ).value.trim();
+            item.querySelector(".cert-date")?.value.trim() || "";
 
         const link =
-            item.querySelector(
-                ".cert-link"
-            ).value.trim();
+            item.querySelector(".cert-link")?.value.trim() || "";
 
 
-        if (!name && !issuer) return;
+        if (!name && !issuer) {
+            return;
+        }
 
 
         const div =
             document.createElement("div");
 
-        div.className =
-            "resume-item";
-
+        div.className = "resume-item";
 
         div.innerHTML = `
-
             <div class="resume-item-top">
 
                 <div>
 
                     <strong>
-                        ${escapeHTML(name)}
+                        ${escapeHTML(name || "Certificate")}
                     </strong>
 
-                    <div class="resume-company">
-                        ${escapeHTML(issuer)}
-                    </div>
+                    ${
+                        issuer
+                        ?
+                        `
+                        <div class="resume-company">
+                            ${escapeHTML(issuer)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
 
                 </div>
 
@@ -1374,7 +1156,8 @@ function updateCertificates() {
                 <a
                     class="resume-link"
                     href="${escapeHTML(link)}"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
 
                     Verify Certificate ↗
 
@@ -1383,7 +1166,6 @@ function updateCertificates() {
                 :
                 ""
             }
-
         `;
 
         preview.appendChild(div);
@@ -1398,9 +1180,9 @@ function updateCertificates() {
 function updateProjects() {
 
     const preview =
-        document.getElementById(
-            "previewProjects"
-        );
+        document.getElementById("previewProjects");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -1409,11 +1191,9 @@ function updateProjects() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <div class="resume-item">
 
                 <div class="resume-item-top">
@@ -1435,8 +1215,9 @@ function updateProjects() {
                     live preview.
                 </p>
 
-                <a class="resume-link"
-                   href="#">
+                <a
+                    class="resume-link"
+                    href="#">
 
                     View Project ↗
 
@@ -1452,38 +1233,29 @@ function updateProjects() {
     items.forEach(item => {
 
         const name =
-            item.querySelector(
-                ".project-name"
-            ).value.trim();
+            item.querySelector(".project-name")?.value.trim() || "";
 
         const tech =
-            item.querySelector(
-                ".project-tech"
-            ).value.trim();
+            item.querySelector(".project-tech")?.value.trim() || "";
 
         const description =
-            item.querySelector(
-                ".project-description"
-            ).value.trim();
+            item.querySelector(".project-description")?.value.trim() || "";
 
         const link =
-            item.querySelector(
-                ".project-link"
-            ).value.trim();
+            item.querySelector(".project-link")?.value.trim() || "";
 
 
-        if (!name) return;
+        if (!name) {
+            return;
+        }
 
 
         const div =
             document.createElement("div");
 
-        div.className =
-            "resume-item";
-
+        div.className = "resume-item";
 
         div.innerHTML = `
-
             <div class="resume-item-top">
 
                 <strong>
@@ -1519,7 +1291,8 @@ function updateProjects() {
                 <a
                     class="resume-link"
                     href="${escapeHTML(link)}"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
 
                     View Project ↗
 
@@ -1528,7 +1301,6 @@ function updateProjects() {
                 :
                 ""
             }
-
         `;
 
         preview.appendChild(div);
@@ -1543,9 +1315,9 @@ function updateProjects() {
 function updateAchievements() {
 
     const preview =
-        document.getElementById(
-            "previewAchievements"
-        );
+        document.getElementById("previewAchievements");
+
+    if (!preview) return;
 
     const items =
         document.querySelectorAll(
@@ -1554,11 +1326,9 @@ function updateAchievements() {
 
     preview.innerHTML = "";
 
-
     if (items.length === 0) {
 
         preview.innerHTML = `
-
             <ul class="achievement-list">
 
                 <li>
@@ -1579,8 +1349,7 @@ function updateAchievements() {
     const list =
         document.createElement("ul");
 
-    list.className =
-        "achievement-list";
+    list.className = "achievement-list";
 
 
     items.forEach(item => {
@@ -1588,20 +1357,22 @@ function updateAchievements() {
         const title =
             item.querySelector(
                 ".achievement-title"
-            ).value.trim();
+            )?.value.trim() || "";
 
         const year =
             item.querySelector(
                 ".achievement-year"
-            ).value.trim();
+            )?.value.trim() || "";
 
         const description =
             item.querySelector(
                 ".achievement-description"
-            ).value.trim();
+            )?.value.trim() || "";
 
 
-        if (!title) return;
+        if (!title) {
+            return;
+        }
 
 
         const li =
@@ -1609,7 +1380,6 @@ function updateAchievements() {
 
 
         li.innerHTML = `
-
             <strong>
                 ${escapeHTML(title)}
             </strong>
@@ -1629,7 +1399,6 @@ function updateAchievements() {
                 :
                 ""
             }
-
         `;
 
 
@@ -1648,13 +1417,12 @@ function updateAchievements() {
 function updateSkills() {
 
     const preview =
-        document.getElementById(
-            "previewSkills"
-        );
+        document.getElementById("previewSkills");
+
+    if (!preview) return;
 
     const skills =
         getValue("skills");
-
 
     preview.innerHTML = "";
 
@@ -1662,13 +1430,11 @@ function updateSkills() {
     if (!skills) {
 
         preview.innerHTML = `
-
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
             <span>Python</span>
             <span>SQL</span>
-
         `;
 
         return;
@@ -1684,8 +1450,7 @@ function updateSkills() {
             const span =
                 document.createElement("span");
 
-            span.textContent =
-                skill;
+            span.textContent = skill;
 
             preview.appendChild(span);
 
@@ -1700,21 +1465,13 @@ function updateSkills() {
 function updateResume() {
 
     updatePersonal();
-
     updateSummary();
-
     updateEducation();
-
     updateExperience();
-
     updateInternships();
-
     updateCertificates();
-
     updateProjects();
-
     updateAchievements();
-
     updateSkills();
 }
 
@@ -1750,28 +1507,28 @@ function clearResume() {
     document
         .querySelectorAll("input, textarea")
         .forEach(element => {
-
             element.value = "";
-
         });
 
 
     const containers = [
-
         "educationContainer",
         "experienceContainer",
         "internshipContainer",
         "certificateContainer",
         "projectContainer",
         "achievementContainer"
-
     ];
 
 
     containers.forEach(id => {
 
-        document.getElementById(id)
-            .innerHTML = "";
+        const container =
+            document.getElementById(id);
+
+        if (container) {
+            container.innerHTML = "";
+        }
 
     });
 
@@ -1792,4 +1549,6 @@ function clearResume() {
    INITIAL LOAD
 ===================================================== */
 
-updateResume();
+document.addEventListener("DOMContentLoaded", function () {
+    updateResume();
+});
