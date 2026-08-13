@@ -97,7 +97,7 @@ body {
 ===================================================== */
 
 .editor {
-    background: #a4bcca;
+    background: #edf3f7;
 
     padding: 30px;
 
@@ -311,7 +311,7 @@ textarea {
 ===================================================== */
 
 .preview-area {
-    background: mildpink;
+    background: #e9edf2;
 
     padding: 30px;
 
@@ -406,7 +406,7 @@ textarea {
 .resume-contact {
     text-align: right;
 
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.55;
 
     color: #555;
@@ -460,7 +460,7 @@ textarea {
 }
 
 .resume-section p {
-    font-size: 10.5px;
+    font-size: 11.5px;
     line-height: 1.55;
 
     color: #444;
@@ -494,15 +494,15 @@ textarea {
 }
 
 .resume-item strong {
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 11.5px;
+    line-height: 1.4;
 
     font-weight: 700;
 }
 
 .resume-company {
-    font-size: 10px;
-    line-height: 1.4;
+    font-size: 11px;
+    line-height: 1.45;
 
     color: #666;
 
@@ -510,7 +510,7 @@ textarea {
 }
 
 .resume-date {
-    font-size: 9.5px;
+    font-size: 10.5px;
     line-height: 1.4;
 
     color: #777;
@@ -535,7 +535,7 @@ textarea {
 .resume-link {
     display: inline-block;
 
-    font-size: 9px;
+    font-size: 10px;
     line-height: 1.4;
 
     color: #5148d8;
@@ -558,8 +558,8 @@ textarea {
 }
 
 .achievement-list li {
-    font-size: 10.5px;
-    line-height: 1.55;
+    font-size: 11.5px;
+    line-height: 1.5;
 
     color: #444;
 
@@ -584,7 +584,7 @@ textarea {
 .skills-container span {
     position: relative;
 
-    font-size: 10.5px;
+    font-size: 11.5px;
     line-height: 1.5;
 
     color: #444;
@@ -673,9 +673,11 @@ textarea {
     }
 
     .resume {
-        width: 794px;
-
-        padding: 55px 60px;
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 28px 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.12);
     }
 }
 
