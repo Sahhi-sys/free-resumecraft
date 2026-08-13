@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft - Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Resume<span>Craft</span>
+    </div>
+
+    <div class="nav-actions">
+        <button class="clear-btn" onclick="clearResume()">Clear</button>
+        <button class="download-btn" onclick="downloadResume()">
+            Download PDF
+        </button>
+    </div>
+
+</header>
+
+
+<main class="app-container">
+
+    <!-- =================================================
+         EDITOR
+    ================================================== -->
+
+    <section class="editor">
+
+        <div class="editor-heading">
+            <h1>Build Your Resume</h1>
+            <p>Create a clean and professional resume.</p>
+        </div>
+
+
+        <!-- PERSONAL DETAILS -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+                <div>
+                    <h2>Personal Details</h2>
+                    <p>Your basic contact information</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input id="name"
+                           placeholder="John Doe"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Title</label>
+                    <input id="job"
+                           placeholder="Software Developer"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="email"
+                           type="email"
+                           placeholder="john@example.com"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input id="phone"
+                           placeholder="+91 98765 43210"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group full">
+                    <label>Location</label>
+                    <input id="location"
+                           placeholder="Coimbatore, Tamil Nadu"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn</label>
+                    <input id="linkedin"
+                           type="url"
+                           placeholder="https://linkedin.com/in/username"
+                           oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <label>GitHub</label>
+                    <input id="github"
+                           type="url"
+                           placeholder="https://github.com/username"
+                           oninput="updateResume()">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+                <div>
+                    <h2>Professional Summary</h2>
+                    <p>Introduce yourself professionally</p>
+                </div>
+            </div>
+
+            <textarea id="summary"
+                      placeholder="Write a short professional summary..."
+                      oninput="updateResume()"></textarea>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Education</h2>
+                    <p>Add your educational qualifications</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addEducation()">
+                    + Add Education
+                </button>
+
+            </div>
+
+            <div id="educationContainer"></div>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Experience</h2>
+                    <p>Add your professional experience</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addExperience()">
+                    + Add Experience
+                </button>
+
+            </div>
+
+            <div id="experienceContainer"></div>
+
+        </div>
+
+
+        <!-- INTERNSHIPS -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Internships</h2>
+                    <p>Add your internship experience</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addInternship()">
+                    + Add Internship
+                </button>
+
+            </div>
+
+            <div id="internshipContainer"></div>
+
+        </div>
+
+
+        <!-- CERTIFICATES -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Certificates</h2>
+                    <p>Add certificates with verification links</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addCertificate()">
+                    + Add Certificate
+                </button>
+
+            </div>
+
+            <div id="certificateContainer"></div>
+
+        </div>
+
+
+        <!-- PROJECTS -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Projects</h2>
+                    <p>Showcase your important projects</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addProject()">
+                    + Add Project
+                </button>
+
+            </div>
+
+            <div id="projectContainer"></div>
+
+        </div>
+
+
+        <!-- ACHIEVEMENTS -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Achievements</h2>
+                    <p>Highlight your accomplishments</p>
+                </div>
+
+                <button class="add-btn"
+                        onclick="addAchievement()">
+                    + Add Achievement
+                </button>
+
+            </div>
+
+            <div id="achievementContainer"></div>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="editor-card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Skills</h2>
+                    <p>Enter skills separated by commas</p>
+                </div>
+
+            </div>
+
+            <textarea id="skills"
+                      placeholder="HTML, CSS, JavaScript, Python, SQL"
+                      oninput="updateResume()"></textarea>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PREVIEW
+    ================================================== -->
+
+    <section class="preview-area">
+
+        <div class="preview-toolbar">
+            <h2>Live Preview</h2>
+            <p>Your resume updates as you type</p>
+        </div>
+
+
+        <div class="resume" id="resume">
+
+
+            <!-- HEADER -->
+
+            <div class="resume-header">
+
+                <div class="resume-name-area">
+
+                    <h1 id="previewName">
+                        John Doe
+                    </h1>
+
+                    <h3 id="previewJob">
+                        Software Developer
+                    </h3>
+
+                </div>
+
+
+                <div class="resume-contact">
+
+                    <div id="previewEmail">
+                        john@example.com
+                    </div>
+
+                    <div id="previewPhone">
+                        +91 98765 43210
+                    </div>
+
+                    <div id="previewLocation">
+                        Coimbatore, India
+                    </div>
+
+                    <div class="social-links">
+
+                        <a id="previewLinkedin"
+                           href="#"
+                           target="_blank">
+                            LinkedIn
+                        </a>
+
+                        <a id="previewGithub"
+                           href="#"
+                           target="_blank">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="resume-section">
+
+                <h2>PROFILE</h2>
+
+                <p id="previewSummary">
+                    Motivated and detail-oriented software
+                    developer with a passion for building
+                    user-friendly applications and learning
+                    modern technologies.
+                </p>
+
+            </div>
+
+
+
+            <!-- EDUCATION -->
+
+            <div class="resume-section">
+
+                <h2>EDUCATION</h2>
+
+                <div id="previewEducation">
+
+                    <div class="resume-item">
+
+                        <div class="resume-item-top">
+
+                            <div>
+
+                                <strong>
+                                    M.Sc Computer Science
+                                </strong>
+
+                                <div class="resume-company">
+                                    Government Arts College
+                                </div>
+
+                                <div class="resume-cgpa">
+                                    CGPA: 8.5
+                                </div>
+
+                            </div>
+
+                            <span class="resume-date">
+                                2024 - 2026
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="resume-section">
+
+                <h2>EXPERIENCE</h2>
+
+                <div id="previewExperience">
+
+                    <div class="resume-item">
+
+                        <div class="resume-item-top">
+
+                            <div>
+
+                                <strong>
+                                    Software Developer
+                                </strong>
+
+                                <div class="resume-company">
+                                    Tech Solutions
+                                </div>
+
+                            </div>
+
+                            <span class="resume-date">
+                                2025 - Present
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Worked on web applications,
+                            user interfaces and JavaScript
+                            based functionality.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INTERNSHIPS -->
+
+            <div class="resume-section">
+
+                <h2>INTERNSHIPS</h2>
+
+                <div id="previewInternships">
+
+                    <div class="resume-item">
+
+                        <div class="resume-item-top">
+
+                            <div>
+
+                                <strong>
+                                    Python Developer Intern
+                                </strong>
+
+                                <div class="resume-company">
+                                    ABC Technologies
+                                </div>
+
+                            </div>
+
+                            <span class="resume-date">
+                                3 Months
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Developed Python applications
+                            and worked with basic AI concepts.
+                        </p>
+
+                        <a class="resume-link"
+                           href="#"
+                           target="_blank">
+                            Verify Internship ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECTS -->
+
+            <div class="resume-section">
+
+                <h2>PROJECTS</h2>
+
+                <div id="previewProjects">
+
+                    <div class="resume-item">
+
+                        <div class="resume-item-top">
+
+                            <strong>
+                                Resume Builder
+                            </strong>
+
+                        </div>
+
+                        <div class="resume-company">
+                            HTML • CSS • JavaScript
+                        </div>
+
+                        <p>
+                            A responsive resume builder
+                            that allows users to create
+                            professional resumes with
+                            live preview.
+                        </p>
+
+                        <a class="resume-link"
+                           href="#"
+                           target="_blank">
+                            View Project ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CERTIFICATES -->
+
+            <div class="resume-section">
+
+                <h2>CERTIFICATIONS</h2>
+
+                <div id="previewCertificates">
+
+                    <div class="resume-item">
+
+                        <div class="resume-item-top">
+
+                            <div>
+
+                                <strong>
+                                    Python Basics
+                                </strong>
+
+                                <div class="resume-company">
+                                    IBM
+                                </div>
+
+                            </div>
+
+                            <span class="resume-date">
+                                2026
+                            </span>
+
+                        </div>
+
+                        <a class="resume-link"
+                           href="#"
+                           target="_blank">
+                            Verify Certificate ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <div class="resume-section">
+
+                <h2>ACHIEVEMENTS</h2>
+
+                <div id="previewAchievements">
+
+                    <ul class="achievement-list">
+
+                        <li>
+                            Academic Excellence Award
+                        </li>
+
+                        <li>
+                            Hackathon Finalist
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SKILLS -->
+
+            <div class="resume-section">
+
+                <h2>SKILLS</h2>
+
+                <div id="previewSkills"
+                     class="skills-container">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Python</span>
+                    <span>SQL</span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

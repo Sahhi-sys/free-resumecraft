@@ -1,0 +1,724 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #d7dbe3;
+    color: #202124;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 68px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    border-bottom: 1px solid #d8dbe2;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #635bff;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.clear-btn,
+.download-btn {
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 16px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.clear-btn {
+    background: #eef0f4;
+    color: #444;
+}
+
+.download-btn {
+    background: #635bff;
+    color: white;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+===================================================== */
+
+.app-container {
+    display: grid;
+
+    grid-template-columns: 560px 1fr;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    min-height: calc(100vh - 68px);
+}
+
+
+/* =====================================================
+   EDITOR
+===================================================== */
+
+.editor {
+    background: #a4bcca;
+
+    padding: 30px;
+
+    border-right: 2px solid #cbd0dc;
+}
+
+.editor-heading {
+    margin-bottom: 25px;
+}
+
+.editor-heading h1 {
+    font-size: 28px;
+    line-height: 1.2;
+
+    margin-bottom: 6px;
+}
+
+.editor-heading p {
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #626979;
+}
+
+
+/* =====================================================
+   EDITOR CARD
+===================================================== */
+
+.editor-card {
+    background: #ffffff;
+
+    border: 1px solid #d6dae3;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,.06);
+}
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.section-title h2 {
+    font-size: 16px;
+    line-height: 1.3;
+
+    margin-bottom: 4px;
+}
+
+.section-title p {
+    font-size: 11px;
+    line-height: 1.4;
+
+    color: #818692;
+}
+
+
+/* =====================================================
+   ADD BUTTON
+===================================================== */
+
+.add-btn {
+    border: none;
+
+    background: #eeedff;
+    color: #574fd4;
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid,
+.dynamic-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 13px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 12px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+
+    color: #454851;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid #dfe2e8;
+
+    background: #fafbfc;
+
+    outline: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #635bff;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(99,91,255,.08);
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+
+/* =====================================================
+   DYNAMIC ITEMS
+===================================================== */
+
+.dynamic-item {
+    background: #fafbfc;
+
+    border: 1px solid #e0e3e8;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+}
+
+.dynamic-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 13px;
+}
+
+.dynamic-header strong {
+    font-size: 13px;
+}
+
+.remove-btn {
+    border: none;
+
+    background: #fff0f0;
+    color: #d44b4b;
+
+    padding: 6px 9px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   PREVIEW AREA
+===================================================== */
+
+.preview-area {
+    background: mildpink;
+
+    padding: 30px;
+
+    overflow: auto;
+}
+
+.preview-toolbar {
+    max-width: 794px;
+
+    margin: 0 auto 18px;
+}
+
+.preview-toolbar h2 {
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.preview-toolbar p {
+    font-size: 12px;
+    line-height: 1.4;
+
+    color: #565c67;
+
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   RESUME PAPER
+===================================================== */
+
+.resume {
+    width: 794px;
+    min-height: 1123px;
+
+    background: #ffffff;
+
+    margin: auto;
+
+    padding: 55px 60px;
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.20);
+
+    color: #222;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   RESUME HEADER
+===================================================== */
+
+.resume-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-bottom: 2px solid #222;
+
+    padding-bottom: 16px;
+
+    margin-bottom: 20px;
+}
+
+.resume-name-area {
+    flex: 1;
+}
+
+.resume-name-area h1 {
+    font-size: 27px;
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.resume-name-area h3 {
+    font-size: 13px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    color: #555;
+}
+
+.resume-contact {
+    text-align: right;
+
+    font-size: 10px;
+    line-height: 1.55;
+
+    color: #555;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    gap: 0px;
+
+    margin-top: 2px;
+}
+
+.social-links a {
+    font-size: 10px;
+    line-height: 1.4;
+
+    color: #5148d8;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   RESUME SECTIONS
+===================================================== */
+
+.resume-section {
+    margin-bottom: 19px;
+}
+
+.resume-section h2 {
+    font-size: 11px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #222;
+
+    border-bottom: 1px solid #d5d5d5;
+
+    padding-bottom: 5px;
+
+    margin: 0 0 10px;
+}
+
+.resume-section p {
+    font-size: 10.5px;
+    line-height: 1.55;
+
+    color: #444;
+
+    margin: 4px 0 0;
+}
+
+
+/* =====================================================
+   RESUME ITEMS
+===================================================== */
+
+.resume-item {
+    margin-bottom: 12px;
+}
+
+.resume-item:last-child {
+    margin-bottom: 0;
+}
+
+.resume-item-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    line-height: 1.35;
+}
+
+.resume-item strong {
+    font-size: 11px;
+    line-height: 1.35;
+
+    font-weight: 700;
+}
+
+.resume-company {
+    font-size: 10px;
+    line-height: 1.4;
+
+    color: #666;
+
+    margin-top: 2px;
+}
+
+.resume-date {
+    font-size: 9.5px;
+    line-height: 1.4;
+
+    color: #777;
+
+    white-space: nowrap;
+}
+
+.resume-cgpa {
+    font-size: 9.5px;
+    line-height: 1.4;
+
+    color: #555;
+
+    margin-top: 2px;
+}
+
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+.resume-link {
+    display: inline-block;
+
+    font-size: 9px;
+    line-height: 1.4;
+
+    color: #5148d8;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    margin-top: 3px;
+}
+
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+.achievement-list {
+    margin: 0;
+    padding-left: 16px;
+}
+
+.achievement-list li {
+    font-size: 10.5px;
+    line-height: 1.55;
+
+    color: #444;
+
+    margin-bottom: 3px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding-left: 16px;
+}
+
+.skills-container span {
+    position: relative;
+
+    font-size: 10.5px;
+    line-height: 1.5;
+
+    color: #444;
+}
+
+.skills-container span::before {
+    content: "•";
+
+    position: absolute;
+
+    left: -14px;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+
+    .editor {
+        border-right: none;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .clear-btn {
+        display: none;
+    }
+
+    .download-btn {
+        padding: 9px 11px;
+    }
+
+    .editor {
+        padding: 15px;
+    }
+
+    .editor-heading h1 {
+        font-size: 23px;
+    }
+
+    .editor-card {
+        padding: 15px;
+    }
+
+    .form-grid,
+    .dynamic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .section-title {
+        flex-direction: column;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .preview-area {
+        padding: 10px;
+    }
+
+    .resume {
+        width: 794px;
+
+        padding: 55px 60px;
+    }
+}
+
+
+/* =====================================================
+   PRINT / PDF
+===================================================== */
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: #ffffff;
+    }
+
+    .navbar,
+    .editor,
+    .preview-toolbar {
+        display: none !important;
+    }
+
+    .app-container {
+        display: block;
+    }
+
+    .preview-area {
+        padding: 0;
+
+        background: #ffffff;
+    }
+
+    .resume {
+        width: 210mm;
+        min-height: 297mm;
+
+        margin: 0;
+
+        padding: 18mm 16mm;
+
+        box-shadow: none;
+    }
+}
