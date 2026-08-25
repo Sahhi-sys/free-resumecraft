@@ -5794,3 +5794,571 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
 }
+/* =========================================================
+   MOBILE RESPONSIVE — PHONE VIEW
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        min-width: 0;
+    }
+
+
+    /* ---------- LANDING PAGE ---------- */
+
+    .landing-page {
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .landing-nav {
+        padding: 18px 20px;
+        width: 100%;
+    }
+
+    .brand-logo {
+        width: 115px;
+        height: auto;
+    }
+
+    .nav-start-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .landing-content {
+        width: 100%;
+        padding: 35px 20px 45px;
+        text-align: center;
+    }
+
+    .hero-resume {
+        width: min(270px, 85vw);
+        margin: 0 auto 35px;
+        transform: none;
+    }
+
+    .landing-badge {
+        font-size: 10px;
+        padding: 7px 12px;
+    }
+
+    .landing-content h1 {
+        font-size: clamp(32px, 9vw, 46px);
+        line-height: 1.05;
+        margin-top: 18px;
+    }
+
+    .landing-content h1 span {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .landing-description {
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 340px;
+        margin: 18px auto 25px;
+    }
+
+    .hero-button {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+
+    .landing-features {
+        width: 100%;
+        gap: 8px;
+        margin-top: 35px;
+    }
+
+    .landing-step {
+        font-size: 11px;
+    }
+
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .step-connector {
+        font-size: 14px;
+    }
+
+
+    /* ---------- BUILDER NAVBAR ---------- */
+
+    .builder-page {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        width: 100%;
+        min-height: 65px;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .navbar-logo {
+        width: 105px;
+        height: auto;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .clear-btn,
+    .share-btn,
+    .download-btn {
+        padding: 8px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .clear-btn {
+        display: none;
+    }
+
+    .share-btn {
+        font-size: 0;
+    }
+
+    .share-btn::before {
+        content: "📤";
+        font-size: 15px;
+    }
+
+    .download-btn {
+        font-size: 0;
+    }
+
+    .download-btn::before {
+        content: "⬇";
+        font-size: 15px;
+    }
+
+
+    /* ---------- MAIN CONTAINER ---------- */
+
+    .app-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 18px 12px 40px;
+        overflow: visible;
+    }
+
+
+    /* ---------- EDITOR ---------- */
+
+    .editor {
+        width: 100%;
+        min-width: 0;
+        order: 1;
+    }
+
+    .editor-heading {
+        padding: 8px 4px 18px;
+    }
+
+    .editor-heading h1 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .editor-heading p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* ---------- EDITOR CARDS ---------- */
+
+    .editor-card {
+        width: 100%;
+        padding: 18px 15px;
+        margin-bottom: 14px;
+        border-radius: 14px;
+    }
+
+    .section-title {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .section-title h2 {
+        font-size: 17px;
+    }
+
+    .section-title p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .add-btn {
+        padding: 7px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+
+    /* ---------- FORM GRID ---------- */
+
+    .form-grid,
+    .dynamic-grid {
+        grid-template-columns: 1fr !important;
+        gap: 13px;
+    }
+
+    .form-group,
+    .form-group.full {
+        width: 100%;
+        grid-column: auto !important;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .editor-card textarea,
+    .custom-page-box input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .form-group input {
+        min-height: 44px;
+    }
+
+    .form-group textarea,
+    .editor-card textarea {
+        min-height: 110px;
+    }
+
+
+    /* ---------- DYNAMIC ITEMS ---------- */
+
+    .dynamic-item {
+        width: 100%;
+        padding: 14px;
+        overflow: hidden;
+    }
+
+    .dynamic-header {
+        gap: 8px;
+    }
+
+    .dynamic-header strong {
+        font-size: 13px;
+    }
+
+    .remove-btn {
+        font-size: 10px;
+        padding: 6px 9px;
+    }
+
+
+    /* ---------- PHOTO UPLOAD ---------- */
+
+    .photo-upload-group {
+        width: 100%;
+    }
+
+    .photo-upload-group input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+        font-size: 12px;
+    }
+
+
+    /* ---------- PREVIEW ---------- */
+
+    .preview-area {
+        width: 100%;
+        min-width: 0;
+        order: 2;
+        overflow: visible;
+    }
+
+    .preview-toolbar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-bottom: 15px;
+    }
+
+    .preview-toolbar h2 {
+        font-size: 20px;
+    }
+
+    .preview-toolbar p {
+        font-size: 11px;
+    }
+
+
+    /* ---------- TEMPLATE BUTTONS ---------- */
+
+    .template-switcher {
+        width: 100%;
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 3px 1px 8px;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .template-switcher::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .template-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       RESUME PREVIEW — PHONE
+       Keep A4 proportion but make it visible
+       ===================================================== */
+
+    #resume {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 0 auto;
+        transform: none !important;
+
+        overflow: visible !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* ---------- RESUME HEADER ---------- */
+
+    .resume-header {
+        width: 100%;
+        min-width: 0;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .resume-name-area {
+        min-width: 0;
+        flex: 1 1 55%;
+    }
+
+    .resume-contact {
+        min-width: 0;
+        flex: 1 1 35%;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    #previewName {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    #previewJob {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- RESUME CONTENT ---------- */
+
+    .resume-section {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .resume-section h2 {
+        font-size: 12px;
+    }
+
+    .resume-section p,
+    .resume-item,
+    .resume-company,
+    .resume-cgpa,
+    .resume-date,
+    .resume-link {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .resume-item-top {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .resume-date {
+        white-space: normal;
+    }
+
+
+    /* ---------- SKILLS ---------- */
+
+    .skills-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+
+    /* ---------- LANGUAGES ---------- */
+
+    .languages-container {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       PHOTO FOCUS — MOBILE
+       ===================================================== */
+
+    .template-photo-split .resume-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .template-photo-split .resume-photo {
+        margin: 0 auto 12px;
+    }
+
+    .template-photo-split .resume-name-area {
+        width: 100%;
+        text-align: center;
+    }
+
+    .template-photo-split .resume-contact {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* ---------- MODALS ---------- */
+
+    .share-modal,
+    .download-modal,
+    .pdf-modal {
+        padding: 12px;
+    }
+
+    .share-box,
+    .download-box,
+    .pdf-modal-box {
+        width: 100%;
+        max-width: 420px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 16px;
+    }
+
+    .share-option {
+        width: 100%;
+    }
+
+    .pdf-settings {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pdf-preview-wrapper {
+        min-height: 300px;
+    }
+
+    .pdf-preview-frame {
+        width: 100%;
+    }
+
+
+    /* ---------- AI BUTTON ---------- */
+
+    .ai-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .navbar-logo {
+        width: 95px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .share-btn,
+    .download-btn {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .app-container {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .editor-card {
+        padding: 15px 12px;
+    }
+
+    .section-title h2 {
+        font-size: 16px;
+    }
+
+    .add-btn {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .template-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    #resume {
+        font-size: 9px;
+    }
+
+}
