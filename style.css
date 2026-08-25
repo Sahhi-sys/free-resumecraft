@@ -4266,2099 +4266,2274 @@ body {
     font-weight: 800;
 }
 
-.template-executive .resume-name-area h3 {
-    font-weight: 700;
-}
-
-.template-executive .resume-section > h2 {
-    font-weight: 900;
-}
-
-
-/* SPLIT */
-.template-split {
-    font-family: "Segoe UI", Arial, sans-serif;
-}
-
-.template-split .resume-name-area h1 {
-    font-size: 38px;
-    font-weight: 800;
-}
-
-.template-split .resume-section > h2 {
-    font-weight: 800;
-}
-
-
-/* PHOTO */
-.template-photo-split {
-    font-family: "Segoe UI", Arial, sans-serif;
-}
-
-.template-photo-split .resume-name-area h1 {
-    font-size: 38px;
-    font-weight: 800;
-}
-
-.template-photo-split .resume-section > h2 {
-    font-weight: 800;
-}
-
-
-/* EDITORIAL */
-.template-editorial {
-    font-family: Georgia, "Times New Roman", serif;
-}
-
-.template-editorial .resume-name-area h1 {
-    font-size: 43px;
-    font-weight: 700;
-    color: #181818;
-}
-
-.template-editorial .resume-section > h2 {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-weight: 800;
-}
-
-
-/* =====================================================
-   FORCE DARK TEXT — NO WASHED OUT LOOK
-===================================================== */
-
-.resume strong {
-    color: #1c1c1c;
-}
-
-.resume b {
-    color: #1c1c1c;
-}
-
-.resume p {
-    color: #333;
-}
-
-.resume-item,
-.resume-company,
-.resume-cgpa,
-.language-item {
-    color: #333;
-}
-/* =====================================================
-   RESUME — THICK & CRISP TYPOGRAPHY
-===================================================== */
-
-.resume {
-    font-family: "Arial", "Helvetica", sans-serif;
-    font-weight: 500;
-    color: #1f1f1f;
-}
-
-/* Main Name */
-.resume-name-area h1,
-#previewName {
-    font-family: "Arial", "Helvetica", sans-serif;
-    font-size: 40px;
-    font-weight: 800;
-    color: #111111;
-    letter-spacing: -0.6px;
-}
-
-/* Job Title */
-.resume-name-area h3,
-#previewJob {
-    font-size: 17px;
-    font-weight: 700;
-    color: #252525;
-}
-
-/* Contact */
-.resume-contact {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #303030;
-}
-
-.social-links a {
-    font-weight: 700;
-    color: #333333;
-}
-
-/* Section Titles */
-.resume-section > h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    color: #171717;
-    letter-spacing: 1.5px;
-}
-
-/* Body */
-.resume-section p {
-    font-size: 12.5px;
-    font-weight: 500;
-    color: #292929;
-    line-height: 1.38;
-}
-
-/* Experience / Education titles */
-.resume-item strong {
-    font-size: 13.5px;
-    font-weight: 750;
-    color: #151515;
-}
-
-/* Company / College */
-.resume-company {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #353535;
-}
-
-/* Dates */
-.resume-date {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #292929;
-}
-
-/* CGPA */
-.resume-cgpa {
-    font-size: 10.5px;
-    font-weight: 600;
-    color: #353535;
-}
-
-/* Links */
-.resume-link {
-    font-size: 10.5px;
-    font-weight: 700;
-}
-
-/* Skills */
-.skills-container span {
-    font-size: 10.5px;
-    font-weight: 700;
-}
-
-/* Languages */
-.language-item {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #292929;
-}
-
-.language-item strong {
-    font-weight: 800;
-    color: #151515;
-}
-
-
-/* =====================================================
-   TEMPLATE OVERRIDES
-===================================================== */
-
-.template-modern .resume-name-area h1,
-.template-minimal .resume-name-area h1,
-.template-executive .resume-name-area h1,
-.template-split .resume-name-area h1,
-.template-photo-split .resume-name-area h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    color: #111;
-}
-
-.template-modern .resume-section > h2,
-.template-minimal .resume-section > h2,
-.template-executive .resume-section > h2,
-.template-split .resume-section > h2,
-.template-photo-split .resume-section > h2 {
-    font-weight: 800;
-    color: #171717;
-}
-
-/* Elegant */
-.template-elegant .resume-name-area h1 {
-    font-weight: 700;
-    color: #171717;
-}
-
-.template-elegant .resume-section > h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-}
-
-/* Editorial */
-.template-editorial .resume-name-area h1 {
-    font-weight: 700;
-    color: #111;
-}
-
-.template-editorial .resume-section > h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-}
-
-
-/* =====================================================
-   EXTRA DARK — PREVENT LIGHT/WASHED TEXT
-===================================================== */
-
-.resume h1,
-.resume h2,
-.resume h3,
-.resume strong,
-.resume b {
-    color: #151515;
-}
-
-.resume p,
-.resume-item,
-.resume-company,
-.resume-cgpa,
-.language-item {
-    color: #292929;
-}
-/* =====================================================
-   PHOTO UPLOAD
-===================================================== */
-
-.photo-upload-group {
-    display: none;
-}
-
-.photo-upload-group input[type="file"] {
-    height: auto;
-    padding: 9px 12px;
-    cursor: pointer;
-}
-
-.photo-upload-group input[type="file"]::file-selector-button {
-    border: 1px solid #b58a3b;
-    background: #3a3025;
-    color: #f0ca70;
-    padding: 7px 12px;
-    border-radius: 7px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.photo-upload-group input[type="file"]::file-selector-button:hover {
-    background: #d6a84f;
-    color: #241b12;
-    box-shadow: 0 0 15px rgba(214, 168, 79, 0.45);
-}
-
-.photo-help {
-    display: block;
-    margin-top: 6px;
-    color: #a99a87;
-    font-size: 11px;
-}
-/* =====================================================
-   PHOTO UPLOAD — BROWSE BUTTON FIX
-===================================================== */
-
-.photo-upload-group {
-    display: block;
-}
-
-.photo-upload-group input[type="file"] {
-    display: block !important;
-
-    width: 100% !important;
-    height: auto !important;
-
-    padding: 10px !important;
-
-    background: #292119 !important;
-
-    color: #f5ead5 !important;
-
-    border: 1px solid rgba(214, 168, 79, 0.35) !important;
-
-    border-radius: 9px !important;
-
-    cursor: pointer !important;
-}
-
-.photo-upload-group input[type="file"]::file-selector-button {
-    display: inline-block !important;
-
-    padding: 8px 15px !important;
-
-    margin-right: 10px !important;
-
-    border: 1px solid #d6a84f !important;
-
-    border-radius: 7px !important;
-
-    background: #d6a84f !important;
-
-    color: #241b12 !important;
-
-    font-weight: 700 !important;
-
-    cursor: pointer !important;
-}
-
-.photo-upload-group input[type="file"]::file-selector-button:hover {
-    background: #f0ca70 !important;
-
-    box-shadow:
-        0 0 15px rgba(214, 168, 79, 0.55) !important;
-}
-
-.photo-help {
-    display: block !important;
-
-    margin-top: 6px !important;
-
-    color: #a99a87 !important;
-
-    font-size: 11px !important;
-}
-/* =====================================================
-   PHOTO — PHOTO FOCUS ONLY
-===================================================== */
-
-/* All templates: hide photo */
-.resume .resume-photo {
-    display: none !important;
-}
-
-/* Photo Focus: show photo */
-.template-photo-split .resume-photo {
-    display: block !important;
-
-    position: absolute !important;
-    left: 42px !important;
-    top: 45px !important;
-
-    width: 92px !important;
-    height: 92px !important;
-
-    margin: 0 !important;
-
-    border-radius: 50% !important;
-    overflow: hidden !important;
-
-    border: 3px solid #d6a84f !important;
-
-    z-index: 20 !important;
-}
-
-.template-photo-split .resume-photo img {
-    display: block !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-
-    border-radius: 50% !important;
-}
-
-
-/* =====================================================
-   SPLIT PROFESSIONAL — LEFT SIDE CHANGE ONLY
-===================================================== */
-
-.template-split {
-    position: relative !important;
-
-    padding-left: 215px !important;
-}
-
-/* Left sidebar */
-.template-split::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 185px !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            #3a3025 0%,
-            #292119 100%
-        ) !important;
-}
-
-/* Split content stays clean */
-.template-split .resume-header {
-    display: block;
-}
-
-.template-split .resume-contact {
-    text-align: left;
-
-    max-width: none;
-
-    margin-top: 12px;
-}
-
-.template-split .social-links {
-    justify-content: flex-start;
-}
-/* =====================================================
-   SPLIT PROFESSIONAL — PHOTO ABOVE CONTACT
-===================================================== */
-
-.template-split .resume-photo {
-    display: block !important;
-
-    position: absolute !important;
-
-    left: 45px !important;
-    top: 45px !important;
-
-    width: 95px !important;
-    height: 95px !important;
-
-    margin: 0 !important;
-
-    border-radius: 50% !important;
-    overflow: hidden !important;
-
-    border: 3px solid #d6a84f !important;
-
-    z-index: 20 !important;
-}
-
-.template-split .resume-photo img {
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-
-    border-radius: 50% !important;
-}
-
-/* Contact below photo */
-.template-split .resume-contact {
-    position: absolute !important;
-
-    left: 28px !important;
-    top: 165px !important;
-
-    width: 130px !important;
-
-    margin: 0 !important;
-
-    text-align: left !important;
-
-    color: #d9ccb8 !important;
-
-    font-size: 10px !important;
-
-    line-height: 1.7 !important;
-
-    z-index: 15 !important;
-}
-
-.template-split .social-links {
-    justify-content: flex-start !important;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    gap: 3px !important;
-
-    margin-top: 7px !important;
-}
-
-.template-split .social-links a {
-    color: #d6a84f !important;
-
-    font-size: 9px !important;
-
-    overflow-wrap: anywhere !important;
-}
-/* =====================================================
-   SPLIT PROFESSIONAL — FINAL LEFT SIDEBAR FIX
-===================================================== */
-
-.template-split {
-    position: relative !important;
-    padding-left: 215px !important;
-}
-
-/* LEFT SIDEBAR */
-.template-split::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 185px;
-
-    background: #30271f;
-
-    z-index: 0;
-}
-
-/* Keep resume content above sidebar */
-.template-split > * {
-    position: relative;
-    z-index: 2;
-}
-
-/* PHOTO — SQUARE */
-.template-split .resume-photo {
-    display: block !important;
-
-    position: absolute !important;
-
-    left: 43px !important;
-    top: 45px !important;
-
-    width: 100px !important;
-    height: 100px !important;
-
-    margin: 0 !important;
-
-    border-radius: 0 !important;
-
-    border: 4px solid #111 !important;
-
-    background: #fff !important;
-
-    overflow: hidden !important;
-
-    z-index: 10 !important;
-}
-
-.template-split .resume-photo img {
-    display: block !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-
-    border-radius: 0 !important;
-}
-
-/* CONTACT — BELOW PHOTO */
-.template-split .resume-contact {
-    position: absolute !important;
-
-    left: 28px !important;
-    top: 170px !important;
-
-    width: 130px !important;
-
-    margin: 0 !important;
-
-    text-align: left !important;
-
-    color: #e2d6c3 !important;
-
-    font-size: 10px !important;
-
-    line-height: 1.7 !important;
-
-    z-index: 10 !important;
-}
-
-/* SOCIAL LINKS */
-.template-split .social-links {
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: flex-start !important;
-
-    justify-content: flex-start !important;
-
-    gap: 4px !important;
-
-    margin-top: 8px !important;
-}
-
-.template-split .social-links a {
-    color: #d6a84f !important;
-
-    font-size: 9px !important;
-
-    overflow-wrap: anywhere !important;
-}
-
-/* NAME / MAIN CONTENT — NEVER OVERLAP LEFT SIDE */
-.template-split .resume-name-area {
-    position: relative !important;
-
-    z-index: 5 !important;
-
-    min-width: 0 !important;
-}
-
-.template-split .resume-header {
-    position: relative !important;
-
-    display: block !important;
-
-    margin-left: 0 !important;
-
-    padding-left: 0 !important;
-
-    min-height: 125px !important;
-}
+.template-executive .resume-name-area h3 { 
+    font-weight: 700; 
+} 
+ 
+.template-executive .resume-section > h2 { 
+    font-weight: 900; 
+} 
+ 
+ 
+/* SPLIT */ 
+.template-split { 
+    font-family: "Segoe UI", Arial, sans-serif; 
+} 
+ 
+.template-split .resume-name-area h1 { 
+    font-size: 38px; 
+    font-weight: 800; 
+} 
+ 
+.template-split .resume-section > h2 { 
+    font-weight: 800; 
+} 
+ 
+ 
+/* PHOTO */ 
+.template-photo-split { 
+    font-family: "Segoe UI", Arial, sans-serif; 
+} 
+ 
+.template-photo-split .resume-name-area h1 { 
+    font-size: 38px; 
+    font-weight: 800; 
+} 
+ 
+.template-photo-split .resume-section > h2 { 
+    font-weight: 800; 
+} 
+ 
+ 
+/* EDITORIAL */ 
+.template-editorial { 
+    font-family: Georgia, "Times New Roman", serif; 
+} 
+ 
+.template-editorial .resume-name-area h1 { 
+    font-size: 43px; 
+    font-weight: 700; 
+    color: #181818; 
+} 
+ 
+.template-editorial .resume-section > h2 { 
+    font-family: "Segoe UI", Arial, sans-serif; 
+    font-weight: 800; 
+} 
+ 
+ 
+/* ===================================================== 
+   FORCE DARK TEXT — NO WASHED OUT LOOK 
+===================================================== */ 
+ 
+.resume strong { 
+    color: #1c1c1c; 
+} 
+ 
+.resume b { 
+    color: #1c1c1c; 
+} 
+ 
+.resume p { 
+    color: #333; 
+} 
+ 
+.resume-item, 
+.resume-company, 
+.resume-cgpa, 
+.language-item { 
+    color: #333; 
+} 
+/* ===================================================== 
+   RESUME — THICK & CRISP TYPOGRAPHY 
+===================================================== */ 
+ 
+.resume { 
+    font-family: "Arial", "Helvetica", sans-serif; 
+    font-weight: 500; 
+    color: #1f1f1f; 
+} 
+ 
+/* Main Name */ 
+.resume-name-area h1, 
+#previewName { 
+    font-family: "Arial", "Helvetica", sans-serif; 
+    font-size: 40px; 
+    font-weight: 800; 
+    color: #111111; 
+    letter-spacing: -0.6px; 
+} 
+ 
+/* Job Title */ 
+.resume-name-area h3, 
+#previewJob { 
+    font-size: 17px; 
+    font-weight: 700; 
+    color: #252525; 
+} 
+ 
+/* Contact */ 
+.resume-contact { 
+    font-size: 11.5px; 
+    font-weight: 600; 
+    color: #303030; 
+} 
+ 
+.social-links a { 
+    font-weight: 700; 
+    color: #333333; 
+} 
+ 
+/* Section Titles */ 
+.resume-section > h2 { 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 13px; 
+    font-weight: 800; 
+    color: #171717; 
+    letter-spacing: 1.5px; 
+} 
+ 
+/* Body */ 
+.resume-section p { 
+    font-size: 12.5px; 
+    font-weight: 500; 
+    color: #292929; 
+    line-height: 1.38; 
+} 
+ 
+/* Experience / Education titles */ 
+.resume-item strong { 
+    font-size: 13.5px; 
+    font-weight: 750; 
+    color: #151515; 
+} 
+ 
+/* Company / College */ 
+.resume-company { 
+    font-size: 11.5px; 
+    font-weight: 600; 
+    color: #353535; 
+} 
+ 
+/* Dates */ 
+.resume-date { 
+    font-size: 10.5px; 
+    font-weight: 700; 
+    color: #292929; 
+} 
+ 
+/* CGPA */ 
+.resume-cgpa { 
+    font-size: 10.5px; 
+    font-weight: 600; 
+    color: #353535; 
+} 
+ 
+/* Links */ 
+.resume-link { 
+    font-size: 10.5px; 
+    font-weight: 700; 
+} 
+ 
+/* Skills */ 
+.skills-container span { 
+    font-size: 10.5px; 
+    font-weight: 700; 
+} 
+ 
+/* Languages */ 
+.language-item { 
+    font-size: 11.5px; 
+    font-weight: 600; 
+    color: #292929; 
+} 
+ 
+.language-item strong { 
+    font-weight: 800; 
+    color: #151515; 
+} 
+ 
+ 
+/* ===================================================== 
+   TEMPLATE OVERRIDES 
+===================================================== */ 
+ 
+.template-modern .resume-name-area h1, 
+.template-minimal .resume-name-area h1, 
+.template-executive .resume-name-area h1, 
+.template-split .resume-name-area h1, 
+.template-photo-split .resume-name-area h1 { 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: 800; 
+    color: #111; 
+} 
+ 
+.template-modern .resume-section > h2, 
+.template-minimal .resume-section > h2, 
+.template-executive .resume-section > h2, 
+.template-split .resume-section > h2, 
+.template-photo-split .resume-section > h2 { 
+    font-weight: 800; 
+    color: #171717; 
+} 
+ 
+/* Elegant */ 
+.template-elegant .resume-name-area h1 { 
+    font-weight: 700; 
+    color: #171717; 
+} 
+ 
+.template-elegant .resume-section > h2 { 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: 800; 
+} 
+ 
+/* Editorial */ 
+.template-editorial .resume-name-area h1 { 
+    font-weight: 700; 
+    color: #111; 
+} 
+ 
+.template-editorial .resume-section > h2 { 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: 800; 
+} 
+ 
+ 
+/* ===================================================== 
+   EXTRA DARK — PREVENT LIGHT/WASHED TEXT 
+===================================================== */ 
+ 
+.resume h1, 
+.resume h2, 
+.resume h3, 
+.resume strong, 
+.resume b { 
+    color: #151515; 
+} 
+ 
+.resume p, 
+.resume-item, 
+.resume-company, 
+.resume-cgpa, 
+.language-item { 
+    color: #292929; 
+} 
+/* ===================================================== 
+   PHOTO UPLOAD 
+===================================================== */ 
+ 
+.photo-upload-group { 
+    display: none; 
+} 
+ 
+.photo-upload-group input[type="file"] { 
+    height: auto; 
+    padding: 9px 12px; 
+    cursor: pointer; 
+} 
+ 
+.photo-upload-group input[type="file"]::file-selector-button { 
+    border: 1px solid #b58a3b; 
+    background: #3a3025; 
+    color: #f0ca70; 
+    padding: 7px 12px; 
+    border-radius: 7px; 
+    margin-right: 10px; 
+    cursor: pointer; 
+    font-weight: 700; 
+} 
+ 
+.photo-upload-group input[type="file"]::file-selector-button:hover { 
+    background: #d6a84f; 
+    color: #241b12; 
+    box-shadow: 0 0 15px rgba(214, 168, 79, 0.45); 
+} 
+ 
+.photo-help { 
+    display: block; 
+    margin-top: 6px; 
+    color: #a99a87; 
+    font-size: 11px; 
+} 
+/* ===================================================== 
+   PHOTO UPLOAD — BROWSE BUTTON FIX 
+===================================================== */ 
+ 
+.photo-upload-group { 
+    display: block; 
+} 
+ 
+.photo-upload-group input[type="file"] { 
+    display: block !important; 
+ 
+    width: 100% !important; 
+    height: auto !important; 
+ 
+    padding: 10px !important; 
+ 
+    background: #292119 !important; 
+ 
+    color: #f5ead5 !important; 
+ 
+    border: 1px solid rgba(214, 168, 79, 0.35) !important; 
+ 
+    border-radius: 9px !important; 
+ 
+    cursor: pointer !important; 
+} 
+ 
+.photo-upload-group input[type="file"]::file-selector-button { 
+    display: inline-block !important; 
+ 
+    padding: 8px 15px !important; 
+ 
+    margin-right: 10px !important; 
+ 
+    border: 1px solid #d6a84f !important; 
+ 
+    border-radius: 7px !important; 
+ 
+    background: #d6a84f !important; 
+ 
+    color: #241b12 !important; 
+ 
+    font-weight: 700 !important; 
+ 
+    cursor: pointer !important; 
+} 
+ 
+.photo-upload-group input[type="file"]::file-selector-button:hover { 
+    background: #f0ca70 !important; 
+ 
+    box-shadow: 
+        0 0 15px rgba(214, 168, 79, 0.55) !important; 
+} 
+ 
+.photo-help { 
+    display: block !important; 
+ 
+    margin-top: 6px !important; 
+ 
+    color: #a99a87 !important; 
+ 
+    font-size: 11px !important; 
+} 
+/* ===================================================== 
+   PHOTO — PHOTO FOCUS ONLY 
+===================================================== */ 
+ 
+/* All templates: hide photo */ 
+.resume .resume-photo { 
+    display: none !important; 
+} 
+ 
+/* Photo Focus: show photo */ 
+.template-photo-split .resume-photo { 
+    display: block !important; 
+ 
+    position: absolute !important; 
+    left: 42px !important; 
+    top: 45px !important; 
+ 
+    width: 92px !important; 
+    height: 92px !important; 
+ 
+    margin: 0 !important; 
+ 
+    border-radius: 50% !important; 
+    overflow: hidden !important; 
+ 
+    border: 3px solid #d6a84f !important; 
+ 
+    z-index: 20 !important; 
+} 
+ 
+.template-photo-split .resume-photo img { 
+    display: block !important; 
+ 
+    width: 100% !important; 
+    height: 100% !important; 
+ 
+    object-fit: cover !important; 
+ 
+    border-radius: 50% !important; 
+} 
+ 
+ 
+/* ===================================================== 
+   SPLIT PROFESSIONAL — LEFT SIDE CHANGE ONLY 
+===================================================== */ 
+ 
+.template-split { 
+    position: relative !important; 
+ 
+    padding-left: 215px !important; 
+} 
+ 
+/* Left sidebar */ 
+.template-split::before { 
+    content: ""; 
+ 
+    position: absolute; 
+ 
+    left: 0; 
+    top: 0; 
+    bottom: 0; 
+ 
+    width: 185px !important; 
+ 
+    background: 
+        linear-gradient( 
+            180deg, 
+            #3a3025 0%, 
+            #292119 100% 
+        ) !important; 
+} 
+ 
+/* Split content stays clean */ 
+.template-split .resume-header { 
+    display: block; 
+} 
+ 
+.template-split .resume-contact { 
+    text-align: left; 
+ 
+    max-width: none; 
+ 
+    margin-top: 12px; 
+} 
+ 
+.template-split .social-links { 
+    justify-content: flex-start; 
+} 
+/* ===================================================== 
+   SPLIT PROFESSIONAL — PHOTO ABOVE CONTACT 
+===================================================== */ 
+ 
+.template-split .resume-photo { 
+    display: block !important; 
+ 
+    position: absolute !important; 
+ 
+    left: 45px !important; 
+    top: 45px !important; 
+ 
+    width: 95px !important; 
+    height: 95px !important; 
+ 
+    margin: 0 !important; 
+ 
+    border-radius: 50% !important; 
+    overflow: hidden !important; 
+ 
+    border: 3px solid #d6a84f !important; 
+ 
+    z-index: 20 !important; 
+} 
+ 
+.template-split .resume-photo img { 
+    width: 100% !important; 
+    height: 100% !important; 
+ 
+    object-fit: cover !important; 
+ 
+    border-radius: 50% !important; 
+} 
+ 
+/* Contact below photo */ 
+.template-split .resume-contact { 
+    position: absolute !important; 
+ 
+    left: 28px !important; 
+    top: 165px !important; 
+ 
+    width: 130px !important; 
+ 
+    margin: 0 !important; 
+ 
+    text-align: left !important; 
+ 
+    color: #d9ccb8 !important; 
+ 
+    font-size: 10px !important; 
+ 
+    line-height: 1.7 !important; 
+ 
+    z-index: 15 !important; 
+} 
+ 
+.template-split .social-links { 
+    justify-content: flex-start !important; 
+ 
+    display: flex !important; 
+ 
+    flex-direction: column !important; 
+ 
+    gap: 3px !important; 
+ 
+    margin-top: 7px !important; 
+} 
+ 
+.template-split .social-links a { 
+    color: #d6a84f !important; 
+ 
+    font-size: 9px !important; 
+ 
+    overflow-wrap: anywhere !important; 
+} 
+/* ===================================================== 
+   SPLIT PROFESSIONAL — FINAL LEFT SIDEBAR FIX 
+===================================================== */ 
+ 
+.template-split { 
+    position: relative !important; 
+    padding-left: 215px !important; 
+} 
+ 
+/* LEFT SIDEBAR */ 
+.template-split::before { 
+    content: ""; 
+ 
+    position: absolute; 
+ 
+    left: 0; 
+    top: 0; 
+    bottom: 0; 
+ 
+    width: 185px; 
+ 
+    background: #30271f; 
+ 
+    z-index: 0; 
+} 
+ 
+/* Keep resume content above sidebar */ 
+.template-split > * { 
+    position: relative; 
+    z-index: 2; 
+} 
+ 
+/* PHOTO — SQUARE */ 
+.template-split .resume-photo { 
+    display: block !important; 
+ 
+    position: absolute !important; 
+ 
+    left: 43px !important; 
+    top: 45px !important; 
+ 
+    width: 100px !important; 
+    height: 100px !important; 
+ 
+    margin: 0 !important; 
+ 
+    border-radius: 0 !important; 
+ 
+    border: 4px solid #111 !important; 
+ 
+    background: #fff !important; 
+ 
+    overflow: hidden !important; 
+ 
+    z-index: 10 !important; 
+} 
+ 
+.template-split .resume-photo img { 
+    display: block !important; 
+ 
+    width: 100% !important; 
+    height: 100% !important; 
+ 
+    object-fit: cover !important; 
+ 
+    border-radius: 0 !important; 
+} 
+ 
+/* CONTACT — BELOW PHOTO */ 
+.template-split .resume-contact { 
+    position: absolute !important; 
+ 
+    left: 28px !important; 
+    top: 170px !important; 
+ 
+    width: 130px !important; 
+ 
+    margin: 0 !important; 
+ 
+    text-align: left !important; 
+ 
+    color: #e2d6c3 !important; 
+ 
+    font-size: 10px !important; 
+ 
+    line-height: 1.7 !important; 
+ 
+    z-index: 10 !important; 
+} 
+ 
+/* SOCIAL LINKS */ 
+.template-split .social-links { 
+    display: flex !important; 
+ 
+    flex-direction: column !important; 
+ 
+    align-items: flex-start !important; 
+ 
+    justify-content: flex-start !important; 
+ 
+    gap: 4px !important; 
+ 
+    margin-top: 8px !important; 
+} 
+ 
+.template-split .social-links a { 
+    color: #d6a84f !important; 
+ 
+    font-size: 9px !important; 
+ 
+    overflow-wrap: anywhere !important; 
+} 
+ 
+/* NAME / MAIN CONTENT — NEVER OVERLAP LEFT SIDE */ 
+.template-split .resume-name-area { 
+    position: relative !important; 
+ 
+    z-index: 5 !important; 
+ 
+    min-width: 0 !important; 
+} 
+ 
+.template-split .resume-header { 
+    position: relative !important; 
+ 
+    display: block !important; 
+ 
+    margin-left: 0 !important; 
+ 
+    padding-left: 0 !important; 
+ 
+    min-height: 125px !important; 
+} 
+/* ========================================================= 
+   FINAL RESUME DESIGN FIX 
+   Split Professional + Readable Typography 
+   Certifications + Skills Bullet Layout 
+========================================================= */ 
+ 
+/* ---------- RESUME BASE ---------- */ 
+ 
+#resume { 
+    width: 794px !important; 
+    min-width: 794px !important; 
+    max-width: 794px !important; 
+    min-height: 1123px !important; 
+    height: auto !important; 
+    max-height: none !important; 
+ 
+    background: #ffffff !important; 
+    color: #202020 !important; 
+ 
+    font-family: 
+        "Segoe UI", 
+        Arial, 
+        Helvetica, 
+        sans-serif !important; 
+} 
+ 
+ 
+/* ---------- GENERAL READABLE FONT ---------- */ 
+ 
+#resume .resume-section p, 
+#resume .resume-item, 
+#resume .resume-company, 
+#resume .resume-cgpa, 
+#resume .language-item { 
+    font-size: 12px !important; 
+    line-height: 1.32 !important; 
+} 
+ 
+#resume .resume-section { 
+    margin-bottom: 15px !important; 
+} 
+ 
+#resume .resume-section > h2 { 
+    font-size: 12px !important; 
+    line-height: 1.15 !important; 
+ 
+    padding-bottom: 5px !important; 
+    margin-bottom: 8px !important; 
+ 
+    letter-spacing: 1.5px !important; 
+    font-weight: 800 !important; 
+ 
+    color: #26313a !important; 
+    border-bottom: 1px solid #cfd4d8 !important; 
+} 
+ 
+ 
+/* ---------- HEADER ---------- */ 
+ 
+#resume .resume-header { 
+    gap: 25px !important; 
+    margin-bottom: 18px !important; 
+    padding-bottom: 18px !important; 
+ 
+    border-bottom: 2px solid #26313a !important; 
+} 
+ 
+#resume .resume-name-area h1, 
+#resume #previewName { 
+    font-size: 38px !important; 
+    line-height: 1.02 !important; 
+    font-weight: 800 !important; 
+ 
+    color: #161616 !important; 
+    letter-spacing: -0.8px !important; 
+} 
+ 
+#resume .resume-name-area h3, 
+#resume #previewJob { 
+    font-size: 16px !important; 
+    line-height: 1.2 !important; 
+ 
+    margin-top: 5px !important; 
+ 
+    font-weight: 600 !important; 
+    color: #4d5660 !important; 
+} 
+ 
+#resume .resume-contact { 
+    font-size: 11px !important; 
+    line-height: 1.35 !important; 
+ 
+    color: #3f464d !important; 
+} 
+ 
+ 
+/* ---------- EXPERIENCE / EDUCATION / PROJECTS ---------- */ 
+ 
+#resume .resume-item { 
+    margin-bottom: 9px !important; 
+} 
+ 
+#resume .resume-item-top { 
+    gap: 15px !important; 
+    align-items: baseline !important; 
+} 
+ 
+#resume .resume-item strong { 
+    font-size: 13px !important; 
+    line-height: 1.2 !important; 
+    font-weight: 750 !important; 
+    color: #181818 !important; 
+} 
+ 
+#resume .resume-company { 
+    font-size: 11px !important; 
+    line-height: 1.25 !important; 
+ 
+    margin-top: 2px !important; 
+    color: #454b52 !important; 
+} 
+ 
+#resume .resume-date { 
+    font-size: 10px !important; 
+    line-height: 1.2 !important; 
+ 
+    color: #555 !important; 
+} 
+ 
+#resume .resume-cgpa { 
+    font-size: 10.5px !important; 
+    line-height: 1.2 !important; 
+ 
+    margin-top: 2px !important; 
+} 
+ 
+#resume .resume-link { 
+    font-size: 10px !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   CERTIFICATIONS 
+   Equal spacing + bullet points 
+========================================================= */ 
+ 
+#resume #previewCertificates { 
+    display: block !important; 
+} 
+ 
+#resume #previewCertificates .resume-item { 
+    position: relative !important; 
+ 
+    margin-bottom: 7px !important; 
+    padding-left: 15px !important; 
+ 
+    line-height: 1.3 !important; 
+} 
+ 
+#resume #previewCertificates .resume-item::before { 
+    content: "•" !important; 
+ 
+    position: absolute !important; 
+    left: 0 !important; 
+    top: 0 !important; 
+ 
+    font-size: 14px !important; 
+    font-weight: 800 !important; 
+ 
+    color: #26313a !important; 
+} 
+ 
+#resume #previewCertificates .resume-item:last-child { 
+    margin-bottom: 0 !important; 
+} 
+ 
+#resume #previewCertificates p { 
+    margin: 0 !important; 
+    line-height: 1.3 !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   SKILLS 
+   No boxes — bullet list 
+========================================================= */ 
+ 
+#resume #previewSkills.skills-container { 
+    display: block !important; 
+ 
+    margin: 0 !important; 
+    padding: 0 !important; 
+} 
+ 
+#resume #previewSkills.skills-container span { 
+    display: block !important; 
+ 
+    position: relative !important; 
+ 
+    width: 100% !important; 
+ 
+    background: transparent !important; 
+    border: none !important; 
+    border-radius: 0 !important; 
+ 
+    padding: 0 0 0 15px !important; 
+    margin: 0 0 4px 0 !important; 
+ 
+    color: #30363b !important; 
+ 
+    font-size: 12px !important; 
+    line-height: 1.3 !important; 
+    font-weight: 500 !important; 
+} 
+ 
+#resume #previewSkills.skills-container span::before { 
+    content: "•" !important; 
+ 
+    position: absolute !important; 
+    left: 0 !important; 
+    top: 0 !important; 
+ 
+    font-size: 14px !important; 
+    font-weight: 800 !important; 
+ 
+    color: #26313a !important; 
+} 
+ 
+#resume #previewSkills.skills-container span:last-child { 
+    margin-bottom: 0 !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   SPLIT PROFESSIONAL 
+   Clean professional 2-column layout 
+========================================================= */ 
+ 
+#resume.template-split { 
+    position: relative !important; 
+ 
+    display: block !important; 
+ 
+    padding: 
+        0 48px 40px 235px !important; 
+ 
+    background: #ffffff !important; 
+ 
+    overflow: hidden !important; 
+} 
+ 
+ 
+/* LEFT SIDEBAR */ 
+ 
+#resume.template-split::before { 
+    content: "" !important; 
+ 
+    position: absolute !important; 
+ 
+    left: 0 !important; 
+    top: 0 !important; 
+    bottom: 0 !important; 
+ 
+    width: 195px !important; 
+ 
+    background: #26313a !important; 
+ 
+    z-index: 0 !important; 
+} 
+ 
+ 
+/* Keep all resume content above sidebar */ 
+ 
+#resume.template-split > * { 
+    position: relative !important; 
+    z-index: 2 !important; 
+} 
+ 
+ 
+/* HEADER */ 
+ 
+#resume.template-split .resume-header { 
+    display: block !important; 
+ 
+    margin: 0 !important; 
+ 
+    padding: 
+        45px 0 20px 0 !important; 
+ 
+    background: transparent !important; 
+ 
+    border-bottom: 
+        2px solid #26313a !important; 
+} 
+ 
+ 
+/* NAME */ 
+ 
+#resume.template-split .resume-name-area h1, 
+#resume.template-split #previewName { 
+    font-size: 38px !important; 
+ 
+    color: #171717 !important; 
+ 
+    font-weight: 800 !important; 
+} 
+ 
+ 
+/* JOB */ 
+ 
+#resume.template-split .resume-name-area h3, 
+#resume.template-split #previewJob { 
+    font-size: 16px !important; 
+ 
+    color: #5a636b !important; 
+} 
+ 
+ 
+/* CONTACT SIDEBAR */ 
+ 
+#resume.template-split .resume-contact { 
+    position: absolute !important; 
+ 
+    left: 25px !important; 
+    top: 170px !important; 
+ 
+    width: 145px !important; 
+ 
+    margin: 0 !important; 
+ 
+    text-align: left !important; 
+ 
+    color: #edf1f3 !important; 
+ 
+    font-size: 10.5px !important; 
+    line-height: 1.45 !important; 
+ 
+    z-index: 10 !important; 
+} 
+ 
+#resume.template-split .resume-contact a, 
+#resume.template-split .social-links a { 
+    color: #e2e7ea !important; 
+ 
+    font-size: 9.5px !important; 
+} 
+ 
+ 
+/* SOCIAL LINKS */ 
+ 
+#resume.template-split .social-links { 
+    display: flex !important; 
+ 
+    flex-direction: column !important; 
+ 
+    align-items: flex-start !important; 
+ 
+    gap: 3px !important; 
+ 
+    margin-top: 7px !important; 
+} 
+ 
+ 
+/* PROFILE IMAGE */ 
+ 
+#resume.template-split .resume-photo { 
+    display: block !important; 
+ 
+    position: absolute !important; 
+ 
+    left: 40px !important; 
+    top: 45px !important; 
+ 
+    width: 115px !important; 
+    height: 115px !important; 
+ 
+    margin: 0 !important; 
+ 
+    border-radius: 10px !important; 
+ 
+    border: 4px solid #ffffff !important; 
+ 
+    background: #ffffff !important; 
+ 
+    overflow: hidden !important; 
+ 
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.18) !important; 
+ 
+    z-index: 20 !important; 
+} 
+ 
+#resume.template-split .resume-photo img { 
+    width: 100% !important; 
+    height: 100% !important; 
+ 
+    object-fit: cover !important; 
+ 
+    border-radius: 6px !important; 
+} 
+ 
+ 
+/* MAIN CONTENT */ 
+ 
+#resume.template-split .resume-section { 
+    margin-bottom: 14px !important; 
+ 
+    margin-left: 0 !important; 
+    margin-right: 0 !important; 
+} 
+ 
+ 
+/* SECTION TITLE */ 
+ 
+#resume.template-split .resume-section > h2 { 
+    font-size: 12px !important; 
+ 
+    letter-spacing: 1.5px !important; 
+ 
+    color: #26313a !important; 
+ 
+    border-bottom: 
+        1px solid #cfd4d8 !important; 
+ 
+    padding-bottom: 5px !important; 
+ 
+    margin-bottom: 8px !important; 
+} 
+ 
+ 
+/* SPLIT SKILLS */ 
+ 
+#resume.template-split #previewSkills.skills-container span { 
+    display: block !important; 
+ 
+    background: transparent !important; 
+ 
+    border: none !important; 
+ 
+    padding-left: 15px !important; 
+ 
+    margin-bottom: 4px !important; 
+ 
+    font-size: 12px !important; 
+} 
+ 
+ 
+/* SPLIT CERTIFICATIONS */ 
+ 
+#resume.template-split #previewCertificates .resume-item { 
+    padding-left: 15px !important; 
+ 
+    margin-bottom: 6px !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   REMOVE ARTIFICIAL SIDEBAR TEXT 
+========================================================= */ 
+ 
+#resume.template-split::after { 
+    content: none !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   COMPACT LINE SPACING 
+========================================================= */ 
+ 
+#resume p { 
+    line-height: 1.32 !important; 
+} 
+ 
+#resume .resume-item p { 
+    margin-top: 2px !important; 
+    margin-bottom: 2px !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   PRINT / PDF 
+========================================================= */ 
+ 
+@media print { 
+ 
+    #resume { 
+        width: 794px !important; 
+        min-height: 1123px !important; 
+ 
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important; 
+    } 
+ 
+    #resume.template-split::before { 
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important; 
+    } 
+} 
+/* ===================================================== 
+   DOWNLOAD MODAL 
+===================================================== */ 
+ 
+.download-modal { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(15, 23, 42, 0.72); 
+    backdrop-filter: blur(8px); 
+ 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+ 
+    z-index: 99999; 
+    padding: 20px; 
+} 
+ 
+.download-modal.show { 
+    display: flex; 
+} 
+ 
+ 
+.download-box { 
+    width: 100%; 
+    max-width: 460px; 
+ 
+    background: #ffffff; 
+    border-radius: 22px; 
+ 
+    padding: 26px; 
+ 
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.25); 
+ 
+    animation: downloadPopup 0.2s ease; 
+} 
+ 
+ 
+@keyframes downloadPopup { 
+ 
+    from { 
+        opacity: 0; 
+        transform: translateY(15px) scale(0.97); 
+    } 
+ 
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    } 
+} 
+ 
+ 
+.download-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+ 
+    margin-bottom: 22px; 
+} 
+ 
+ 
+.download-header h3 { 
+    margin: 0; 
+ 
+    font-size: 21px; 
+    color: #111827; 
+} 
+ 
+ 
+.download-header p { 
+    margin: 6px 0 0; 
+ 
+    font-size: 13px; 
+    color: #64748b; 
+} 
+ 
+ 
+.download-close { 
+    width: 36px; 
+    height: 36px; 
+ 
+    border: none; 
+    border-radius: 10px; 
+ 
+    background: #f1f5f9; 
+    color: #334155; 
+ 
+    font-size: 22px; 
+ 
+    cursor: pointer; 
+} 
+ 
+ 
+.download-close:hover { 
+    background: #e2e8f0; 
+} 
+ 
+ 
+/* PDF INFO */ 
+ 
+.download-preview-info { 
+    display: flex; 
+    align-items: center; 
+    gap: 13px; 
+ 
+    padding: 15px; 
+ 
+    border-radius: 14px; 
+ 
+    background: linear-gradient( 
+        135deg, 
+        #eff6ff, 
+        #f5f3ff 
+    ); 
+ 
+    border: 1px solid #dbeafe; 
+ 
+    margin-bottom: 20px; 
+} 
+ 
+ 
+.download-info-icon { 
+    width: 42px; 
+    height: 42px; 
+ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+ 
+    background: #ffffff; 
+ 
+    border-radius: 11px; 
+ 
+    font-size: 21px; 
+} 
+ 
+ 
+.download-preview-info strong { 
+    display: block; 
+ 
+    color: #1e293b; 
+    font-size: 14px; 
+} 
+ 
+ 
+.download-preview-info span { 
+    display: block; 
+ 
+    margin-top: 3px; 
+ 
+    color: #64748b; 
+    font-size: 12px; 
+} 
+ 
+ 
+/* PAGE OPTIONS */ 
+ 
+.page-selection { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+ 
+    gap: 10px; 
+ 
+    margin-bottom: 18px; 
+} 
+ 
+ 
+.page-selection label { 
+    display: flex; 
+    align-items: center; 
+    gap: 9px; 
+ 
+    padding: 13px; 
+ 
+    border: 1px solid #e2e8f0; 
+ 
+    border-radius: 12px; 
+ 
+    background: #ffffff; 
+ 
+    cursor: pointer; 
+ 
+    color: #334155; 
+ 
+    font-size: 13px; 
+ 
+    transition: 0.2s; 
+} 
+ 
+ 
+.page-selection label:hover { 
+    border-color: #6366f1; 
+    background: #f8faff; 
+} 
+ 
+ 
+.page-selection input { 
+    accent-color: #6366f1; 
+ 
+    width: 16px; 
+    height: 16px; 
+} 
+ 
+ 
+/* CUSTOM */ 
+ 
+.custom-page-box { 
+    padding: 15px; 
+ 
+    background: #f8fafc; 
+ 
+    border: 1px solid #e2e8f0; 
+ 
+    border-radius: 13px; 
+ 
+    margin-bottom: 18px; 
+} 
+ 
+ 
+.custom-page-box label { 
+    display: block; 
+ 
+    font-size: 13px; 
+    font-weight: 600; 
+ 
+    color: #334155; 
+ 
+    margin-bottom: 7px; 
+} 
+ 
+ 
+.custom-page-box input { 
+    width: 100%; 
+ 
+    box-sizing: border-box; 
+ 
+    padding: 11px 12px; 
+ 
+    border: 1px solid #cbd5e1; 
+ 
+    border-radius: 9px; 
+ 
+    outline: none; 
+ 
+    font-size: 14px; 
+ 
+    background: #ffffff; 
+} 
+ 
+ 
+.custom-page-box input:focus { 
+    border-color: #6366f1; 
+ 
+    box-shadow: 
+        0 0 0 3px rgba(99, 102, 241, 0.12); 
+} 
+ 
+ 
+.custom-page-box small { 
+    display: block; 
+ 
+    margin-top: 6px; 
+ 
+    color: #64748b; 
+ 
+    font-size: 11px; 
+} 
+ 
+ 
+/* DOWNLOAD BUTTON */ 
+ 
+.generate-pdf-btn { 
+    width: 100%; 
+ 
+    border: none; 
+ 
+    padding: 14px 18px; 
+ 
+    border-radius: 12px; 
+ 
+    background: linear-gradient( 
+        135deg, 
+        #4f46e5, 
+        #7c3aed 
+    ); 
+ 
+    color: #ffffff; 
+ 
+    font-size: 14px; 
+ 
+    font-weight: 700; 
+ 
+    cursor: pointer; 
+ 
+    box-shadow: 
+        0 8px 20px rgba(79, 70, 229, 0.25); 
+ 
+    transition: 0.2s; 
+} 
+ 
+ 
+.generate-pdf-btn:hover { 
+    transform: translateY(-1px); 
+ 
+    box-shadow: 
+        0 12px 25px rgba(79, 70, 229, 0.32); 
+} 
+ 
+ 
+.generate-pdf-btn:disabled { 
+    opacity: 0.65; 
+    cursor: wait; 
+    transform: none; 
+} 
+ 
+ 
+@media (max-width: 500px) { 
+ 
+    .download-box { 
+        padding: 20px; 
+    } 
+ 
+    .page-selection { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+} 
+.brand { 
+    display: flex; 
+    align-items: center; 
+} 
+ 
+.brand-logo { 
+    width: 55px; 
+    height: 55px; 
+    object-fit: contain; 
+    display: block; 
+} 
+ 
+.logo { 
+    display: flex; 
+    align-items: center; 
+} 
+ 
+.navbar-logo { 
+    width: 50px; 
+    height: 50px; 
+    object-fit: contain; 
+    display: block; 
+} 
+ 
+/* ============================== 
+   NAVBAR LOGO FIX 
+============================== */ 
+ 
+.navbar { 
+    width: 100%; 
+    height: 72px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 28px; 
+    box-sizing: border-box; 
+} 
+ 
+.navbar .logo { 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    flex-shrink: 0; 
+} 
+ 
+.navbar-logo { 
+    width: 52px !important; 
+    height: 52px !important; 
+    object-fit: contain; 
+    display: block !important; 
+    visibility: visible !important; 
+    opacity: 1 !important; 
+} 
 /* =========================================================
-   FINAL RESUME DESIGN FIX
-   Split Professional + Readable Typography
-   Certifications + Skills Bullet Layout
+   PHONE FINAL FIX
+   No overlap • Smooth scroll • No accidental selection
 ========================================================= */
 
-/* ---------- RESUME BASE ---------- */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
+body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* Everything is NOT selectable */
+body,
+#landingPage,
+#builderPage,
+button,
+.btn,
+.template-btn,
+.remove-btn,
+.resume-preview,
 #resume {
-    width: 794px !important;
-    min-width: 794px !important;
-    max-width: 794px !important;
-    min-height: 1123px !important;
-    height: auto !important;
-    max-height: none !important;
-
-    background: #ffffff !important;
-    color: #202020 !important;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
 }
 
 
-/* ---------- GENERAL READABLE FONT ---------- */
-
-#resume .resume-section p,
-#resume .resume-item,
-#resume .resume-company,
-#resume .resume-cgpa,
-#resume .language-item {
-    font-size: 12px !important;
-    line-height: 1.32 !important;
-}
-
-#resume .resume-section {
-    margin-bottom: 15px !important;
-}
-
-#resume .resume-section > h2 {
-    font-size: 12px !important;
-    line-height: 1.15 !important;
-
-    padding-bottom: 5px !important;
-    margin-bottom: 8px !important;
-
-    letter-spacing: 1.5px !important;
-    font-weight: 800 !important;
-
-    color: #26313a !important;
-    border-bottom: 1px solid #cfd4d8 !important;
-}
-
-
-/* ---------- HEADER ---------- */
-
-#resume .resume-header {
-    gap: 25px !important;
-    margin-bottom: 18px !important;
-    padding-bottom: 18px !important;
-
-    border-bottom: 2px solid #26313a !important;
-}
-
-#resume .resume-name-area h1,
-#resume #previewName {
-    font-size: 38px !important;
-    line-height: 1.02 !important;
-    font-weight: 800 !important;
-
-    color: #161616 !important;
-    letter-spacing: -0.8px !important;
-}
-
-#resume .resume-name-area h3,
-#resume #previewJob {
-    font-size: 16px !important;
-    line-height: 1.2 !important;
-
-    margin-top: 5px !important;
-
-    font-weight: 600 !important;
-    color: #4d5660 !important;
-}
-
-#resume .resume-contact {
-    font-size: 11px !important;
-    line-height: 1.35 !important;
-
-    color: #3f464d !important;
-}
-
-
-/* ---------- EXPERIENCE / EDUCATION / PROJECTS ---------- */
-
-#resume .resume-item {
-    margin-bottom: 9px !important;
-}
-
-#resume .resume-item-top {
-    gap: 15px !important;
-    align-items: baseline !important;
-}
-
-#resume .resume-item strong {
-    font-size: 13px !important;
-    line-height: 1.2 !important;
-    font-weight: 750 !important;
-    color: #181818 !important;
-}
-
-#resume .resume-company {
-    font-size: 11px !important;
-    line-height: 1.25 !important;
-
-    margin-top: 2px !important;
-    color: #454b52 !important;
-}
-
-#resume .resume-date {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
-
-    color: #555 !important;
-}
-
-#resume .resume-cgpa {
-    font-size: 10.5px !important;
-    line-height: 1.2 !important;
-
-    margin-top: 2px !important;
-}
-
-#resume .resume-link {
-    font-size: 10px !important;
+/* But typing fields ARE selectable */
+input,
+textarea,
+select,
+[contenteditable="true"] {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    -webkit-touch-callout: default !important;
 }
 
 
 /* =========================================================
-   CERTIFICATIONS
-   Equal spacing + bullet points
+   FINAL LANDING PAGE — MOBILE FIRST
 ========================================================= */
 
-#resume #previewCertificates {
-    display: block !important;
-}
+/* ---------- NORMAL PAGE SCROLL ---------- */
 
-#resume #previewCertificates .resume-item {
-    position: relative !important;
-
-    margin-bottom: 7px !important;
-    padding-left: 15px !important;
-
-    line-height: 1.3 !important;
-}
-
-#resume #previewCertificates .resume-item::before {
-    content: "•" !important;
-
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-
-    font-size: 14px !important;
-    font-weight: 800 !important;
-
-    color: #26313a !important;
-}
-
-#resume #previewCertificates .resume-item:last-child {
-    margin-bottom: 0 !important;
-}
-
-#resume #previewCertificates p {
-    margin: 0 !important;
-    line-height: 1.3 !important;
-}
-
-
-/* =========================================================
-   SKILLS
-   No boxes — bullet list
-========================================================= */
-
-#resume #previewSkills.skills-container {
-    display: block !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-#resume #previewSkills.skills-container span {
-    display: block !important;
-
-    position: relative !important;
-
-    width: 100% !important;
-
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-
-    padding: 0 0 0 15px !important;
-    margin: 0 0 4px 0 !important;
-
-    color: #30363b !important;
-
-    font-size: 12px !important;
-    line-height: 1.3 !important;
-    font-weight: 500 !important;
-}
-
-#resume #previewSkills.skills-container span::before {
-    content: "•" !important;
-
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-
-    font-size: 14px !important;
-    font-weight: 800 !important;
-
-    color: #26313a !important;
-}
-
-#resume #previewSkills.skills-container span:last-child {
-    margin-bottom: 0 !important;
-}
-
-
-/* =========================================================
-   SPLIT PROFESSIONAL
-   Clean professional 2-column layout
-========================================================= */
-
-#resume.template-split {
-    position: relative !important;
-
-    display: block !important;
-
-    padding:
-        0 48px 40px 235px !important;
-
-    background: #ffffff !important;
-
-    overflow: hidden !important;
-}
-
-
-/* LEFT SIDEBAR */
-
-#resume.template-split::before {
-    content: "" !important;
-
-    position: absolute !important;
-
-    left: 0 !important;
-    top: 0 !important;
-    bottom: 0 !important;
-
-    width: 195px !important;
-
-    background: #26313a !important;
-
-    z-index: 0 !important;
-}
-
-
-/* Keep all resume content above sidebar */
-
-#resume.template-split > * {
-    position: relative !important;
-    z-index: 2 !important;
-}
-
-
-/* HEADER */
-
-#resume.template-split .resume-header {
-    display: block !important;
-
-    margin: 0 !important;
-
-    padding:
-        45px 0 20px 0 !important;
-
-    background: transparent !important;
-
-    border-bottom:
-        2px solid #26313a !important;
-}
-
-
-/* NAME */
-
-#resume.template-split .resume-name-area h1,
-#resume.template-split #previewName {
-    font-size: 38px !important;
-
-    color: #171717 !important;
-
-    font-weight: 800 !important;
-}
-
-
-/* JOB */
-
-#resume.template-split .resume-name-area h3,
-#resume.template-split #previewJob {
-    font-size: 16px !important;
-
-    color: #5a636b !important;
-}
-
-
-/* CONTACT SIDEBAR */
-
-#resume.template-split .resume-contact {
-    position: absolute !important;
-
-    left: 25px !important;
-    top: 170px !important;
-
-    width: 145px !important;
-
-    margin: 0 !important;
-
-    text-align: left !important;
-
-    color: #edf1f3 !important;
-
-    font-size: 10.5px !important;
-    line-height: 1.45 !important;
-
-    z-index: 10 !important;
-}
-
-#resume.template-split .resume-contact a,
-#resume.template-split .social-links a {
-    color: #e2e7ea !important;
-
-    font-size: 9.5px !important;
-}
-
-
-/* SOCIAL LINKS */
-
-#resume.template-split .social-links {
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: flex-start !important;
-
-    gap: 3px !important;
-
-    margin-top: 7px !important;
-}
-
-
-/* PROFILE IMAGE */
-
-#resume.template-split .resume-photo {
-    display: block !important;
-
-    position: absolute !important;
-
-    left: 40px !important;
-    top: 45px !important;
-
-    width: 115px !important;
-    height: 115px !important;
-
-    margin: 0 !important;
-
-    border-radius: 10px !important;
-
-    border: 4px solid #ffffff !important;
-
-    background: #ffffff !important;
-
-    overflow: hidden !important;
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.18) !important;
-
-    z-index: 20 !important;
-}
-
-#resume.template-split .resume-photo img {
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-
-    border-radius: 6px !important;
-}
-
-
-/* MAIN CONTENT */
-
-#resume.template-split .resume-section {
-    margin-bottom: 14px !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-
-/* SECTION TITLE */
-
-#resume.template-split .resume-section > h2 {
-    font-size: 12px !important;
-
-    letter-spacing: 1.5px !important;
-
-    color: #26313a !important;
-
-    border-bottom:
-        1px solid #cfd4d8 !important;
-
-    padding-bottom: 5px !important;
-
-    margin-bottom: 8px !important;
-}
-
-
-/* SPLIT SKILLS */
-
-#resume.template-split #previewSkills.skills-container span {
-    display: block !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    padding-left: 15px !important;
-
-    margin-bottom: 4px !important;
-
-    font-size: 12px !important;
-}
-
-
-/* SPLIT CERTIFICATIONS */
-
-#resume.template-split #previewCertificates .resume-item {
-    padding-left: 15px !important;
-
-    margin-bottom: 6px !important;
-}
-
-
-/* =========================================================
-   REMOVE ARTIFICIAL SIDEBAR TEXT
-========================================================= */
-
-#resume.template-split::after {
-    content: none !important;
-}
-
-
-/* =========================================================
-   COMPACT LINE SPACING
-========================================================= */
-
-#resume p {
-    line-height: 1.32 !important;
-}
-
-#resume .resume-item p {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-}
-
-
-/* =========================================================
-   PRINT / PDF
-========================================================= */
-
-@media print {
-
-    #resume {
-        width: 794px !important;
-        min-height: 1123px !important;
-
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    #resume.template-split::before {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-}
-/* =====================================================
-   DOWNLOAD MODAL
-===================================================== */
-
-.download-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.72);
-    backdrop-filter: blur(8px);
-
-    display: none;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 99999;
-    padding: 20px;
-}
-
-.download-modal.show {
-    display: flex;
-}
-
-
-.download-box {
+html {
     width: 100%;
-    max-width: 460px;
-
-    background: #ffffff;
-    border-radius: 22px;
-
-    padding: 26px;
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.25);
-
-    animation: downloadPopup 0.2s ease;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-
-@keyframes downloadPopup {
-
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(0.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-
-.download-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    margin-bottom: 22px;
-}
-
-
-.download-header h3 {
+body {
+    width: 100%;
+    max-width: 100%;
     margin: 0;
-
-    font-size: 21px;
-    color: #111827;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 
-.download-header p {
-    margin: 6px 0 0;
+/* =========================================================
+   LANDING NAVBAR — WHITE HORIZONTAL BOARD
+========================================================= */
 
-    font-size: 13px;
-    color: #64748b;
-}
+#landingPage nav,
+#landingPage .navbar {
+    width: calc(100% - 24px);
+    margin: 12px auto 0;
 
+    min-height: 64px;
 
-.download-close {
-    width: 36px;
-    height: 36px;
+    background: #ffffff !important;
 
-    border: none;
-    border-radius: 10px;
+    border-radius: 16px;
 
-    background: #f1f5f9;
-    color: #334155;
-
-    font-size: 22px;
-
-    cursor: pointer;
-}
-
-
-.download-close:hover {
-    background: #e2e8f0;
-}
-
-
-/* PDF INFO */
-
-.download-preview-info {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-
-    padding: 15px;
-
-    border-radius: 14px;
-
-    background: linear-gradient(
-        135deg,
-        #eff6ff,
-        #f5f3ff
-    );
-
-    border: 1px solid #dbeafe;
-
-    margin-bottom: 20px;
-}
-
-
-.download-info-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #ffffff;
-
-    border-radius: 11px;
-
-    font-size: 21px;
-}
-
-
-.download-preview-info strong {
-    display: block;
-
-    color: #1e293b;
-    font-size: 14px;
-}
-
-
-.download-preview-info span {
-    display: block;
-
-    margin-top: 3px;
-
-    color: #64748b;
-    font-size: 12px;
-}
-
-
-/* PAGE OPTIONS */
-
-.page-selection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-
-    margin-bottom: 18px;
-}
-
-
-.page-selection label {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    padding: 13px;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 12px;
-
-    background: #ffffff;
-
-    cursor: pointer;
-
-    color: #334155;
-
-    font-size: 13px;
-
-    transition: 0.2s;
-}
-
-
-.page-selection label:hover {
-    border-color: #6366f1;
-    background: #f8faff;
-}
-
-
-.page-selection input {
-    accent-color: #6366f1;
-
-    width: 16px;
-    height: 16px;
-}
-
-
-/* CUSTOM */
-
-.custom-page-box {
-    padding: 15px;
-
-    background: #f8fafc;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 13px;
-
-    margin-bottom: 18px;
-}
-
-
-.custom-page-box label {
-    display: block;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    color: #334155;
-
-    margin-bottom: 7px;
-}
-
-
-.custom-page-box input {
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 11px 12px;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 9px;
-
-    outline: none;
-
-    font-size: 14px;
-
-    background: #ffffff;
-}
-
-
-.custom-page-box input:focus {
-    border-color: #6366f1;
+    border: 1px solid rgba(0,0,0,0.06);
 
     box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.12);
-}
+        0 8px 25px rgba(0,0,0,0.07);
 
-
-.custom-page-box small {
-    display: block;
-
-    margin-top: 6px;
-
-    color: #64748b;
-
-    font-size: 11px;
-}
-
-
-/* DOWNLOAD BUTTON */
-
-.generate-pdf-btn {
-    width: 100%;
-
-    border: none;
-
-    padding: 14px 18px;
-
-    border-radius: 12px;
-
-    background: linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed
-    );
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(79, 70, 229, 0.25);
-
-    transition: 0.2s;
-}
-
-
-.generate-pdf-btn:hover {
-    transform: translateY(-1px);
-
-    box-shadow:
-        0 12px 25px rgba(79, 70, 229, 0.32);
-}
-
-
-.generate-pdf-btn:disabled {
-    opacity: 0.65;
-    cursor: wait;
-    transform: none;
-}
-
-
-@media (max-width: 500px) {
-
-    .download-box {
-        padding: 20px;
-    }
-
-    .page-selection {
-        grid-template-columns: 1fr;
-    }
-
-}
-.brand {
-    display: flex;
-    align-items: center;
-}
-
-.brand-logo {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    display: block;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    display: block;
-}
-
-/* ==============================
-   NAVBAR LOGO FIX
-============================== */
-
-.navbar {
-    width: 100%;
-    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 28px;
-    box-sizing: border-box;
+
+    padding: 10px 18px;
+
+    position: relative;
+    z-index: 100;
 }
 
-.navbar .logo {
+
+/* Logo stays left */
+
+#landingPage nav .logo,
+#landingPage .navbar .logo,
+#landingPage nav .brand,
+#landingPage .navbar .brand {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     flex-shrink: 0;
 }
 
-.navbar-logo {
-    width: 52px !important;
-    height: 52px !important;
-    object-fit: contain;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+
+/* Start Crafting stays RIGHT */
+
+#landingPage nav .start-btn,
+#landingPage nav .start-crafting,
+#landingPage nav .startCrafting,
+#landingPage .navbar .start-btn,
+#landingPage .navbar .start-crafting,
+#landingPage .navbar .startCrafting {
+    margin-left: auto;
+    flex-shrink: 0;
 }
+
+
 /* =========================================================
-   MOBILE RESPONSIVE — PHONE VIEW
-   ========================================================= */
+   LANDING PAGE
+========================================================= */
+
+#landingPage {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
+    background: #faf9f6;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
-    /* ---------- GLOBAL ---------- */
-
-    html,
-    body {
+    #landingPage {
         width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    body {
-        min-width: 0;
-    }
-
-
-    /* ---------- LANDING PAGE ---------- */
-
-    .landing-page {
         min-height: 100vh;
-        width: 100%;
-        overflow: hidden;
-    }
 
-    .landing-nav {
-        padding: 18px 20px;
-        width: 100%;
-    }
-
-    .brand-logo {
-        width: 115px;
-        height: auto;
-    }
-
-    .nav-start-btn {
-        padding: 9px 14px;
-        font-size: 12px;
-    }
-
-    .landing-content {
-        width: 100%;
-        padding: 35px 20px 45px;
-        text-align: center;
-    }
-
-    .hero-resume {
-        width: min(270px, 85vw);
-        margin: 0 auto 35px;
-        transform: none;
-    }
-
-    .landing-badge {
-        font-size: 10px;
-        padding: 7px 12px;
-    }
-
-    .landing-content h1 {
-        font-size: clamp(32px, 9vw, 46px);
-        line-height: 1.05;
-        margin-top: 18px;
-    }
-
-    .landing-content h1 span {
-        display: block;
-        margin-top: 5px;
-    }
-
-    .landing-description {
-        font-size: 14px;
-        line-height: 1.7;
-        max-width: 340px;
-        margin: 18px auto 25px;
-    }
-
-    .hero-button {
-        width: 100%;
-        max-width: 320px;
-        justify-content: center;
-    }
-
-    .landing-features {
-        width: 100%;
-        gap: 8px;
-        margin-top: 35px;
-    }
-
-    .landing-step {
-        font-size: 11px;
-    }
-
-    .step-circle {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-
-    .step-connector {
-        font-size: 14px;
-    }
-
-
-    /* ---------- BUILDER NAVBAR ---------- */
-
-    .builder-page {
-        width: 100%;
         overflow-x: hidden;
-    }
-
-    .navbar {
-        width: 100%;
-        min-height: 65px;
-        padding: 12px 16px;
-        gap: 10px;
-    }
-
-    .navbar-logo {
-        width: 105px;
-        height: auto;
-    }
-
-    .nav-actions {
-        gap: 6px;
-    }
-
-    .clear-btn,
-    .share-btn,
-    .download-btn {
-        padding: 8px 10px;
-        font-size: 11px;
-        white-space: nowrap;
-    }
-
-    .clear-btn {
-        display: none;
-    }
-
-    .share-btn {
-        font-size: 0;
-    }
-
-    .share-btn::before {
-        content: "📤";
-        font-size: 15px;
-    }
-
-    .download-btn {
-        font-size: 0;
-    }
-
-    .download-btn::before {
-        content: "⬇";
-        font-size: 15px;
+        overflow-y: visible;
     }
 
 
-    /* ---------- MAIN CONTAINER ---------- */
+    /* Navbar */
 
-    .app-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        padding: 18px 12px 40px;
-        overflow: visible;
-    }
+    #landingPage nav,
+    #landingPage .navbar {
+        width: calc(100% - 20px);
 
+        min-height: 58px;
 
-    /* ---------- EDITOR ---------- */
+        margin: 10px auto 0;
 
-    .editor {
-        width: 100%;
-        min-width: 0;
-        order: 1;
-    }
+        padding: 8px 12px;
 
-    .editor-heading {
-        padding: 8px 4px 18px;
-    }
-
-    .editor-heading h1 {
-        font-size: 26px;
-        line-height: 1.2;
-    }
-
-    .editor-heading p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-
-    /* ---------- EDITOR CARDS ---------- */
-
-    .editor-card {
-        width: 100%;
-        padding: 18px 15px;
-        margin-bottom: 14px;
         border-radius: 14px;
     }
 
-    .section-title {
-        gap: 12px;
-        align-items: flex-start;
+
+    /* Logo */
+
+    #landingPage nav .logo,
+    #landingPage .navbar .logo,
+    #landingPage nav .brand,
+    #landingPage .navbar .brand {
+        max-width: 55%;
     }
 
-    .section-title h2 {
-        font-size: 17px;
-    }
 
-    .section-title p {
-        font-size: 11px;
-        line-height: 1.4;
-    }
+    /* Start button */
 
-    .add-btn {
-        padding: 7px 10px;
-        font-size: 11px;
+    #landingPage nav .start-btn,
+    #landingPage nav .start-crafting,
+    #landingPage nav .startCrafting,
+    #landingPage .navbar .start-btn,
+    #landingPage .navbar .start-crafting,
+    #landingPage .navbar .startCrafting {
+        margin-left: auto;
         white-space: nowrap;
-    }
-
-
-    /* ---------- FORM GRID ---------- */
-
-    .form-grid,
-    .dynamic-grid {
-        grid-template-columns: 1fr !important;
-        gap: 13px;
-    }
-
-    .form-group,
-    .form-group.full {
-        width: 100%;
-        grid-column: auto !important;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .editor-card textarea,
-    .custom-page-box input {
-        width: 100%;
-        max-width: 100%;
-        font-size: 14px;
-    }
-
-    .form-group input {
-        min-height: 44px;
-    }
-
-    .form-group textarea,
-    .editor-card textarea {
-        min-height: 110px;
-    }
-
-
-    /* ---------- DYNAMIC ITEMS ---------- */
-
-    .dynamic-item {
-        width: 100%;
-        padding: 14px;
-        overflow: hidden;
-    }
-
-    .dynamic-header {
-        gap: 8px;
-    }
-
-    .dynamic-header strong {
-        font-size: 13px;
-    }
-
-    .remove-btn {
-        font-size: 10px;
-        padding: 6px 9px;
-    }
-
-
-    /* ---------- PHOTO UPLOAD ---------- */
-
-    .photo-upload-group {
-        width: 100%;
-    }
-
-    .photo-upload-group input[type="file"] {
-        width: 100%;
-        max-width: 100%;
-        font-size: 12px;
-    }
-
-
-    /* ---------- PREVIEW ---------- */
-
-    .preview-area {
-        width: 100%;
-        min-width: 0;
-        order: 2;
-        overflow: visible;
-    }
-
-    .preview-toolbar {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-        margin-bottom: 15px;
-    }
-
-    .preview-toolbar h2 {
-        font-size: 20px;
-    }
-
-    .preview-toolbar p {
-        font-size: 11px;
-    }
-
-
-    /* ---------- TEMPLATE BUTTONS ---------- */
-
-    .template-switcher {
-        width: 100%;
-        display: flex;
-        gap: 7px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 3px 1px 8px;
-        scrollbar-width: thin;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .template-switcher::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .template-btn {
-        flex: 0 0 auto;
-        white-space: nowrap;
-        padding: 8px 12px;
-        font-size: 11px;
     }
 
 
     /* =====================================================
-       RESUME PREVIEW — PHONE
-       Keep A4 proportion but make it visible
-       ===================================================== */
+       HERO = VERTICAL
+    ===================================================== */
 
-    #resume {
+    #landingPage .hero,
+    #landingPage .hero-section {
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        padding:
+            35px 16px
+            45px;
+    }
+
+
+    /* Text FIRST */
+
+    #landingPage .hero-content,
+    #landingPage .hero-text {
+
+        width: 100%;
+        max-width: 600px;
+
+        position: relative;
+
+        text-align: center;
+
+        z-index: 2;
+    }
+
+
+    /* =====================================================
+       RESUME PREVIEW BELOW TEXT
+    ===================================================== */
+
+    #landingPage .resume-preview,
+    #landingPage .preview-container,
+    #landingPage .resume-container {
+
+        position: relative !important;
+
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+
         width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        height: auto !important;
-        min-height: 0 !important;
 
-        margin: 0 auto;
-        transform: none !important;
+        height: auto !important;
+
+        margin:
+            30px auto
+            35px !important;
+
+        padding: 0 !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: flex-start !important;
 
         overflow: visible !important;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
 
-
-    /* ---------- RESUME HEADER ---------- */
-
-    .resume-header {
-        width: 100%;
-        min-width: 0;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .resume-name-area {
-        min-width: 0;
-        flex: 1 1 55%;
-    }
-
-    .resume-contact {
-        min-width: 0;
-        flex: 1 1 35%;
-        word-break: break-word;
-        overflow-wrap: anywhere;
-    }
-
-    #previewName {
-        word-break: break-word;
-        overflow-wrap: anywhere;
-    }
-
-    #previewJob {
-        word-break: break-word;
-        overflow-wrap: anywhere;
-    }
-
-
-    /* ---------- RESUME CONTENT ---------- */
-
-    .resume-section {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .resume-section h2 {
-        font-size: 12px;
-    }
-
-    .resume-section p,
-    .resume-item,
-    .resume-company,
-    .resume-cgpa,
-    .resume-date,
-    .resume-link {
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
-
-    .resume-item-top {
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .resume-date {
-        white-space: normal;
-    }
-
-
-    /* ---------- SKILLS ---------- */
-
-    .skills-container {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-
-    /* ---------- LANGUAGES ---------- */
-
-    .languages-container {
-        width: 100%;
+        transform: none !important;
     }
 
 
     /* =====================================================
-       PHOTO FOCUS — MOBILE
-       ===================================================== */
+       RESUME ON PHONE
+    ===================================================== */
 
-    .template-photo-split .resume-header {
-        flex-direction: column;
-        align-items: stretch;
+    #landingPage #resume {
+
+        position: relative !important;
+
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: min(92vw, 430px) !important;
+
+        max-width: 430px !important;
+
+        height: auto !important;
+
+        margin: 0 auto !important;
+
+        transform: none !important;
+
+        flex-shrink: 0;
     }
 
-    .template-photo-split .resume-photo {
-        margin: 0 auto 12px;
-    }
 
-    .template-photo-split .resume-name-area {
+    /* =====================================================
+       1 — 2 — 3 SECTION
+    ===================================================== */
+
+    #landingPage .steps,
+    #landingPage .how-it-works,
+    #landingPage .features {
+
         width: 100%;
-        text-align: center;
-    }
 
-    .template-photo-split .resume-contact {
-        width: 100%;
-        text-align: center;
-    }
+        position: relative;
 
-
-    /* ---------- MODALS ---------- */
-
-    .share-modal,
-    .download-modal,
-    .pdf-modal {
-        padding: 12px;
-    }
-
-    .share-box,
-    .download-box,
-    .pdf-modal-box {
-        width: 100%;
-        max-width: 420px;
-        max-height: 90vh;
-        overflow-y: auto;
-        border-radius: 16px;
-    }
-
-    .share-option {
-        width: 100%;
-    }
-
-    .pdf-settings {
-        grid-template-columns: 1fr !important;
-    }
-
-    .pdf-preview-wrapper {
-        min-height: 300px;
-    }
-
-    .pdf-preview-frame {
-        width: 100%;
+        margin-top: 10px;
     }
 
 
-    /* ---------- AI BUTTON ---------- */
+    /* =====================================================
+       NO HORIZONTAL SCROLL
+    ===================================================== */
 
-    .ai-button {
-        width: 100%;
+    #landingPage * {
+        max-width: 100%;
     }
 
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   SMALL PHONE
 ========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
 
-    .navbar {
-        padding: 10px 12px;
+    #landingPage .hero,
+    #landingPage .hero-section {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
-    .navbar-logo {
-        width: 95px;
+
+    #landingPage #resume {
+        width: 94vw !important;
+        max-width: 94vw !important;
     }
 
-    .nav-actions {
-        margin-left: auto;
+}
+
+/* =========================================================
+   LANDING PAGE — DARK BEIGE MIXED BACKGROUND
+========================================================= */
+
+#landingPage {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(214, 168, 78, 0.16) 0%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(111, 83, 52, 0.28) 0%,
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #272019 0%,
+            #33291f 42%,
+            #3b3024 72%,
+            #292119 100%
+        );
+
+    min-height: 100vh;
+    color: #f5ead8;
+    overflow-x: hidden;
+}
+
+
+/* Soft decorative glow */
+
+#landingPage::before {
+    content: "";
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: 120px;
+    right: -120px;
+
+    background: rgba(214, 168, 78, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
+
+/* Another subtle glow */
+
+#landingPage::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    bottom: 80px;
+    left: -100px;
+
+    background: rgba(255, 230, 190, 0.05);
+
+    border-radius: 50%;
+
+    filter: blur(55px);
+
+    pointer-events: none;
+}
+
+
+/* Keep landing content above glow */
+
+#landingPage > * {
+    position: relative;
+    z-index: 1;
+}
+/* =========================================================
+   LANDING NAVBAR — LOGO SIZE
+========================================================= */
+
+#landingPage nav .logo img,
+#landingPage .navbar .logo img,
+#landingPage nav .brand img,
+#landingPage .navbar .brand img {
+    width: 150px !important;
+    height: auto !important;
+    max-height: 52px !important;
+    object-fit: contain;
+}
+
+
+/* If logo is text instead of image */
+
+#landingPage nav .logo,
+#landingPage .navbar .logo,
+#landingPage nav .brand,
+#landingPage .navbar .brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+
+/* Phone */
+
+@media (max-width: 768px) {
+
+    #landingPage nav .logo img,
+    #landingPage .navbar .logo img,
+    #landingPage nav .brand img,
+    #landingPage .navbar .brand img {
+        width: 125px !important;
+        max-height: 46px !important;
     }
 
-    .share-btn,
-    .download-btn {
-        width: 36px;
-        height: 36px;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
+/* =========================================================
+   SOFT BEIGE NAVBAR — LANDING + BUILDER
+========================================================= */
+
+#landingPage nav,
+#landingPage .navbar,
+#builderPage nav,
+#builderPage .navbar {
+    background: #eadcc5 !important;
+    color: #33291f !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Navbar text */
+
+#landingPage nav a,
+#landingPage .navbar a,
+#builderPage nav a,
+#builderPage .navbar a {
+    color: #33291f;
+}
+
+
+/* =========================================================
+   LOGO — BIGGER & CLEARER
+========================================================= */
+
+#landingPage nav .logo img,
+#landingPage .navbar .logo img,
+#landingPage nav .brand img,
+#landingPage .navbar .brand img,
+#builderPage nav .logo img,
+#builderPage .navbar .logo img,
+#builderPage nav .brand img,
+#builderPage .navbar .brand img {
+    width: 175px !important;
+    height: auto !important;
+
+    max-height: 58px !important;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* Text logo */
+
+#landingPage nav .logo,
+#landingPage .navbar .logo,
+#landingPage nav .brand,
+#landingPage .navbar .brand,
+#builderPage nav .logo,
+#builderPage .navbar .logo,
+#builderPage nav .brand,
+#builderPage .navbar .brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #landingPage nav,
+    #landingPage .navbar,
+    #builderPage nav,
+    #builderPage .navbar {
+        width: calc(100% - 20px);
+
+        min-height: 62px;
+
+        padding: 8px 14px;
+
+        border-radius: 14px;
     }
 
-    .app-container {
-        padding-left: 9px;
-        padding-right: 9px;
+
+    #landingPage nav .logo img,
+    #landingPage .navbar .logo img,
+    #landingPage nav .brand img,
+    #landingPage .navbar .brand img,
+    #builderPage nav .logo img,
+    #builderPage .navbar .logo img,
+    #builderPage nav .brand img,
+    #builderPage .navbar .brand img {
+        width: 145px !important;
+        max-height: 50px !important;
     }
 
-    .editor-card {
-        padding: 15px 12px;
+}
+/* =========================================================
+   LANDING NAVBAR — KEEP NAVBAR SMALL
+========================================================= */
+
+.landing-navbar {
+    height: 72px;
+    min-height: 72px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+/* =========================================================
+   BIG LOGO — NAVBAR DOES NOT GROW
+========================================================= */
+
+.landing-navbar .logo,
+.landing-navbar .brand-logo,
+.landing-navbar img.logo,
+.navbar .logo,
+.navbar .brand-logo {
+    width: 180px !important;
+    height: auto !important;
+    max-height: 58px !important;
+    object-fit: contain;
+    display: block;
+    transform: scale(1.15);
+    transform-origin: left center;
+}
+
+/* If logo is text instead of image */
+.landing-navbar .logo-text,
+.landing-navbar .brand,
+.navbar .logo-text {
+    font-size: 34px !important;
+    line-height: 1 !important;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LANDING PAGE SCROLL
+========================================================= */
+
+#landingPage {
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================================
+   DON'T LET THE WHOLE PAGE TEXT GET SELECTED
+========================================================= */
+
+#landingPage,
+#landingPage button,
+#landingPage a,
+#landingPage .logo,
+#landingPage img,
+#landingPage h1,
+#landingPage h2,
+#landingPage h3,
+#landingPage p,
+#landingPage span {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* Inputs only */
+#landingPage input,
+#landingPage textarea,
+#landingPage [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .landing-navbar {
+        height: 64px;
+        min-height: 64px;
+        padding: 0 14px;
     }
 
-    .section-title h2 {
-        font-size: 16px;
+    .landing-navbar .logo,
+    .landing-navbar .brand-logo,
+    .landing-navbar img.logo,
+    .navbar .logo,
+    .navbar .brand-logo {
+        width: 165px !important;
+        max-width: 165px !important;
+        max-height: 52px !important;
+        transform: scale(1.15);
     }
 
-    .add-btn {
-        font-size: 10px;
-        padding: 6px 8px;
+    .landing-navbar .logo-text,
+    .landing-navbar .brand,
+    .navbar .logo-text {
+        font-size: 30px !important;
     }
 
-    .template-btn {
-        padding: 7px 10px;
-        font-size: 10px;
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .landing-navbar {
+        height: 60px;
+        min-height: 60px;
+        padding: 0 10px;
     }
 
-    #resume {
-        font-size: 9px;
+    .landing-navbar .logo,
+    .landing-navbar .brand-logo,
+    .landing-navbar img.logo,
+    .navbar .logo,
+    .navbar .brand-logo {
+        width: 145px !important;
+        max-width: 145px !important;
+        max-height: 48px !important;
     }
 
+}
+/* =========================================================
+   LANDING PAGE — VISIBLE SCROLLBAR
+========================================================= */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+#landingPage {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+
+    /* Smooth phone scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Chrome / Edge / Android */
+#landingPage::-webkit-scrollbar {
+    width: 8px;
+}
+
+#landingPage::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#landingPage::-webkit-scrollbar-thumb {
+    background: #d6a84a;
+    border-radius: 10px;
+}
+
+#landingPage::-webkit-scrollbar-thumb:hover {
+    background: #e3bd68;
+}
+
+/* Firefox */
+#landingPage {
+    scrollbar-width: thin;
+    scrollbar-color: #d6a84a rgba(255, 255, 255, 0.08);
 }
