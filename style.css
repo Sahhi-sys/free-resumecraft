@@ -7106,11 +7106,6 @@ button {
            from the available screen width.
         */
 
-        transform: scale(
-            calc((100vw - 24px) / 794)
-        ) !important;
-    }
-
 
     /*
        Reserve the correct scaled height.
@@ -7182,4 +7177,442 @@ button {
         font-size: 9px !important;
     }
 
+}
+
+/* =========================================================
+   MOBILE FINAL FIX — RESUMECRAFT
+   DO NOT CHANGE HTML / JS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- PAGE ---------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        min-width: 0;
+    }
+
+
+    /* =====================================================
+       BUILDER NAVBAR
+    ===================================================== */
+
+    .navbar {
+        width: 100%;
+        min-height: 125px;
+
+        padding: 14px 14px 16px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 12px;
+
+        overflow: visible;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        max-width: 145px;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* BUTTONS STAY INSIDE NAVBAR */
+
+    .nav-actions {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 7px;
+
+        flex-wrap: nowrap;
+
+        overflow: visible;
+    }
+
+    .nav-actions button {
+        flex: 1 1 0;
+        min-width: 0;
+
+        height: 40px;
+
+        padding: 0 7px;
+
+        font-size: 11px;
+        white-space: nowrap;
+
+        border-radius: 9px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clear-btn,
+    .share-btn,
+    .download-btn {
+        width: auto;
+    }
+
+
+    /* =====================================================
+       BUILDER CONTENT
+    ===================================================== */
+
+    .app-container {
+        width: 100%;
+        max-width: 100%;
+
+        display: block;
+
+        padding: 14px 10px 30px;
+
+        overflow: visible;
+    }
+
+
+    /* =====================================================
+       EDITOR
+    ===================================================== */
+
+    .editor {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .editor-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       PREVIEW AREA
+    ===================================================== */
+
+    .preview-area {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 24px;
+
+        overflow: visible;
+    }
+
+
+    /* =====================================================
+       LIVE PREVIEW HEADING
+    ===================================================== */
+
+    .preview-toolbar {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .preview-toolbar h2 {
+        font-size: 20px;
+    }
+
+    .preview-toolbar p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       TEMPLATE BUTTONS
+       3 PER ROW
+    ===================================================== */
+
+    .template-switcher {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 7px;
+
+        margin-bottom: 16px;
+    }
+
+    .template-btn {
+        width: 100%;
+        min-width: 0;
+
+        height: 38px;
+
+        padding: 0 4px;
+
+        font-size: 10px;
+
+        white-space: nowrap;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        /* NO BLUE FOCUS/SELECTION */
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+
+    .template-btn:focus,
+    .template-btn:focus-visible,
+    .template-btn:active {
+        outline: none;
+        box-shadow: none;
+    }
+
+
+    /* =====================================================
+       REMOVE MOBILE BLUE TAP HIGHLIGHT
+    ===================================================== */
+
+    button,
+    a,
+    input,
+    textarea,
+    select {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus,
+    button:focus-visible,
+    a:focus,
+    a:focus-visible {
+        outline: none;
+    }
+
+
+    /* =====================================================
+       RESUME A4
+       IMPORTANT:
+       RESUME SCALES DOWN INSTEAD OF OVERFLOWING
+    ===================================================== */
+
+    #resume {
+        width: 210mm;
+
+        min-width: 210mm;
+        max-width: 210mm;
+
+        min-height: 297mm;
+
+        transform-origin: top left;
+
+        /* JS below calculates actual scale */
+    }
+
+    .preview-area {
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       A4 MOBILE VIEW CONTAINER
+    ===================================================== */
+
+    .resume {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+    /* =====================================================
+       LANDING PAGE MOBILE
+    ===================================================== */
+
+    .landing-page {
+        width: 100%;
+        min-height: 100vh;
+
+        overflow-x: hidden;
+    }
+
+    .landing-nav {
+        width: 100%;
+
+        padding: 14px 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+    }
+
+    .brand-logo {
+        max-width: 130px;
+        height: auto;
+    }
+
+    .nav-start-btn {
+        white-space: nowrap;
+
+        font-size: 11px;
+
+        padding: 10px 12px;
+    }
+
+
+    /* LANDING RESUME */
+
+    .landing-content {
+        width: 100%;
+
+        padding: 25px 16px 40px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .hero-resume {
+        width: min(310px, 88vw);
+
+        margin: 0 auto 28px;
+
+        transform: none;
+    }
+
+    .landing-badge {
+        text-align: center;
+
+        font-size: 10px;
+    }
+
+    .landing-content h1 {
+        font-size: clamp(30px, 9vw, 46px);
+
+        line-height: 1.08;
+
+        text-align: center;
+    }
+
+    .landing-description {
+        width: 100%;
+        max-width: 340px;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        text-align: center;
+    }
+
+    .landing-actions {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-button {
+        width: min(100%, 330px);
+    }
+
+    .landing-features {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 7px;
+
+        flex-wrap: nowrap;
+    }
+
+    .landing-step {
+        min-width: 0;
+
+        text-align: center;
+    }
+
+    .landing-step strong {
+        font-size: 10px;
+    }
+
+    .step-circle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .step-connector {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .navbar {
+        min-height: 120px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .nav-actions button {
+        height: 38px;
+
+        padding: 0 4px;
+
+        font-size: 10px;
+    }
+
+    .template-switcher {
+        gap: 5px;
+    }
+
+    .template-btn {
+        height: 36px;
+
+        font-size: 9px;
+    }
+
+    .app-container {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 }
