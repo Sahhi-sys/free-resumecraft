@@ -6889,186 +6889,297 @@ button {
         padding: 5px 2px;
     }
 }
+
 /* =========================================================
-   RESUMECRAFT — MOBILE FINAL LAYOUT FIX
+   RESUMECRAFT — FINAL MOBILE FIX
+   NAVBAR + TRUE A4 PREVIEW
 ========================================================= */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-    /* ================================
-       NAVBAR
-    ================================= */
+    /* =====================================================
+       NAVBAR — LOGO TOP + BUTTONS BELOW
+    ===================================================== */
 
     .navbar {
         width: 100%;
-        padding: 12px 12px 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        box-sizing: border-box;
+        min-height: 0 !important;
+        height: auto !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        gap: 10px !important;
+
+        padding: 12px 12px 14px !important;
+
+        box-sizing: border-box !important;
+
+        overflow: visible !important;
     }
 
-    /* Logo centered at top */
+    .navbar .logo {
+        width: 100% !important;
 
-    .logo {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex-shrink: 0 !important;
     }
 
-    .navbar-logo {
-        width: 48px;
-        height: 48px;
-        object-fit: contain;
-    }
+    .navbar .navbar-logo {
+        width: 46px !important;
+        height: 46px !important;
 
-    /* ================================
-       NAV BUTTONS BELOW LOGO
-    ================================= */
-
-    .nav-actions {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 7px;
-        margin: 0;
-    }
-
-    .nav-actions button {
-        width: 100%;
-        height: 40px;
-        min-width: 0;
-        padding: 0 5px;
-        font-size: 10px;
-        white-space: nowrap;
-        border-radius: 8px;
+        object-fit: contain !important;
     }
 
 
-    /* ================================
-       PREVIEW AREA
-    ================================= */
+    /* =====================================================
+       THREE NAV BUTTONS
+    ===================================================== */
+
+    .navbar .nav-actions {
+        width: 100% !important;
+
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 7px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .nav-actions button {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        height: 40px !important;
+
+        margin: 0 !important;
+
+        padding: 0 5px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        font-size: 10px !important;
+        line-height: 1 !important;
+
+        white-space: nowrap !important;
+
+        box-sizing: border-box !important;
+
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+
+    /* =====================================================
+       MAIN MOBILE CONTAINER
+    ===================================================== */
+
+    .app-container {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        overflow-x: hidden !important;
+
+        box-sizing: border-box !important;
+    }
 
     .preview-area {
-        width: 100%;
-        min-width: 0;
-        overflow: hidden;
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        overflow-x: hidden !important;
+
+        box-sizing: border-box !important;
     }
+
+
+    /* =====================================================
+       LIVE PREVIEW HEADER
+    ===================================================== */
 
     .preview-toolbar {
-        width: 100%;
-        display: block;
-        box-sizing: border-box;
+        width: 100% !important;
+
+        display: block !important;
+
+        box-sizing: border-box !important;
     }
 
 
-    /* ================================
-       TEMPLATE BUTTONS
-    ================================= */
+    /* =====================================================
+       TEMPLATE BUTTONS — 3 PER ROW
+    ===================================================== */
 
     .template-switcher {
-        width: 100%;
+        width: 100% !important;
+
         display: grid !important;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 7px;
-        margin-top: 12px;
-        box-sizing: border-box;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 7px !important;
+
+        margin-top: 12px !important;
+
+        box-sizing: border-box !important;
     }
 
-    .template-btn {
-        width: 100%;
-        min-width: 0;
-        height: 38px;
-        padding: 5px 3px;
-        font-size: 10px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    .template-switcher .template-btn {
+        width: 100% !important;
+        min-width: 0 !important;
 
+        height: 38px !important;
 
-    /* ================================
-       A4 RESUME MOBILE FIT
-    ================================= */
+        padding: 5px 3px !important;
 
-    .preview-area #resume {
-        /*
-           Original A4 ratio:
-           794 × 1123
-        */
+        font-size: 10px !important;
 
-        width: min(100%, 794px);
-        height: auto;
-        min-height: 0;
+        white-space: nowrap !important;
 
-        margin-left: auto;
-        margin-right: auto;
+        overflow: hidden !important;
 
-        transform: none !important;
+        text-overflow: ellipsis !important;
 
-        box-sizing: border-box;
+        box-sizing: border-box !important;
+
+        -webkit-tap-highlight-color: transparent !important;
     }
 
 
-    /* Make the resume content scale naturally */
+    /* =====================================================
+       TRUE A4 PREVIEW CONTAINER
+       
+       A4 ratio = 210 : 297
+    ===================================================== */
 
     .preview-area {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: center !important;
+
+        overflow: hidden !important;
     }
+
+
+    /*
+       IMPORTANT:
+       Don't change the actual resume ratio.
+       Keep it A4 and scale the whole resume.
+    */
 
     .preview-area #resume {
-        flex-shrink: 1;
-        max-width: 100%;
+        width: 794px !important;
+        min-width: 794px !important;
+
+        height: 1123px !important;
+        min-height: 1123px !important;
+
+        max-width: none !important;
+
+        margin: 15px auto 30px !important;
+
+        box-sizing: border-box !important;
+
+        transform-origin: top center !important;
+
+        /*
+           Mobile width is calculated automatically
+           from the available screen width.
+        */
+
+        transform: scale(
+            calc((100vw - 24px) / 794)
+        ) !important;
     }
 
 
-    /* Prevent resume from creating horizontal scroll */
+    /*
+       Reserve the correct scaled height.
+       Otherwise the next content overlaps.
+    */
 
-    .resume,
-    .resume * {
-        max-width: 100%;
+    .preview-area #resume {
+        margin-bottom:
+            calc(
+                30px -
+                (1123px * (1 - ((100vw - 24px) / 794)))
+            ) !important;
+    }
+
+
+    /* =====================================================
+       REMOVE HORIZONTAL SCROLL COMPLETELY
+    ===================================================== */
+
+    body,
+    html {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .builder-page {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE — 430px AND BELOW
+   VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 430px) {
+@media screen and (max-width: 430px) {
 
     .navbar {
-        padding: 10px 9px 12px;
-        gap: 8px;
+        padding: 10px 9px 13px !important;
+        gap: 9px !important;
     }
 
-    .navbar-logo {
-        width: 44px;
-        height: 44px;
+    .navbar .navbar-logo {
+        width: 44px !important;
+        height: 44px !important;
     }
 
-    .nav-actions {
-        gap: 5px;
+    .navbar .nav-actions {
+        gap: 5px !important;
     }
 
-    .nav-actions button {
-        height: 37px;
-        font-size: 9px;
-        padding: 0 3px;
+    .navbar .nav-actions button {
+        height: 37px !important;
+
+        font-size: 9px !important;
+
+        padding: 0 3px !important;
     }
 
     .template-switcher {
-        gap: 5px;
+        gap: 5px !important;
     }
 
-    .template-btn {
-        height: 35px;
-        font-size: 9px;
+    .template-switcher .template-btn {
+        height: 36px !important;
+        font-size: 9px !important;
     }
 
 }
