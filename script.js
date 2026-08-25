@@ -1654,9 +1654,30 @@ function resetResume() {
     clearResume();
 }
 
+/* =========================================================
+   RESUMECRAFT — PDF + DOWNLOAD RANGE + SHARE
+========================================================= */
+
 
 /* =========================================================
-   PDF CANVAS
+   PDF FILE NAME
+========================================================= */
+
+function getResumeFileName() {
+
+    const name = getValue("name") || "Resume";
+
+    const safe = name
+        .replace(/[^a-z0-9]/gi, "_")
+        .replace(/_+/g, "_")
+        .replace(/^_+|_+$/g, "");
+
+    return (safe || "Resume") + "_Resume.pdf";
+}
+
+
+/* =========================================================
+   CREATE RESUME CANVAS
 ========================================================= */
 
 async function createResumeCanvas() {
@@ -1664,7 +1685,6 @@ async function createResumeCanvas() {
     updateResume();
 
     if (typeof html2canvas === "undefined") {
-
         throw new Error(
             "html2canvas library is not loaded."
         );
@@ -1674,17 +1694,20 @@ async function createResumeCanvas() {
         document.getElementById("resume");
 
     if (!resume) {
-
         throw new Error(
             "Resume preview not found."
         );
     }
 
+    await new Promise(resolve => {
+        setTimeout(resolve, 300);
+    });
 
-    await new Promise(resolve =>
-        setTimeout(resolve, 300)
-    );
 
+    /*
+     * Clone resume so the original preview
+     * is never modified.
+     */
 
     const clone =
         resume.cloneNode(true);
@@ -1692,19 +1715,30 @@ async function createResumeCanvas() {
     clone.id =
         "resume-pdf-copy";
 
+
+    /*
+     * Force A4 width.
+     */
+
     clone.style.position = "absolute";
     clone.style.left = "-100000px";
     clone.style.top = "0";
+
     clone.style.width = "794px";
     clone.style.height = "auto";
+
     clone.style.minHeight = "1123px";
     clone.style.maxHeight = "none";
+
     clone.style.overflow = "visible";
+
     clone.style.transform = "none";
     clone.style.display = "block";
     clone.style.visibility = "visible";
+
     clone.style.background = "#ffffff";
     clone.style.boxShadow = "none";
+
 
     document.body.appendChild(clone);
 
@@ -1718,6 +1752,7 @@ async function createResumeCanvas() {
                 requestAnimationFrame(resolve);
 
             });
+
         });
 
 
@@ -1726,9 +1761,12 @@ async function createResumeCanvas() {
                 clone,
                 {
                     scale: 2,
+
                     useCORS: true,
                     allowTaint: false,
+
                     backgroundColor: "#ffffff",
+
                     logging: false,
 
                     width:
@@ -1763,41 +1801,287 @@ async function createResumeCanvas() {
 
         return canvas;
 
+
     } finally {
 
         if (clone.parentNode) {
-            clone.parentNode.removeChild(clone);
+
+            clone.parentNode.removeChild(
+                clone
+            );
         }
     }
 }
 
 
 /* =========================================================
-   PDF FILE NAME
+   GET TOTAL PDF PAGES
 ========================================================= */
 
-function getResumeFileName() {
+function calculateTotalPages(canvas) {
 
-    const name =
-        getValue("name") || "Resume";
+    const pageWidth = 210;
+    const pageHeight = 297;
 
-    const safe =
-        name
-            .replace(/[^a-z0-9]/gi, "_")
-            .replace(/_+/g, "_")
-            .replace(/^_+|_+$/g, "");
+    const imageHeight =
+        canvas.height *
+        pageWidth /
+        canvas.width;
 
-    return (
-        safe || "Resume"
-    ) + "_Resume.pdf";
+    return Math.max(
+        1,
+        Math.ceil(
+            imageHeight /
+            pageHeight
+        )
+    );
 }
 
 
 /* =========================================================
-   CREATE PDF
+   PARSE PAGE RANGE
 ========================================================= */
 
-async function createPDFBlob() {
+function getSelectedPageNumbers(totalPages) {
+
+    const selected =
+        document.querySelector(
+            'input[name="pageRange"]:checked'
+        );
+
+
+    /*
+     * If no selection,
+     * download all pages.
+     */
+
+    if (!selected) {
+
+        return Array.from(
+            { length: totalPages },
+            (_, index) => index + 1
+        );
+    }
+
+
+    /*
+     * ALL PAGES
+     */
+
+    if (selected.value === "all") {
+
+        return Array.from(
+            { length: totalPages },
+            (_, index) => index + 1
+        );
+    }
+
+
+    /*
+     * PAGE 1
+     */
+
+    if (selected.value === "1") {
+
+        return totalPages >= 1
+            ? [1]
+            : [];
+    }
+
+
+    /*
+     * PAGE 2
+     */
+
+    if (selected.value === "2") {
+
+        return totalPages >= 2
+            ? [2]
+            : [];
+    }
+
+
+    /*
+     * CUSTOM RANGE
+     */
+
+    if (selected.value === "custom") {
+
+        const input =
+            document.getElementById(
+                "customPages"
+            );
+
+        if (!input) {
+
+            throw new Error(
+                "Custom page range field not found."
+            );
+        }
+
+
+        const value =
+            input.value.trim();
+
+
+        if (!value) {
+
+            throw new Error(
+                "Please enter a page range."
+            );
+        }
+
+
+        const pages = new Set();
+
+
+        /*
+         * Supports:
+         *
+         * 1
+         * 1,2
+         * 1-3
+         * 1,3
+         * 1-2,4
+         */
+
+        const parts =
+            value.split(",");
+
+
+        parts.forEach(part => {
+
+            const clean =
+                part.trim();
+
+
+            if (!clean) return;
+
+
+            /*
+             * Range
+             */
+
+            if (
+                clean.includes("-")
+            ) {
+
+                const range =
+                    clean.split("-");
+
+
+                if (range.length !== 2) {
+
+                    throw new Error(
+                        "Invalid page range."
+                    );
+                }
+
+
+                const start =
+                    parseInt(
+                        range[0].trim(),
+                        10
+                    );
+
+                const end =
+                    parseInt(
+                        range[1].trim(),
+                        10
+                    );
+
+
+                if (
+                    Number.isNaN(start) ||
+                    Number.isNaN(end)
+                ) {
+
+                    throw new Error(
+                        "Invalid page range."
+                    );
+                }
+
+
+                if (
+                    start < 1 ||
+                    end < 1 ||
+                    start > totalPages ||
+                    end > totalPages ||
+                    start > end
+                ) {
+
+                    throw new Error(
+                        `Please enter pages between 1 and ${totalPages}.`
+                    );
+                }
+
+
+                for (
+                    let page = start;
+                    page <= end;
+                    page++
+                ) {
+
+                    pages.add(page);
+                }
+
+
+            } else {
+
+                /*
+                 * Single page
+                 */
+
+                const page =
+                    parseInt(
+                        clean,
+                        10
+                    );
+
+
+                if (
+                    Number.isNaN(page) ||
+                    page < 1 ||
+                    page > totalPages
+                ) {
+
+                    throw new Error(
+                        `Please enter pages between 1 and ${totalPages}.`
+                    );
+                }
+
+
+                pages.add(page);
+            }
+
+        });
+
+
+        if (pages.size === 0) {
+
+            throw new Error(
+                "Please enter a valid page range."
+            );
+        }
+
+
+        return Array.from(pages)
+            .sort((a, b) => a - b);
+    }
+
+
+    return Array.from(
+        { length: totalPages },
+        (_, index) => index + 1
+    );
+}
+
+
+/* =========================================================
+   CREATE PDF BLOB
+========================================================= */
+
+async function createPDFBlob(pageNumbers = null) {
 
     const canvas =
         await createResumeCanvas();
@@ -1819,27 +2103,12 @@ async function createPDFBlob() {
     } = window.jspdf;
 
 
-    const pdf =
-        new jsPDF({
-            orientation: "portrait",
-            unit: "mm",
-            format: "a4",
-            compress: true
-        });
+    /*
+     * A4
+     */
 
-
-    const pageWidth =
-        pdf.internal.pageSize.getWidth();
-
-    const pageHeight =
-        pdf.internal.pageSize.getHeight();
-
-
-    const image =
-        canvas.toDataURL(
-            "image/jpeg",
-            0.95
-        );
+    const pageWidth = 210;
+    const pageHeight = 297;
 
 
     const imageHeight =
@@ -1858,30 +2127,87 @@ async function createPDFBlob() {
         );
 
 
-    for (
-        let page = 0;
-        page < totalPages;
-        page++
+    /*
+     * If pageNumbers are not supplied,
+     * export all pages.
+     */
+
+    if (
+        !Array.isArray(pageNumbers) ||
+        pageNumbers.length === 0
     ) {
 
-        if (page > 0) {
-            pdf.addPage();
-        }
-
-        const y =
-            -(page * pageHeight);
-
-        pdf.addImage(
-            image,
-            "JPEG",
-            0,
-            y,
-            pageWidth,
-            imageHeight,
-            undefined,
-            "FAST"
-        );
+        pageNumbers =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
     }
+
+
+    const pdf =
+        new jsPDF({
+            orientation: "portrait",
+            unit: "mm",
+            format: "a4",
+            compress: true
+        });
+
+
+    const image =
+        canvas.toDataURL(
+            "image/jpeg",
+            0.95
+        );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Each selected original page
+     * becomes one PDF page.
+     *
+     * So:
+     *
+     * [1]     => 1 PDF page
+     * [2]     => 1 PDF page
+     * [1,2]   => 2 PDF pages
+     * [2,3]   => 2 PDF pages
+     */
+
+    pageNumbers.forEach(
+        (originalPage, index) => {
+
+            if (index > 0) {
+
+                pdf.addPage(
+                    "a4",
+                    "portrait"
+                );
+            }
+
+
+            const y =
+                -(
+                    (originalPage - 1) *
+                    pageHeight
+                );
+
+
+            pdf.addImage(
+                image,
+                "JPEG",
+                0,
+                y,
+                pageWidth,
+                imageHeight,
+                undefined,
+                "FAST"
+            );
+        }
+    );
 
 
     return pdf.output("blob");
@@ -1889,39 +2215,83 @@ async function createPDFBlob() {
 
 
 /* =========================================================
-   DOWNLOAD PDF
+   DOWNLOAD BLOB
+========================================================= */
+
+function savePDFBlob(blob) {
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        getResumeFileName();
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+
+    setTimeout(() => {
+
+        URL.revokeObjectURL(url);
+
+    }, 3000);
+}
+
+
+/* =========================================================
+   DOWNLOAD ALL PDF
 ========================================================= */
 
 async function downloadResumePDF() {
 
     try {
 
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
         const blob =
-            await createPDFBlob();
+            await createPDFBlob(
+                pages
+            );
 
-        const url =
-            URL.createObjectURL(blob);
 
-        const link =
-            document.createElement("a");
-
-        link.href = url;
-        link.download = getResumeFileName();
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        link.remove();
-
-        setTimeout(() => {
-            URL.revokeObjectURL(url);
-        }, 2000);
+        savePDFBlob(blob);
 
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "PDF download error:",
+            error
+        );
+
 
         alert(
             error.message ||
@@ -1938,7 +2308,10 @@ async function downloadResumePDF() {
 function openDownloadModal() {
 
     const modal =
-        document.getElementById("downloadModal");
+        document.getElementById(
+            "downloadModal"
+        );
+
 
     if (!modal) {
 
@@ -1947,42 +2320,85 @@ function openDownloadModal() {
         return;
     }
 
-    modal.style.display = "flex";
 
-    document.body.style.overflow = "hidden";
+    modal.style.display =
+        "flex";
 
+
+    document.body.style.overflow =
+        "hidden";
+
+
+    /*
+     * Default = All Pages
+     */
 
     const all =
         document.querySelector(
             'input[name="pageRange"][value="all"]'
         );
 
+
     if (all) {
+
         all.checked = true;
     }
 
 
     const customBox =
-        document.getElementById("customPageBox");
+        document.getElementById(
+            "customPageBox"
+        );
+
 
     if (customBox) {
-        customBox.style.display = "none";
+
+        customBox.style.display =
+            "none";
+    }
+
+
+    const customInput =
+        document.getElementById(
+            "customPages"
+        );
+
+
+    if (customInput) {
+
+        customInput.value =
+            "";
     }
 }
 
+
+/* =========================================================
+   CLOSE DOWNLOAD MODAL
+========================================================= */
 
 function closeDownloadModal() {
 
     const modal =
-        document.getElementById("downloadModal");
+        document.getElementById(
+            "downloadModal"
+        );
+
 
     if (modal) {
-        modal.style.display = "none";
+
+        modal.style.display =
+            "none";
     }
 
-    document.body.style.overflow = "";
+
+    document.body.style.overflow =
+        "";
 }
 
+
+/* =========================================================
+   CUSTOM PAGE TOGGLE
+========================================================= */
 
 function toggleCustomPages() {
 
@@ -1991,20 +2407,35 @@ function toggleCustomPages() {
             'input[name="pageRange"]:checked'
         );
 
+
     const box =
-        document.getElementById("customPageBox");
+        document.getElementById(
+            "customPageBox"
+        );
 
-    if (!selected || !box) return;
 
-    box.style.display =
+    if (!selected || !box) {
+        return;
+    }
+
+
+    if (
         selected.value === "custom"
-            ? "block"
-            : "none";
+    ) {
+
+        box.style.display =
+            "block";
+
+    } else {
+
+        box.style.display =
+            "none";
+    }
 }
 
 
 /* =========================================================
-   DOWNLOAD SELECTED
+   DOWNLOAD SELECTED PAGES
 ========================================================= */
 
 async function downloadSelectedPages() {
@@ -2014,34 +2445,88 @@ async function downloadSelectedPages() {
             ".generate-pdf-btn"
         );
 
+
     try {
 
         if (button) {
 
             button.disabled = true;
+
             button.textContent =
                 "Creating PDF...";
         }
 
 
         /*
-         * For reliability the generated resume
-         * is exported as a complete PDF.
+         * First create canvas so we know
+         * the REAL number of pages.
          */
 
-        await downloadResumePDF();
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        /*
+         * Get ONLY selected pages.
+         */
+
+        const selectedPages =
+            getSelectedPageNumbers(
+                totalPages
+            );
+
+
+        if (
+            !selectedPages ||
+            selectedPages.length === 0
+        ) {
+
+            throw new Error(
+                "No valid pages selected."
+            );
+        }
+
+
+        /*
+         * Create PDF containing
+         * ONLY those pages.
+         */
+
+        const blob =
+            await createPDFBlob(
+                selectedPages
+            );
+
+
+        /*
+         * Download.
+         */
+
+        savePDFBlob(blob);
+
 
         closeDownloadModal();
 
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Selected PDF error:",
+            error
+        );
+
 
         alert(
             error.message ||
             "PDF download failed."
         );
+
 
     } finally {
 
@@ -2056,313 +2541,18 @@ async function downloadSelectedPages() {
 }
 
 
-/* Compatibility */
+/*
+ * Compatibility
+ */
 
 function downloadResume() {
+
     openDownloadModal();
 }
 
 
 /* =========================================================
-   SHARE — REAL PDF FILE
-========================================================= */
-
-async function sharePDF() {
-
-    try {
-
-        /*
-         * Create actual PDF blob
-         */
-
-        const blob =
-            await createPDFBlob();
-
-
-        const file =
-            new File(
-                [blob],
-                getResumeFileName(),
-                {
-                    type: "application/pdf"
-                }
-            );
-
-
-        /*
-         * Mobile / supported browsers:
-         * Native share sheet with actual PDF.
-         */
-
-        if (
-            navigator.share &&
-            navigator.canShare
-        ) {
-
-            const shareData = {
-                files: [file],
-                title:
-                    `${getValue("name") || "My"} Resume`,
-                text:
-                    "Resume"
-            };
-
-
-            if (
-                navigator.canShare({
-                    files: [file]
-                })
-            ) {
-
-                await navigator.share(
-                    shareData
-                );
-
-                return;
-            }
-        }
-
-
-        /*
-         * Fallback:
-         * download the PDF.
-         */
-
-        const url =
-            URL.createObjectURL(blob);
-
-        const link =
-            document.createElement("a");
-
-        link.href = url;
-        link.download =
-            getResumeFileName();
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        link.remove();
-
-        setTimeout(() => {
-            URL.revokeObjectURL(url);
-        }, 2000);
-
-
-        alert(
-            "Your PDF is ready. Share the downloaded PDF from your device."
-        );
-
-
-    } catch (error) {
-
-        /*
-         * User cancelled share sheet.
-         */
-
-        if (
-            error &&
-            error.name === "AbortError"
-        ) {
-            return;
-        }
-
-        console.error(
-            "PDF SHARE ERROR:",
-            error
-        );
-
-        alert(
-            "Unable to share the PDF. Please download it and share the PDF manually."
-        );
-    }
-}
-
-
-/* =========================================================
-   SHARE MODAL
-========================================================= */
-
-function shareResume() {
-
-    let modal =
-        document.getElementById("shareModal");
-
-
-    /*
-     * Remove duplicate share modals.
-     */
-
-    const modals =
-        document.querySelectorAll(
-            "#shareModal"
-        );
-
-    if (modals.length > 1) {
-
-        modals.forEach((item, index) => {
-
-            if (index > 0) {
-                item.remove();
-            }
-        });
-    }
-
-
-    modal =
-        document.getElementById("shareModal");
-
-
-    if (!modal) {
-
-        createShareModal();
-
-        return;
-    }
-
-
-    modal.style.display = "flex";
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeShareModal() {
-
-    document
-        .querySelectorAll("#shareModal")
-        .forEach(modal => {
-
-            modal.style.display = "none";
-
-        });
-
-    document.body.style.overflow = "";
-}
-
-
-/* =========================================================
-   CREATE SHARE MODAL
-========================================================= */
-
-function createShareModal() {
-
-    const old =
-        document.getElementById("shareModal");
-
-    if (old) {
-        old.remove();
-    }
-
-
-    const modal =
-        document.createElement("div");
-
-    modal.id = "shareModal";
-    modal.className = "share-modal";
-
-
-    modal.innerHTML = `
-
-        <div class="share-box">
-
-            <div class="share-header">
-
-                <div>
-                    <h3>Share Resume</h3>
-
-                    <p>
-                        Share your actual PDF resume
-                    </p>
-                </div>
-
-                <button
-                    type="button"
-                    class="share-close"
-                    onclick="closeShareModal()">
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="share-options">
-
-                <button
-                    type="button"
-                    class="share-option whatsapp"
-                    onclick="sharePDF()">
-
-                    <span class="share-icon">
-                        💬
-                    </span>
-
-                    <span>
-                        <strong>WhatsApp</strong>
-
-                        <small>
-                            Share PDF
-                        </small>
-                    </span>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="share-option email"
-                    onclick="sharePDF()">
-
-                    <span class="share-icon">
-                        ✉
-                    </span>
-
-                    <span>
-                        <strong>Email</strong>
-
-                        <small>
-                            Share PDF
-                        </small>
-                    </span>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="share-option linkedin"
-                    onclick="sharePDF()">
-
-                    <span class="share-icon">
-                        in
-                    </span>
-
-                    <span>
-                        <strong>LinkedIn</strong>
-
-                        <small>
-                            Share PDF
-                        </small>
-                    </span>
-
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-    modal.style.display = "flex";
-
-    document.body.style.overflow = "hidden";
-}
-
-
-/* =========================================================
-   PDF PREVIEW
+   PREVIEW PDF
 ========================================================= */
 
 async function openPDFPreview() {
@@ -2372,20 +2562,24 @@ async function openPDFPreview() {
             "pdfPreviewModal"
         );
 
+
     if (!modal) {
 
         openDownloadModal();
+
         return;
     }
 
 
-    modal.style.display = "flex";
+    modal.style.display =
+        "flex";
 
 
     const loading =
         document.getElementById(
             "pdfPreviewLoading"
         );
+
 
     const frame =
         document.getElementById(
@@ -2404,14 +2598,70 @@ async function openPDFPreview() {
 
 
     if (frame) {
-        frame.style.display = "none";
+
+        frame.style.display =
+            "none";
     }
 
 
     try {
 
+        /*
+         * Preview modal has its own
+         * page range controls.
+         */
+
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const rangeSelect =
+            document.getElementById(
+                "pdfPageRange"
+            );
+
+
+        let pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
+        if (
+            rangeSelect &&
+            rangeSelect.value === "custom"
+        ) {
+
+            const custom =
+                document.getElementById(
+                    "customPageRange"
+                );
+
+
+            if (custom && custom.value.trim()) {
+
+                pages =
+                    parsePreviewPageRange(
+                        custom.value,
+                        totalPages
+                    );
+            }
+        }
+
+
         const blob =
-            await createPDFBlob();
+            await createPDFBlob(
+                pages
+            );
 
 
         const url =
@@ -2421,7 +2671,9 @@ async function openPDFPreview() {
         if (frame) {
 
             frame.src = url;
-            frame.style.display = "block";
+
+            frame.style.display =
+                "block";
         }
 
 
@@ -2439,14 +2691,286 @@ async function openPDFPreview() {
             error
         );
 
+
         if (loading) {
 
             loading.textContent =
+                error.message ||
                 "Unable to create preview.";
         }
     }
 }
 
+
+/* =========================================================
+   PREVIEW PAGE RANGE PARSER
+========================================================= */
+
+function parsePreviewPageRange(
+    value,
+    totalPages
+) {
+
+    const pages = new Set();
+
+
+    value
+        .split(",")
+        .forEach(part => {
+
+            const clean =
+                part.trim();
+
+
+            if (!clean) return;
+
+
+            if (
+                clean.includes("-")
+            ) {
+
+                const parts =
+                    clean.split("-");
+
+
+                if (parts.length !== 2) {
+
+                    throw new Error(
+                        "Invalid page range."
+                    );
+                }
+
+
+                const start =
+                    parseInt(
+                        parts[0].trim(),
+                        10
+                    );
+
+
+                const end =
+                    parseInt(
+                        parts[1].trim(),
+                        10
+                    );
+
+
+                if (
+                    Number.isNaN(start) ||
+                    Number.isNaN(end) ||
+                    start < 1 ||
+                    end < 1 ||
+                    start > end ||
+                    end > totalPages
+                ) {
+
+                    throw new Error(
+                        `Pages must be between 1 and ${totalPages}.`
+                    );
+                }
+
+
+                for (
+                    let i = start;
+                    i <= end;
+                    i++
+                ) {
+
+                    pages.add(i);
+                }
+
+
+            } else {
+
+                const page =
+                    parseInt(
+                        clean,
+                        10
+                    );
+
+
+                if (
+                    Number.isNaN(page) ||
+                    page < 1 ||
+                    page > totalPages
+                ) {
+
+                    throw new Error(
+                        `Pages must be between 1 and ${totalPages}.`
+                    );
+                }
+
+
+                pages.add(page);
+            }
+        });
+
+
+    return Array.from(pages)
+        .sort((a, b) => a - b);
+}
+
+
+/* =========================================================
+   PREVIEW RANGE TOGGLE
+========================================================= */
+
+document.addEventListener(
+    "change",
+    function(event) {
+
+        if (
+            event.target &&
+            event.target.id ===
+            "pdfPageRange"
+        ) {
+
+            const box =
+                document.getElementById(
+                    "customPageRangeBox"
+                );
+
+
+            if (!box) return;
+
+
+            box.style.display =
+                event.target.value === "custom"
+                    ? "block"
+                    : "none";
+        }
+
+
+        /*
+         * Download modal
+         */
+
+        if (
+            event.target &&
+            event.target.name ===
+            "pageRange"
+        ) {
+
+            toggleCustomPages();
+        }
+    }
+);
+
+
+/* =========================================================
+   PREVIEW DOWNLOAD BUTTON
+========================================================= */
+
+async function downloadSelectedPDF() {
+
+    const button =
+        document.querySelector(
+            ".pdf-download-confirm"
+        );
+
+
+    try {
+
+        if (button) {
+
+            button.disabled = true;
+
+            button.textContent =
+                "Creating PDF...";
+        }
+
+
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const rangeSelect =
+            document.getElementById(
+                "pdfPageRange"
+            );
+
+
+        let pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
+        if (
+            rangeSelect &&
+            rangeSelect.value === "custom"
+        ) {
+
+            const input =
+                document.getElementById(
+                    "customPageRange"
+                );
+
+
+            if (!input || !input.value.trim()) {
+
+                throw new Error(
+                    "Please enter a page range."
+                );
+            }
+
+
+            pages =
+                parsePreviewPageRange(
+                    input.value,
+                    totalPages
+                );
+        }
+
+
+        const blob =
+            await createPDFBlob(
+                pages
+            );
+
+
+        savePDFBlob(blob);
+
+
+        closePDFPreview();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+            error.message ||
+            "PDF download failed."
+        );
+
+
+    } finally {
+
+        if (button) {
+
+            button.disabled = false;
+
+            button.textContent =
+                "⬇ Download PDF";
+        }
+    }
+}
+
+
+/* =========================================================
+   CLOSE PDF PREVIEW
+========================================================= */
 
 function closePDFPreview() {
 
@@ -2454,6 +2978,7 @@ function closePDFPreview() {
         document.getElementById(
             "pdfPreviewModal"
         );
+
 
     if (modal) {
 
@@ -2467,12 +2992,16 @@ function closePDFPreview() {
             "pdfPreviewFrame"
         );
 
+
     if (frame) {
 
         const oldURL =
             frame.src;
 
-        frame.src = "";
+
+        frame.src =
+            "";
+
 
         if (
             oldURL &&
@@ -2488,12 +3017,489 @@ function closePDFPreview() {
 
 
 /* =========================================================
-   COPY BUTTON FIX
+   SHARE MODAL
+========================================================= */
+
+function shareResume() {
+
+    const modals =
+        document.querySelectorAll(
+            "#shareModal"
+        );
+
+
+    if (!modals.length) {
+
+        alert(
+            "Share option is unavailable."
+        );
+
+        return;
+    }
+
+
+    /*
+     * HTML currently contains duplicate
+     * shareModal IDs.
+     *
+     * Hide all first.
+     */
+
+    modals.forEach(modal => {
+
+        modal.style.display =
+            "none";
+    });
+
+
+    /*
+     * Use the last share modal,
+     * because that one contains
+     * WhatsApp + Email + LinkedIn.
+     */
+
+    const modal =
+        modals[modals.length - 1];
+
+
+    modal.style.display =
+        "flex";
+
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =========================================================
+   CLOSE SHARE MODAL
+========================================================= */
+
+function closeShareModal() {
+
+    document
+        .querySelectorAll(
+            "#shareModal"
+        )
+        .forEach(modal => {
+
+            modal.style.display =
+                "none";
+        });
+
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =========================================================
+   CREATE PDF FOR SHARING
+========================================================= */
+
+async function createSharePDF() {
+
+    /*
+     * Share ALL resume pages.
+     *
+     * If later you want share range,
+     * this can be connected to the
+     * download range selector.
+     */
+
+    const canvas =
+        await createResumeCanvas();
+
+
+    const totalPages =
+        calculateTotalPages(
+            canvas
+        );
+
+
+    const pages =
+        Array.from(
+            {
+                length: totalPages
+            },
+            (_, index) => index + 1
+        );
+
+
+    const blob =
+        await createPDFBlob(
+            pages
+        );
+
+
+    return new File(
+        [blob],
+        getResumeFileName(),
+        {
+            type: "application/pdf"
+        }
+    );
+}
+
+
+/* =========================================================
+   NATIVE PDF SHARE
+========================================================= */
+
+async function sharePDFFile() {
+
+    const file =
+        await createSharePDF();
+
+
+    /*
+     * Modern Android / iPhone browsers
+     *
+     * This opens the native share sheet.
+     * WhatsApp / Gmail / other apps can
+     * receive the actual PDF attachment.
+     */
+
+    if (
+        navigator.share &&
+        navigator.canShare
+    ) {
+
+        const shareData = {
+            title:
+                `${getValue("name") || "My"} Resume`,
+
+            text:
+                "Please find my resume attached.",
+
+            files: [file]
+        };
+
+
+        if (
+            navigator.canShare({
+                files: [file]
+            })
+        ) {
+
+            await navigator.share(
+                shareData
+            );
+
+            return true;
+        }
+    }
+
+
+    return false;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+async function shareToWhatsApp() {
+
+    try {
+
+        closeShareModal();
+
+
+        const shared =
+            await sharePDFFile();
+
+
+        if (shared) {
+
+            return;
+        }
+
+
+        /*
+         * Browser does not support
+         * sharing PDF files.
+         *
+         * Download it first.
+         */
+
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
+        const blob =
+            await createPDFBlob(
+                pages
+            );
+
+
+        savePDFBlob(blob);
+
+
+        setTimeout(() => {
+
+            const text =
+                encodeURIComponent(
+                    "Please find my resume attached."
+                );
+
+
+            window.open(
+                `https://wa.me/?text=${text}`,
+                "_blank"
+            );
+
+
+        }, 800);
+
+
+        alert(
+            "PDF downloaded. Attach the downloaded PDF in WhatsApp."
+        );
+
+
+    } catch (error) {
+
+        if (
+            error &&
+            error.name === "AbortError"
+        ) {
+
+            return;
+        }
+
+
+        console.error(
+            "WhatsApp share error:",
+            error
+        );
+
+
+        alert(
+            "Unable to share the PDF."
+        );
+    }
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+async function shareToEmail() {
+
+    try {
+
+        closeShareModal();
+
+
+        const shared =
+            await sharePDFFile();
+
+
+        if (shared) {
+
+            return;
+        }
+
+
+        /*
+         * Email clients cannot receive
+         * a local PDF attachment through
+         * mailto automatically.
+         *
+         * So download first.
+         */
+
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
+        const blob =
+            await createPDFBlob(
+                pages
+            );
+
+
+        savePDFBlob(blob);
+
+
+        setTimeout(() => {
+
+            const subject =
+                encodeURIComponent(
+                    `${getValue("name") || "My"} Resume`
+                );
+
+
+            const body =
+                encodeURIComponent(
+                    "Please find my resume attached."
+                );
+
+
+            window.location.href =
+                `mailto:?subject=${subject}&body=${body}`;
+
+
+        }, 800);
+
+
+        alert(
+            "PDF downloaded. Attach the downloaded PDF to your email."
+        );
+
+
+    } catch (error) {
+
+        if (
+            error &&
+            error.name === "AbortError"
+        ) {
+
+            return;
+        }
+
+
+        console.error(
+            "Email share error:",
+            error
+        );
+
+
+        alert(
+            "Unable to share the PDF."
+        );
+    }
+}
+
+
+/* =========================================================
+   LINKEDIN
+========================================================= */
+
+async function shareToLinkedIn() {
+
+    try {
+
+        closeShareModal();
+
+
+        const shared =
+            await sharePDFFile();
+
+
+        if (shared) {
+
+            return;
+        }
+
+
+        const canvas =
+            await createResumeCanvas();
+
+
+        const totalPages =
+            calculateTotalPages(
+                canvas
+            );
+
+
+        const pages =
+            Array.from(
+                {
+                    length: totalPages
+                },
+                (_, index) => index + 1
+            );
+
+
+        const blob =
+            await createPDFBlob(
+                pages
+            );
+
+
+        savePDFBlob(blob);
+
+
+        setTimeout(() => {
+
+            window.open(
+                "https://www.linkedin.com/",
+                "_blank"
+            );
+
+        }, 800);
+
+
+        alert(
+            "PDF downloaded. Upload the PDF on LinkedIn."
+        );
+
+
+    } catch (error) {
+
+        if (
+            error &&
+            error.name === "AbortError"
+        ) {
+
+            return;
+        }
+
+
+        console.error(
+            "LinkedIn share error:",
+            error
+        );
+
+
+        alert(
+            "Unable to share the PDF."
+        );
+    }
+}
+
+
+/* =========================================================
+   COPY BUTTON
 ========================================================= */
 
 async function copyText(text) {
 
     if (!text) return;
+
 
     try {
 
@@ -2501,42 +3507,187 @@ async function copyText(text) {
             text
         );
 
-        alert("Copied successfully.");
+
+        alert(
+            "Copied successfully."
+        );
+
 
     } catch (error) {
 
-        /*
-         * Safe fallback
-         */
-
         const textarea =
-            document.createElement("textarea");
+            document.createElement(
+                "textarea"
+            );
 
-        textarea.value = text;
+
+        textarea.value =
+            text;
+
 
         textarea.style.position =
             "fixed";
 
+
         textarea.style.opacity =
             "0";
+
 
         document.body.appendChild(
             textarea
         );
 
+
         textarea.select();
 
-        document.execCommand("copy");
+
+        document.execCommand(
+            "copy"
+        );
+
 
         textarea.remove();
 
-        alert("Copied successfully.");
+
+        alert(
+            "Copied successfully."
+        );
     }
 }
 
 
 /* =========================================================
-   PREVENT ACCIDENTAL TEXT SELECTION ON BUTTONS
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const downloadModal =
+            document.getElementById(
+                "downloadModal"
+            );
+
+
+        if (
+            downloadModal &&
+            event.target === downloadModal
+        ) {
+
+            closeDownloadModal();
+        }
+
+
+        const shareModals =
+            document.querySelectorAll(
+                "#shareModal"
+            );
+
+
+        shareModals.forEach(modal => {
+
+            if (
+                event.target === modal
+            ) {
+
+                closeShareModal();
+            }
+        });
+
+
+        const previewModal =
+            document.getElementById(
+                "pdfPreviewModal"
+            );
+
+
+        if (
+            previewModal &&
+            event.target === previewModal
+        ) {
+
+            closePDFPreview();
+        }
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key !== "Escape"
+        ) {
+
+            return;
+        }
+
+
+        closeDownloadModal();
+        closeShareModal();
+        closePDFPreview();
+    }
+);
+
+
+/* =========================================================
+   BUTTON SAFETY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        /*
+         * Prevent accidental form submission.
+         */
+
+        document
+            .querySelectorAll("button")
+            .forEach(button => {
+
+                if (
+                    !button.hasAttribute(
+                        "type"
+                    )
+                ) {
+
+                    button.setAttribute(
+                        "type",
+                        "button"
+                    );
+                }
+            });
+
+
+        /*
+         * Prevent image dragging.
+         */
+
+        document
+            .querySelectorAll("img")
+            .forEach(img => {
+
+                img.setAttribute(
+                    "draggable",
+                    "false"
+                );
+            });
+
+
+        updateResume();
+    }
+);
+
+
+/* =========================================================
+   SELECTSTART PROTECTION
 ========================================================= */
 
 document.addEventListener(
@@ -2545,6 +3696,7 @@ document.addEventListener(
 
         const target =
             event.target;
+
 
         if (
             target &&
@@ -2561,7 +3713,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   BUTTON DOUBLE CLICK PROTECTION
+   DISABLED BUTTON PROTECTION
 ========================================================= */
 
 document.addEventListener(
@@ -2574,158 +3726,23 @@ document.addEventListener(
                 "button"
             );
 
+
         if (!button) return;
 
-        /*
-         * Never allow disabled buttons
-         * to fire repeatedly.
-         */
 
         if (button.disabled) {
 
             event.preventDefault();
+
             event.stopPropagation();
         }
     },
     true
 );
 
+              
+         
+  
+        
 
-/* =========================================================
-   MODAL OUTSIDE CLICK
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        const downloadModal =
-            document.getElementById(
-                "downloadModal"
-            );
-
-        if (
-            downloadModal &&
-            event.target === downloadModal
-        ) {
-
-            closeDownloadModal();
-        }
-
-
-        const shareModal =
-            document.getElementById(
-                "shareModal"
-            );
-
-        if (
-            shareModal &&
-            event.target === shareModal
-        ) {
-
-            closeShareModal();
-        }
-
-
-        const previewModal =
-            document.getElementById(
-                "pdfPreviewModal"
-            );
-
-        if (
-            previewModal &&
-            event.target === previewModal
-        ) {
-
-            closePDFPreview();
-        }
-    }
-);
-
-
-/* =========================================================
-   ESCAPE KEY — CLOSE MODALS
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key !== "Escape") {
-            return;
-        }
-
-        closeDownloadModal();
-        closeShareModal();
-        closePDFPreview();
-    }
-);
-
-
-/* =========================================================
-   PAGE RANGE SUPPORT
-========================================================= */
-
-document.addEventListener(
-    "change",
-    function(event) {
-
-        if (
-            event.target &&
-            event.target.name ===
-            "pageRange"
-        ) {
-
-            toggleCustomPages();
-        }
-    }
-);
-
-
-/* =========================================================
-   DOM READY
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        updateResume();
-
-
-        /*
-         * Do not let buttons submit forms
-         * accidentally.
-         */
-
-        document
-            .querySelectorAll("button")
-            .forEach(button => {
-
-                if (
-                    !button.hasAttribute("type")
-                ) {
-
-                    button.setAttribute(
-                        "type",
-                        "button"
-                    );
-                }
-            });
-
-
-        /*
-         * Fix accidental image dragging.
-         */
-
-        document
-            .querySelectorAll("img")
-            .forEach(img => {
-
-                img.setAttribute(
-                    "draggable",
-                    "false"
-                );
-            });
-    }
-);
+                      

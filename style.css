@@ -6537,3 +6537,355 @@ body {
     scrollbar-width: thin;
     scrollbar-color: #d6a84a rgba(255, 255, 255, 0.08);
 }
+
+
+/* =========================================================
+   MOBILE — FINAL SCROLL + OVERLAP FIX
+   DOES NOT CHANGE RESUME DESIGN
+========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+    body {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        position: relative !important;
+    }
+
+    /* Remove fixed viewport locking */
+    #landingPage,
+    #builderPage {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        max-height: none !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* Main page wrappers */
+    .builder,
+    .builder-container,
+    .builder-content,
+    .main-container,
+    .main-content,
+    .app-container,
+    .builder-layout {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* -----------------------------------------
+       TOP AREA
+    ----------------------------------------- */
+
+    .builder-header,
+    .builder-top,
+    .top-bar,
+    .action-bar {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Buttons must stay in their own row */
+    .action-buttons,
+    .top-actions,
+    .resume-actions,
+    .header-actions {
+        position: relative !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        height: auto !important;
+        gap: 10px !important;
+        margin: 10px 0 18px !important;
+        overflow: visible !important;
+    }
+
+    .action-buttons button,
+    .top-actions button,
+    .resume-actions button,
+    .header-actions button {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        flex: 1 1 30% !important;
+        min-width: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    /* Build Your Resume must come AFTER buttons */
+    .builder-title,
+    .page-title,
+    .hero-title {
+        position: relative !important;
+        margin-top: 10px !important;
+        z-index: 1 !important;
+    }
+
+    /* -----------------------------------------
+       EDITOR
+    ----------------------------------------- */
+
+    .editor,
+    .editor-panel,
+    .editor-card,
+    .form-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* -----------------------------------------
+       PREVIEW
+    ----------------------------------------- */
+
+    .preview,
+    .preview-panel {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* Resume itself keeps its existing design */
+    #resume {
+        position: relative !important;
+        max-height: none !important;
+    }
+}
+
+
+/* =========================================================
+   NEVER LOCK PAGE SCROLL
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body.scroll-lock,
+    body.modal-open {
+        overflow-y: auto !important;
+    }
+
+    #builderPage * {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* =========================================================
+   MOBILE TOUCH + BUTTON FIX
+========================================================= */
+
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove browser blue focus/selection look */
+button:focus,
+button:active,
+button:focus-visible,
+a:focus,
+a:active,
+a:focus-visible {
+    outline: none !important;
+    box-shadow: none;
+}
+
+/* Keep our own button styling, not browser blue */
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* =========================================================
+   MOBILE NAVBAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        width: 100%;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    .navbar-logo {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-actions button {
+        min-width: 0;
+        flex: 1;
+        height: 38px;
+        padding: 0 6px;
+        font-size: 10px;
+        line-height: 1;
+        white-space: nowrap;
+        border-radius: 8px;
+        touch-action: manipulation;
+    }
+
+    .clear-btn,
+    .share-btn,
+    .download-btn {
+        transform: none !important;
+    }
+
+    .clear-btn:active,
+    .share-btn:active,
+    .download-btn:active {
+        transform: scale(.98) !important;
+    }
+
+    /* =====================================================
+       PREVIEW TOOLBAR
+    ===================================================== */
+
+    .preview-toolbar {
+        display: block;
+        width: 100%;
+    }
+
+    .preview-toolbar > div:first-child {
+        margin-bottom: 12px;
+    }
+
+    /* =====================================================
+       TEMPLATE BUTTONS — 3 PER ROW
+    ===================================================== */
+
+    .template-switcher {
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-top: 10px;
+    }
+
+    .template-btn {
+        width: 100%;
+        min-width: 0;
+        height: 38px;
+        padding: 6px 4px;
+        font-size: 10px;
+        line-height: 1.1;
+        border-radius: 8px;
+        white-space: nowrap;
+        touch-action: manipulation;
+    }
+
+    .template-btn:focus,
+    .template-btn:active,
+    .template-btn:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Active template should NOT become browser blue */
+    .template-btn.active {
+        outline: none !important;
+    }
+
+    /* =====================================================
+       GENERAL MOBILE BUTTONS
+    ===================================================== */
+
+    .add-btn,
+    .ai-button,
+    .remove-btn,
+    .pdf-download-confirm,
+    .generate-pdf-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .navbar {
+        padding: 8px 9px;
+    }
+
+    .navbar-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-actions {
+        gap: 4px;
+    }
+
+    .nav-actions button {
+        height: 35px;
+        padding: 0 4px;
+        font-size: 9px;
+    }
+
+    .template-switcher {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .template-btn {
+        height: 36px;
+        font-size: 9px;
+        padding: 5px 2px;
+    }
+}
