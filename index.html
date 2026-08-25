@@ -1,654 +1,1528 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResumeCraft - Resume Builder</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Professional Resume Builder</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 
+
 <body>
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
+<section class="landing-page" id="landingPage">
+
+    <nav class="landing-nav">
+
+        <div class="brand">
+    <img src="./logo.png"
+         class="brand-logo"
+         alt="ResumeCraft ">
+</div>
+
+
+        <button class="nav-start-btn"
+                onclick="startCrafting()">
+
+            Start Crafting
+
+        </button>
+
+    </nav>
+
+
+    <div class="landing-content">
+
+        <div class="hero-resume">
+
+            <div class="hero-name">
+                Alexandra Chen
+            </div>
+
+            <div class="hero-role">
+                Product Designer
+            </div>
+
+            <div class="hero-line"></div>
+
+            <h4>EXPERIENCE</h4>
+
+            <p>
+                <strong>Senior Designer</strong>
+            </p>
+
+            <p>
+                TechFlow · 2023–Present
+            </p>
+
+            <p>• Redesigned user onboarding</p>
+
+            <p>• Led design system for multiple products</p>
+
+            <h4>EDUCATION</h4>
+
+            <p>
+                <strong>M.A. Design</strong>
+            </p>
+
+            <p>Stanford University · 2022</p>
+
+            <h4>SKILLS</h4>
+
+            <div class="hero-skills">
+
+                <span>Figma</span>
+                <span>User Research</span>
+                <span>Prototyping</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="landing-badge">
+            ✦ PROFESSIONAL RESUME BUILDER
+        </div>
+
+
+        <h1>
+            Build a Resume
+            <span>Make Your First Impression Count.</span>
+        </h1>
+
+
+        <p class="landing-description">
+
+            Create a polished, professional resume with
+            live preview, multiple templates and
+            effortless customization.
+
+        </p>
+
+
+        <div class="landing-actions">
+
+            <button class="hero-button"
+                    onclick="startCrafting()">
+
+                Start Crafting My Resume
+
+                <span>→</span>
+
+            </button>
+
+        </div>
+
+
+        <div class="landing-features">
+
+            <div class="landing-step">
+
+                <div class="step-circle">
+                    1
+                </div>
+
+                <strong>Live Preview</strong>
+
+            </div>
+
+
+            <div class="step-connector">
+                →
+            </div>
+
+
+            <div class="landing-step">
+
+                <div class="step-circle">
+                    2
+                </div>
+
+                <strong>Customize</strong>
+
+            </div>
+
+
+            <div class="step-connector">
+                →
+            </div>
+
+
+            <div class="landing-step">
+
+                <div class="step-circle">
+                    3
+                </div>
+
+                <strong>Download</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="landing-glow glow-one"></div>
+
+        <div class="landing-glow glow-two"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BUILDER
+===================================================== -->
+
+<div id="builderPage"
+     class="builder-page"
+     style="display:none;">
+
 
 <header class="navbar">
 
     <div class="logo">
-        Resume<span>Craft</span>
-    </div>
+    <img src="./logo.png"
+         class="navbar-logo"
+         alt="ResumeCraft">
+</div>
+
+
 
     <div class="nav-actions">
-        <button class="clear-btn" onclick="clearResume()">Clear</button>
-        <button class="download-btn" onclick="downloadResume()">
-            Download PDF
+
+        <button class="clear-btn"
+                onclick="clearResume()">
+
+            Clear
+
         </button>
+
+
+        <button class="share-btn"
+                onclick="shareResume()">
+
+            📤 Share Resume
+
+        </button>
+
+
+        <button type="button"
+        class="download-btn"
+        onclick="openDownloadModal()">
+
+    ⬇ Download PDF
+
+</button>
+
     </div>
 
 </header>
 
 
+
 <main class="app-container">
 
-    <!-- =================================================
-         EDITOR
-    ================================================== -->
 
-    <section class="editor">
+<!-- =====================================================
+     EDITOR
+===================================================== -->
 
-        <div class="editor-heading">
-            <h1>Build Your Resume</h1>
-            <p>Create a clean and professional resume.</p>
+<section class="editor">
+
+
+    <div class="editor-heading">
+
+        <h1>
+            Build Your Resume
+        </h1>
+
+        <p>
+            Add your details and watch your resume
+            come to life instantly.
+        </p>
+
+    </div>
+
+
+
+<!-- PERSONAL -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Personal Details</h2>
+
+            <p>
+                Your basic contact information
+            </p>
+
         </div>
 
+    </div>
 
-        <!-- PERSONAL DETAILS -->
 
-        <div class="editor-card">
+    <div class="form-grid">
 
-            <div class="section-title">
-                <div>
-                    <h2>Personal Details</h2>
-                    <p>Your basic contact information</p>
-                </div>
-            </div>
 
-            <div class="form-grid">
+        <div class="form-group">
 
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input id="name"
-                           placeholder="John Doe"
-                           oninput="updateResume()">
-                </div>
+            <label>Full Name</label>
 
-                <div class="form-group">
-                    <label>Professional Title</label>
-                    <input id="job"
-                           placeholder="Software Developer"
-                           oninput="updateResume()">
-                </div>
-
-                <div class="form-group">
-                    <label>Email</label>
-                    <input id="email"
-                           type="email"
-                           placeholder="john@example.com"
-                           oninput="updateResume()">
-                </div>
-
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input id="phone"
-                           placeholder="+91 98765 43210"
-                           oninput="updateResume()">
-                </div>
-
-                <div class="form-group full">
-                    <label>Location</label>
-                    <input id="location"
-                           placeholder="Coimbatore, Tamil Nadu"
-                           oninput="updateResume()">
-                </div>
-
-                <div class="form-group">
-                    <label>LinkedIn</label>
-                    <input id="linkedin"
-                           type="url"
-                           placeholder="https://linkedin.com/in/username"
-                           oninput="updateResume()">
-                </div>
-
-                <div class="form-group">
-                    <label>GitHub</label>
-                    <input id="github"
-                           type="url"
-                           placeholder="https://github.com/username"
-                           oninput="updateResume()">
-                </div>
-
-            </div>
+            <input id="name"
+                   placeholder="John Doe"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- SUMMARY -->
+        <div class="form-group">
 
-        <div class="editor-card">
+            <label>Professional Title</label>
 
-            <div class="section-title">
-                <div>
-                    <h2>Professional Summary</h2>
-                    <p>Introduce yourself professionally</p>
-                </div>
-            </div>
-
-            <textarea id="summary"
-                      placeholder="Write a short professional summary..."
-                      oninput="updateResume()"></textarea>
+            <input id="job"
+                   placeholder="Software Developer"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- EDUCATION -->
+        <div class="form-group">
 
-        <div class="editor-card">
+            <label>Email</label>
 
-            <div class="section-title">
-
-                <div>
-                    <h2>Education</h2>
-                    <p>Add your educational qualifications</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addEducation()">
-                    + Add Education
-                </button>
-
-            </div>
-
-            <div id="educationContainer"></div>
+            <input id="email"
+                   type="email"
+                   placeholder="john@example.com"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- EXPERIENCE -->
+        <div class="form-group">
 
-        <div class="editor-card">
+            <label>Phone</label>
 
-            <div class="section-title">
-
-                <div>
-                    <h2>Experience</h2>
-                    <p>Add your professional experience</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addExperience()">
-                    + Add Experience
-                </button>
-
-            </div>
-
-            <div id="experienceContainer"></div>
+            <input id="phone"
+                   placeholder="+91 98765 43210"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- INTERNSHIPS -->
+        <div class="form-group full">
 
-        <div class="editor-card">
+            <label>Location</label>
 
-            <div class="section-title">
-
-                <div>
-                    <h2>Internships</h2>
-                    <p>Add your internship experience</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addInternship()">
-                    + Add Internship
-                </button>
-
-            </div>
-
-            <div id="internshipContainer"></div>
+            <input id="location"
+                   placeholder="Coimbatore, Tamil Nadu"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- CERTIFICATES -->
+        <div class="form-group">
 
-        <div class="editor-card">
+            <label>LinkedIn</label>
 
-            <div class="section-title">
-
-                <div>
-                    <h2>Certificates</h2>
-                    <p>Add certificates with verification links</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addCertificate()">
-                    + Add Certificate
-                </button>
-
-            </div>
-
-            <div id="certificateContainer"></div>
+            <input id="linkedin"
+                   placeholder="https://linkedin.com/in/username"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- PROJECTS -->
+        <div class="form-group">
 
-        <div class="editor-card">
+            <label>GitHub</label>
 
-            <div class="section-title">
-
-                <div>
-                    <h2>Projects</h2>
-                    <p>Showcase your important projects</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addProject()">
-                    + Add Project
-                </button>
-
-            </div>
-
-            <div id="projectContainer"></div>
+            <input id="github"
+                   placeholder="https://github.com/username"
+                   oninput="updateResume()">
 
         </div>
 
 
-        <!-- ACHIEVEMENTS -->
+        <div class="form-group full photo-upload-group"
+             id="photoUploadGroup">
 
-        <div class="editor-card">
+            <label>Profile Photo</label>
 
-            <div class="section-title">
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                onchange="handlePhotoUpload(event)"
+            >
 
-                <div>
-                    <h2>Achievements</h2>
-                    <p>Highlight your accomplishments</p>
-                </div>
-
-                <button class="add-btn"
-                        onclick="addAchievement()">
-                    + Add Achievement
-                </button>
-
-            </div>
-
-            <div id="achievementContainer"></div>
+            <small class="photo-help">
+                Photo Focus template supports profile photo.
+            </small>
 
         </div>
 
 
-        <!-- SKILLS -->
+    </div>
 
-        <div class="editor-card">
+</div>
 
-            <div class="section-title">
 
-                <div>
-                    <h2>Skills</h2>
-                    <p>Enter skills separated by commas</p>
-                </div>
 
-            </div>
+<!-- SUMMARY -->
 
-            <textarea id="skills"
-                      placeholder="HTML, CSS, JavaScript, Python, SQL"
-                      oninput="updateResume()"></textarea>
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Professional Summary</h2>
+
+            <p>
+                A short introduction about you
+            </p>
 
         </div>
 
-    </section>
+    </div>
+
+
+    <textarea id="summary"
+              placeholder="Write a short professional summary..."
+              oninput="updateResume()"></textarea>
+
+
+    <button class="ai-button"
+            type="button"
+            onclick="showAIComingSoon()">
+
+        ✦ Generate with AI
+
+        <small>
+            Coming Soon
+        </small>
+
+    </button>
+
+</div>
 
 
 
-    <!-- =================================================
-         PREVIEW
-    ================================================== -->
+<!-- EDUCATION -->
 
-    <section class="preview-area">
+<div class="editor-card">
 
-        <div class="preview-toolbar">
+    <div class="section-title">
+
+        <div>
+
+            <h2>Education</h2>
+
+            <p>
+                Add your educational qualifications
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addEducation()">
+
+            + Add Education
+
+        </button>
+
+    </div>
+
+
+    <div id="educationContainer"></div>
+
+</div>
+
+
+
+<!-- EXPERIENCE -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Experience</h2>
+
+            <p>
+                Your professional experience
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addExperience()">
+
+            + Add Experience
+
+        </button>
+
+    </div>
+
+
+    <div id="experienceContainer"></div>
+
+</div>
+
+
+
+<!-- INTERNSHIPS -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Internships</h2>
+
+            <p>
+                Show your practical experience
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addInternship()">
+
+            + Add Internship
+
+        </button>
+
+    </div>
+
+
+    <div id="internshipContainer"></div>
+
+</div>
+
+
+
+<!-- PROJECTS -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Projects</h2>
+
+            <p>
+                Showcase your best work
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addProject()">
+
+            + Add Project
+
+        </button>
+
+    </div>
+
+
+    <div id="projectContainer"></div>
+
+</div>
+
+
+
+<!-- CERTIFICATIONS -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Certifications</h2>
+
+            <p>
+                Add verified certifications
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addCertificate()">
+
+            + Add Certificate
+
+        </button>
+
+    </div>
+
+
+    <div id="certificateContainer"></div>
+
+</div>
+
+
+
+<!-- SKILLS -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Skills</h2>
+
+            <p>
+                Separate skills using commas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <textarea id="skills"
+              placeholder="HTML, CSS, JavaScript, Python, SQL"
+              oninput="updateResume()"></textarea>
+
+</div>
+
+
+
+<!-- LANGUAGES -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Languages</h2>
+
+            <p>
+                Languages you can communicate in
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addLanguage()">
+
+            + Add Language
+
+        </button>
+
+    </div>
+
+
+    <div id="languageContainer"></div>
+
+</div>
+
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="editor-card">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>Achievements</h2>
+
+            <p>
+                Highlight your accomplishments
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="addAchievement()">
+
+            + Add Achievement
+
+        </button>
+
+    </div>
+
+
+    <div id="achievementContainer"></div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PREVIEW
+===================================================== -->
+
+<section class="preview-area">
+
+
+    <div class="preview-toolbar">
+
+        <div>
+
             <h2>Live Preview</h2>
-            <p>Your resume updates as you type</p>
+
+            <p>
+                Your resume updates as you type
+            </p>
+
         </div>
 
 
-        <div class="resume" id="resume">
+        <div class="template-switcher">
 
 
-            <!-- HEADER -->
+            <button class="template-btn active"
+                    onclick="changeTemplate('classic', this)">
 
-            <div class="resume-header">
+                Classic
 
-                <div class="resume-name-area">
-
-                    <h1 id="previewName">
-                        John Doe
-                    </h1>
-
-                    <h3 id="previewJob">
-                        Software Developer
-                    </h3>
-
-                </div>
+            </button>
 
 
-                <div class="resume-contact">
+            <button class="template-btn"
+                    onclick="changeTemplate('modern', this)">
 
-                    <div id="previewEmail">
-                        john@example.com
-                    </div>
+                Modern
 
-                    <div id="previewPhone">
-                        +91 98765 43210
-                    </div>
-
-                    <div id="previewLocation">
-                        Coimbatore, India
-                    </div>
-
-                    <div class="social-links">
-
-                        <a id="previewLinkedin"
-                           href="#"
-                           target="_blank">
-                            LinkedIn
-                        </a>
-
-                        <a id="previewGithub"
-                           href="#"
-                           target="_blank">
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            </button>
 
 
+            <button class="template-btn"
+                    onclick="changeTemplate('elegant', this)">
 
-            <!-- PROFILE -->
+                Elegant
 
-            <div class="resume-section">
+            </button>
 
-                <h2>PROFILE</h2>
 
-                <p id="previewSummary">
-                    Motivated and detail-oriented software
-                    developer with a passion for building
-                    user-friendly applications and learning
-                    modern technologies.
+            <button class="template-btn"
+                    onclick="changeTemplate('minimal', this)">
+
+                Minimal
+
+            </button>
+
+
+            <button class="template-btn"
+                    onclick="changeTemplate('executive', this)">
+
+                Executive
+
+            </button>
+
+
+            <button class="template-btn"
+                    onclick="changeTemplate('photo-split', this)">
+
+                Photo Focus
+
+            </button>
+
+
+            <button class="template-btn"
+                    onclick="changeTemplate('editorial', this)">
+
+                Editorial
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+<div id="resume"
+     class="resume template-classic">
+
+
+<!-- HEADER -->
+
+<div class="resume-header">
+
+
+    <div class="resume-name-area">
+
+
+        <div id="photoBox"
+             class="resume-photo"
+             style="display:none;">
+
+            <img id="previewPhoto"
+                 alt="Profile Photo">
+
+        </div>
+
+
+        <h1 id="previewName"></h1>
+
+        <h3 id="previewJob"></h3>
+
+    </div>
+
+
+    <div class="resume-contact">
+
+        <div id="previewEmail"></div>
+
+        <div id="previewPhone"></div>
+
+        <div id="previewLocation"></div>
+
+
+        <div class="social-links">
+
+
+            <a id="previewLinkedin"
+               href="#"
+               target="_blank"
+               style="display:none;">
+            </a>
+
+
+            <a id="previewGithub"
+               href="#"
+               target="_blank"
+               style="display:none;">
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- SUMMARY -->
+
+<div id="sectionSummary"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>PROFILE</h2>
+
+    <p id="previewSummary"></p>
+
+</div>
+
+
+
+<!-- EDUCATION -->
+
+<div id="sectionEducation"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>EDUCATION</h2>
+
+    <div id="previewEducation"></div>
+
+</div>
+
+
+
+<!-- EXPERIENCE -->
+
+<div id="sectionExperience"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>EXPERIENCE</h2>
+
+    <div id="previewExperience"></div>
+
+</div>
+
+
+
+<!-- INTERNSHIPS -->
+
+<div id="sectionInternships"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>INTERNSHIPS</h2>
+
+    <div id="previewInternships"></div>
+
+</div>
+
+
+
+<!-- PROJECTS -->
+
+<div id="sectionProjects"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>PROJECTS</h2>
+
+    <div id="previewProjects"></div>
+
+</div>
+
+
+
+<!-- CERTIFICATIONS -->
+
+<div id="sectionCertificates"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>CERTIFICATIONS</h2>
+
+    <div id="previewCertificates"></div>
+
+</div>
+
+
+
+<!-- SKILLS -->
+
+<div id="sectionSkills"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>SKILLS</h2>
+
+    <div id="previewSkills"
+         class="skills-container"></div>
+
+</div>
+
+
+
+<!-- LANGUAGES -->
+
+<div id="sectionLanguages"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>LANGUAGES</h2>
+
+    <div id="previewLanguages"
+         class="languages-container"></div>
+
+</div>
+
+
+
+<!-- ACHIEVEMENTS -->
+
+<div id="sectionAchievements"
+     class="resume-section"
+     style="display:none;">
+
+    <h2>ACHIEVEMENTS</h2>
+
+    <div id="previewAchievements"></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+
+
+<!-- =====================================================
+     SHARE OPTIONS
+===================================================== -->
+
+<div id="shareModal"
+     class="share-modal"
+     style="display:none;">
+
+
+    <div class="share-box">
+
+
+        <div class="share-header">
+
+            <div>
+
+                <h3>Share Resume</h3>
+
+                <p>
+                    Choose how you want to share your resume
                 </p>
 
             </div>
 
 
+            <button
+                type="button"
+                class="share-close"
+                onclick="closeShareModal()">
 
-            <!-- EDUCATION -->
+                ×
 
-            <div class="resume-section">
+            </button>
 
-                <h2>EDUCATION</h2>
+        </div>
 
-                <div id="previewEducation">
 
-                    <div class="resume-item">
 
-                        <div class="resume-item-top">
+        <div class="share-options">
 
-                            <div>
 
-                                <strong>
-                                    M.Sc Computer Science
-                                </strong>
+            <button
+                type="button"
+                class="share-option whatsapp"
+                onclick="shareToWhatsApp()">
 
-                                <div class="resume-company">
-                                    Government Arts College
-                                </div>
 
-                                <div class="resume-cgpa">
-                                    CGPA: 8.5
-                                </div>
+                <span class="share-icon">
+                    💬
+                </span>
 
-                            </div>
 
-                            <span class="resume-date">
-                                2024 - 2026
-                            </span>
+                <span>
 
-                        </div>
+                    <strong>
+                        WhatsApp
+                    </strong>
 
-                    </div>
+                    <small>
+                        Share your resume
+                    </small>
 
-                </div>
+                </span>
 
-            </div>
 
+            </button>
 
 
-            <!-- EXPERIENCE -->
 
-            <div class="resume-section">
+            <button
+                type="button"
+                class="share-option email"
+                onclick="shareToEmail()">
 
-                <h2>EXPERIENCE</h2>
 
-                <div id="previewExperience">
+                <span class="share-icon">
+                    ✉️
+                </span>
 
-                    <div class="resume-item">
 
-                        <div class="resume-item-top">
+                <span>
 
-                            <div>
+                    <strong>
+                        Email
+                    </strong>
 
-                                <strong>
-                                    Software Developer
-                                </strong>
+                    <small>
+                        Send your resume
+                    </small>
 
-                                <div class="resume-company">
-                                    Tech Solutions
-                                </div>
+                </span>
 
-                            </div>
 
-                            <span class="resume-date">
-                                2025 - Present
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Worked on web applications,
-                            user interfaces and JavaScript
-                            based functionality.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- INTERNSHIPS -->
-
-            <div class="resume-section">
-
-                <h2>INTERNSHIPS</h2>
-
-                <div id="previewInternships">
-
-                    <div class="resume-item">
-
-                        <div class="resume-item-top">
-
-                            <div>
-
-                                <strong>
-                                    Python Developer Intern
-                                </strong>
-
-                                <div class="resume-company">
-                                    ABC Technologies
-                                </div>
-
-                            </div>
-
-                            <span class="resume-date">
-                                3 Months
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Developed Python applications
-                            and worked with basic AI concepts.
-                        </p>
-
-                        <a class="resume-link"
-                           href="#"
-                           target="_blank">
-                            Verify Internship ↗
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PROJECTS -->
-
-            <div class="resume-section">
-
-                <h2>PROJECTS</h2>
-
-                <div id="previewProjects">
-
-                    <div class="resume-item">
-
-                        <div class="resume-item-top">
-
-                            <strong>
-                                Resume Builder
-                            </strong>
-
-                        </div>
-
-                        <div class="resume-company">
-                            HTML • CSS • JavaScript
-                        </div>
-
-                        <p>
-                            A responsive resume builder
-                            that allows users to create
-                            professional resumes with
-                            live preview.
-                        </p>
-
-                        <a class="resume-link"
-                           href="#"
-                           target="_blank">
-                            View Project ↗
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CERTIFICATES -->
-
-            <div class="resume-section">
-
-                <h2>CERTIFICATIONS</h2>
-
-                <div id="previewCertificates">
-
-                    <div class="resume-item">
-
-                        <div class="resume-item-top">
-
-                            <div>
-
-                                <strong>
-                                    Python Basics
-                                </strong>
-
-                                <div class="resume-company">
-                                    IBM
-                                </div>
-
-                            </div>
-
-                            <span class="resume-date">
-                                2026
-                            </span>
-
-                        </div>
-
-                        <a class="resume-link"
-                           href="#"
-                           target="_blank">
-                            Verify Certificate ↗
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ACHIEVEMENTS -->
-
-            <div class="resume-section">
-
-                <h2>ACHIEVEMENTS</h2>
-
-                <div id="previewAchievements">
-
-                    <ul class="achievement-list">
-
-                        <li>
-                            Academic Excellence Award
-                        </li>
-
-                        <li>
-                            Hackathon Finalist
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SKILLS -->
-
-            <div class="resume-section">
-
-                <h2>SKILLS</h2>
-
-                <div id="previewSkills"
-                     class="skills-container">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Python</span>
-                    <span>SQL</span>
-
-                </div>
-
-            </div>
+            </button>
 
 
         </div>
 
-    </section>
+    </div>
 
-</main>
+</div>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const photoInput =
+        document.getElementById("photoInput");
+
+    const photoBox =
+        document.getElementById("photoBox");
+
+    const previewPhoto =
+        document.getElementById("previewPhoto");
+
+
+    if (!photoInput) return;
+
+
+    photoInput.addEventListener("change", function (event) {
+
+        const file =
+            event.target.files[0];
+
+
+        if (!file) return;
+
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please select a valid image.");
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function (e) {
+
+            previewPhoto.src =
+                e.target.result;
+
+            photoBox.style.display =
+                "block";
+
+            previewPhoto.style.display =
+                "block";
+
+        };
+
+
+        reader.onerror = function () {
+
+            alert(
+                "Unable to load the selected photo."
+            );
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+});
+
+</script>
 
 
 <script src="script.js"></script>
 
+<!-- =====================================================
+     PDF PREVIEW MODAL
+===================================================== -->
+
+<div id="pdfPreviewModal" class="pdf-modal" style="display:none;">
+
+    <div class="pdf-modal-box">
+
+        <div class="pdf-modal-header">
+
+            <div>
+                <h2>PDF Preview</h2>
+                <p>Preview your resume before downloading</p>
+            </div>
+
+            <button
+                type="button"
+                class="pdf-close-btn"
+                onclick="closePDFPreview()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="pdf-settings">
+
+            <div class="pdf-setting">
+
+                <label>Page Size</label>
+
+                <select id="pdfPageSize">
+                    <option value="a4">A4</option>
+                    <option value="letter">Letter</option>
+                    <option value="legal">Legal</option>
+                </select>
+
+            </div>
+
+
+            <div class="pdf-setting">
+
+                <label>Orientation</label>
+
+                <select id="pdfOrientation">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Landscape</option>
+                </select>
+
+            </div>
+
+
+            <div class="pdf-setting">
+
+                <label>Page Range</label>
+
+                <select id="pdfPageRange">
+                    <option value="all">All Pages</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+
+            </div>
+
+
+            <div
+                class="pdf-setting"
+                id="customPageRangeBox"
+                style="display:none;">
+
+                <label>Pages</label>
+
+                <input
+                    type="text"
+                    id="customPageRange"
+                    placeholder="Example: 1-2 or 1,3">
+
+            </div>
+
+        </div>
+
+
+        <div class="pdf-preview-wrapper">
+
+            <div
+                id="pdfPreviewLoading"
+                class="pdf-preview-loading">
+
+                Preparing preview...
+
+            </div>
+
+
+            <iframe
+                id="pdfPreviewFrame"
+                class="pdf-preview-frame"
+                title="Resume PDF Preview">
+            </iframe>
+
+        </div>
+
+
+        <div class="pdf-modal-footer">
+
+            <button
+                type="button"
+                class="pdf-cancel-btn"
+                onclick="closePDFPreview()">
+
+                Cancel
+
+            </button>
+
+
+          <button type="button"
+        class="pdf-download-confirm"
+        onclick="downloadSelectedPDF()">
+
+    ⬇ Download PDF
+
+</button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SHARE MODAL
+===================================================== -->
+
+<div id="shareModal"
+     class="share-modal"
+     style="display:none;">
+
+    <div class="share-box">
+
+        <div class="share-header">
+
+            <div>
+
+                <h3>Share Resume</h3>
+
+                <p>
+                    Choose where you want to share your resume
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="share-close"
+                onclick="closeShareModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="share-options">
+
+
+            <button
+                type="button"
+                class="share-option whatsapp"
+                onclick="shareToWhatsApp()">
+
+                <span class="share-icon">
+                    💬
+                </span>
+
+                <span>
+
+                    <strong>
+                        WhatsApp
+                    </strong>
+
+                    <small>
+                        Share your resume
+                    </small>
+
+                </span>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="share-option email"
+                onclick="shareToEmail()">
+
+                <span class="share-icon">
+                    ✉️
+                </span>
+
+                <span>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <small>
+                        Send your resume
+                    </small>
+
+                </span>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="share-option linkedin"
+                onclick="shareToLinkedIn()">
+
+                <span class="share-icon">
+                    in
+                </span>
+
+                <span>
+
+                    <strong>
+                        LinkedIn
+                    </strong>
+
+                    <small>
+                        Share your resume
+                    </small>
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     DOWNLOAD PDF MODAL
+===================================================== -->
+
+<div id="downloadModal" class="download-modal">
+
+    <div class="download-box">
+
+        <div class="download-header">
+
+            <div>
+                <h3>Download Resume</h3>
+                <p>Select the pages you want to download</p>
+            </div>
+
+            <button
+                type="button"
+                class="download-close"
+                onclick="closeDownloadModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="download-preview-info">
+
+            <div class="download-info-icon">
+                📄
+            </div>
+
+            <div>
+                <strong>PDF Format</strong>
+                <span>A4 • High Quality</span>
+            </div>
+
+        </div>
+
+
+        <div class="page-selection">
+
+            <label>
+                <input
+                    type="radio"
+                    name="pageRange"
+                    value="all"
+                    checked
+                    onchange="toggleCustomPages()">
+
+                <span>All Pages</span>
+
+            </label>
+
+
+            <label>
+                <input
+                    type="radio"
+                    name="pageRange"
+                    value="1"
+                    onchange="toggleCustomPages()">
+
+                <span>Page 1</span>
+
+            </label>
+
+
+            <label>
+                <input
+                    type="radio"
+                    name="pageRange"
+                    value="2"
+                    onchange="toggleCustomPages()">
+
+                <span>Page 2</span>
+
+            </label>
+
+
+            <label>
+                <input
+                    type="radio"
+                    name="pageRange"
+                    value="custom"
+                    onchange="toggleCustomPages()">
+
+                <span>Custom Range</span>
+
+            </label>
+
+        </div>
+
+
+        <div
+            id="customPageBox"
+            class="custom-page-box"
+            style="display:none;">
+
+            <label>Page Range</label>
+
+            <input
+                type="text"
+                id="customPages"
+                placeholder="Example: 1-2 or 1,2">
+
+            <small>
+                Example: 1-2 or 1,2
+            </small>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="generate-pdf-btn"
+            onclick="downloadSelectedPages()">
+
+            ⬇ Generate & Download PDF
+
+        </button>
+
+    </div>
+
+</div>
+
+
 </body>
+
 </html>
