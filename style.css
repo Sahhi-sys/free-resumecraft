@@ -8145,3 +8145,633 @@ button {
     }
 
 }
+
+/* ============================================================
+   RESUMECRAFT — FINAL MOBILE PREVIEW FIX
+   A4 FULL PAGE • NO HORIZONTAL SCROLL • DESKTOP MODE SAFE
+============================================================ */
+
+@media screen and (max-width: 768px) {
+
+    /* ========================================================
+       1. MOBILE PAGE
+    ======================================================== */
+
+    html,
+    body {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow-x: hidden !important;
+
+        background: #eee1ca !important;
+
+        -webkit-text-size-adjust: 100% !important;
+    }
+
+    body {
+        max-width: 100vw !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box !important;
+    }
+
+    button,
+    a,
+    input,
+    textarea,
+    select {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+
+    /* ========================================================
+       2. BUILDER
+    ======================================================== */
+
+    .builder-page {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+
+        background: #eee1ca !important;
+
+        overflow-x: hidden !important;
+    }
+
+
+    /* ========================================================
+       3. NAVBAR
+       LOGO + 3 BUTTONS
+    ======================================================== */
+
+    .navbar {
+        width: calc(100% - 16px) !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 8px auto 0 !important;
+        padding: 18px 14px 16px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 15px !important;
+
+        border-radius: 22px !important;
+
+        background: #f1e3cb !important;
+
+        overflow: visible !important;
+    }
+
+
+    .logo {
+        width: 100% !important;
+
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+
+    /* LOGO BIGGER */
+    .navbar-logo {
+        display: block !important;
+
+        width: 245px !important;
+        max-width: 82% !important;
+
+        height: auto !important;
+
+        object-fit: contain !important;
+    }
+
+
+    /* ========================================================
+       4. NAV BUTTONS
+    ======================================================== */
+
+    .nav-actions {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    .nav-actions button {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        height: 58px !important;
+
+        padding: 6px 4px !important;
+
+        font-size: 13px !important;
+        line-height: 1.15 !important;
+
+        white-space: normal !important;
+
+        border-radius: 14px !important;
+
+        overflow: hidden !important;
+
+        transform: none !important;
+    }
+
+
+    /* ========================================================
+       5. MAIN APP
+    ======================================================== */
+
+    .app-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 20px 0 35px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        overflow-x: hidden !important;
+    }
+
+
+    /* ========================================================
+       6. EDITOR
+    ======================================================== */
+
+    .editor {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        padding: 0 12px !important;
+
+        overflow: visible !important;
+    }
+
+
+    .editor-heading {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 8px 4px 20px !important;
+
+        overflow: visible !important;
+    }
+
+
+    .editor-heading h1 {
+        width: 100% !important;
+
+        margin: 0 0 10px !important;
+
+        font-size: clamp(28px, 8vw, 34px) !important;
+
+        line-height: 1.12 !important;
+
+        letter-spacing: -0.8px !important;
+
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+
+    .editor-heading p {
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        font-size: 15px !important;
+
+        line-height: 1.45 !important;
+
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+
+    .editor-card {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        padding: 20px 16px !important;
+
+        overflow: visible !important;
+    }
+
+
+    .form-grid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 15px !important;
+    }
+
+
+    .form-group,
+    .form-group.full {
+        width: 100% !important;
+        min-width: 0 !important;
+        grid-column: auto !important;
+    }
+
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+    /* ========================================================
+       7. PREVIEW AREA
+    ======================================================== */
+
+    .preview-area {
+        width: 100% !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+
+        margin: 28px 0 0 !important;
+        padding: 0 12px !important;
+
+        overflow: visible !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    .preview-toolbar {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+
+        padding: 20px 16px 18px !important;
+
+        border-radius: 20px 20px 0 0 !important;
+
+        overflow: hidden !important;
+    }
+
+
+    .preview-toolbar h2 {
+        margin: 0 0 6px !important;
+
+        font-size: 27px !important;
+
+        line-height: 1.2 !important;
+    }
+
+
+    .preview-toolbar p {
+        margin: 0 !important;
+
+        font-size: 14px !important;
+
+        line-height: 1.4 !important;
+    }
+
+
+    /* ========================================================
+       8. TEMPLATE BUTTONS — 3 / ROW
+    ======================================================== */
+
+    .template-switcher {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+
+        margin: 17px 0 0 !important;
+        padding: 0 !important;
+
+        overflow: visible !important;
+    }
+
+
+    .template-btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        height: 54px !important;
+
+        padding: 5px 3px !important;
+
+        font-size: 12.5px !important;
+
+        line-height: 1.1 !important;
+
+        white-space: normal !important;
+
+        border-radius: 13px !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* ========================================================
+       9. A4 PREVIEW FRAME
+
+       IMPORTANT:
+       The A4 page is now FIT TO THE AVAILABLE MOBILE HEIGHT.
+
+       No horizontal scrolling.
+       No giant white page.
+       Whole A4 page visible at once.
+    ======================================================== */
+
+    #resume {
+        /*
+           A4 ratio = 210 / 297
+
+           Fit based on HEIGHT first.
+           This is what prevents the bottom of the A4
+           from disappearing below the screen.
+        */
+
+        width: min(
+            100%,
+            calc((68vh - 20px) / 1.4142857)
+        ) !important;
+
+        height: auto !important;
+
+        aspect-ratio: 210 / 297 !important;
+
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        margin: 14px auto 0 !important;
+
+        padding: 0 !important;
+
+        display: block !important;
+
+        background: #ffffff !important;
+
+        overflow: hidden !important;
+
+        transform: none !important;
+
+        box-shadow:
+            0 8px 25px rgba(40, 30, 20, 0.18) !important;
+    }
+
+
+    /* ========================================================
+       10. IMPORTANT:
+       DON'T LET OLD FIXED A4 WIDTH ESCAPE
+    ======================================================== */
+
+    #resume,
+    #resume.resume,
+    .resume {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+
+    #resume * {
+        max-width: 100% !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* ========================================================
+       11. RESUME TEXT — PREVENT OVERFLOW
+    ======================================================== */
+
+    #resume h1,
+    #resume h2,
+    #resume h3,
+    #resume h4,
+    #resume p,
+    #resume div,
+    #resume span,
+    #resume a {
+        overflow-wrap: break-word !important;
+    }
+
+
+    .resume-header {
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+
+    .resume-name-area,
+    .resume-contact {
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+
+    .resume-contact {
+        overflow-wrap: anywhere !important;
+    }
+
+
+    /* ========================================================
+       12. LINKEDIN + GITHUB
+    ======================================================== */
+
+    .social-links {
+        width: 100% !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+
+        gap: 2px !important;
+    }
+
+
+    .social-links a {
+        display: block !important;
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        white-space: normal !important;
+
+        overflow-wrap: anywhere !important;
+
+        word-break: break-word !important;
+    }
+
+
+    /* ========================================================
+       13. PHOTO
+    ======================================================== */
+
+    .resume-photo {
+        flex-shrink: 0 !important;
+
+        max-width: 100% !important;
+    }
+
+
+    .resume-photo img {
+        max-width: 100% !important;
+
+        height: auto !important;
+
+        object-fit: cover !important;
+    }
+
+
+    /* ========================================================
+       14. REMOVE ALL HORIZONTAL OVERFLOW
+    ======================================================== */
+
+    .preview-area,
+    .preview-toolbar,
+    .template-switcher,
+    #resume {
+        overflow-x: hidden !important;
+    }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+============================================================ */
+
+@media screen and (max-width: 390px) {
+
+    .navbar-logo {
+        width: 225px !important;
+        max-width: 86% !important;
+    }
+
+
+    .nav-actions {
+        gap: 6px !important;
+    }
+
+
+    .nav-actions button {
+        height: 55px !important;
+        font-size: 12px !important;
+    }
+
+
+    .template-switcher {
+        gap: 6px !important;
+    }
+
+
+    .template-btn {
+        height: 51px !important;
+        font-size: 11.5px !important;
+    }
+
+
+    #resume {
+        width: min(
+            100%,
+            calc((66vh - 15px) / 1.4142857)
+        ) !important;
+    }
+}
+
+
+/* ============================================================
+   DESKTOP MODE / WIDE VIEW SAFETY
+
+   If Chrome is switched to "Desktop site",
+   page must still be allowed to scroll normally.
+============================================================ */
+
+@media screen and (min-width: 769px) {
+
+    html,
+    body {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        overflow-x: auto !important;
+        overflow-y: auto !important;
+    }
+
+    .builder-page {
+        min-width: 0 !important;
+        overflow-x: visible !important;
+    }
+
+    .app-container {
+        overflow: visible !important;
+    }
+
+    .preview-area {
+        overflow: visible !important;
+    }
+}
+/* =====================================================
+   SOCIAL LINKS — ONE LINK PER LINE
+===================================================== */
+
+.social-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    width: 100% !important;
+}
+
+.social-links a {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    text-align: right !important;
+}
+
+/* LinkedIn and GitHub must always occupy separate rows */
+#previewLinkedin,
+#previewGithub {
+    display: block !important;
+}
