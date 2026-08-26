@@ -8775,3 +8775,43 @@ button {
 #previewGithub {
     display: block !important;
 }
+/* ===== FINAL MOBILE A4 FIX ===== */
+@media (max-width:768px){
+
+  .preview-area{
+    padding:12px !important;
+    overflow-x:auto !important;
+  }
+
+  /* Scale desktop A4 to mobile instead of changing width */
+  #resume{
+    width:794px !important;
+    max-width:none !important;
+    transform:scale(calc((100vw - 24px) / 794));
+    transform-origin:top left;
+    margin:0 !important;
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+  }
+
+  /* Give container the scaled height */
+  .preview-area::after{
+    content:"";
+    display:block;
+    height:calc(1123px * ((100vw - 24px) / 794));
+  }
+
+  .navbar-logo{
+    width:260px !important;
+  }
+
+  .social-links{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+  }
+
+  #previewLinkedin,
+  #previewGithub{
+    display:block !important;
+  }
+}
